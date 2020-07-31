@@ -234,14 +234,14 @@
                         <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <div class="pr-5 second-step">
-                        <span class="text-black">02.</span>
-                        <span class="custom-icon flaticon-coin text-black"></span>
-                        <h3 class="text-dark">Buy Property.</h3>
-                        <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </div>
-                </div>
+{{--                <div class="col-md-4 text-center">--}}
+{{--                    <div class="pr-5 second-step">--}}
+{{--                        <span class="text-black">02.</span>--}}
+{{--                        <span class="custom-icon flaticon-coin text-black"></span>--}}
+{{--                        <h3 class="text-dark">Buy Property.</h3>--}}
+{{--                        <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="col-md-4 text-center">
                     <div class="pr-5">
                         <span class="text-black">03.</span>
