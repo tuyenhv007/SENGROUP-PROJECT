@@ -15,11 +15,11 @@ class CreateHostsTable extends Migration
     {
         Schema::create('hosts', function (Blueprint $table) {
             $table->id();
-         $table->string('name');
-         $table->string('email');
-         $table->string('phone');
-         $table->string('address');
-         $table->unsignedBigInteger('user_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('address');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
