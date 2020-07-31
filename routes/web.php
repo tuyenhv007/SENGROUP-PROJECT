@@ -17,19 +17,22 @@ use Illuminate\Support\Facades\Route;
 <<<<<<< HEAD
 Route::get('/homes', function () {
     return view('homes/home');
+<<<<<<< HEAD
+=======
+});
+Route::get('login', function () {
+    return view('users/login');
+});
+Route::get('register', function () {
+    return view('users/register');
+>>>>>>> 97dedb56efdbe7d0b3eed19b0e95bec0325a0a66
 });
 
 =======
 
-
-
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
-    Route::get('/show', 'HouseController@show')->name('houses.show');
-});
-
-Route::get('/homes', function () {
-    return view('homes/home');
+    Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
 });
 
 Route::get('/login','LoginController@showFormLogin');
