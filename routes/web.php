@@ -14,7 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/homes', function () {
     return view('homes/home');
 });
 
+=======
+
+
+
+Route::prefix('houses')->group(function () {
+    Route::get('/', 'HouseController@index')->name('houses.list');
+    Route::get('/show', 'HouseController@show')->name('houses.show');
+});
+
+Route::get('/homes', function () {
+    return view('homes/home');
+});
+
+Route::get('/login','LoginController@showFormLogin');
+>>>>>>> 2abc90552d7a0c20b7f417eb1f08f8f5d885c727
