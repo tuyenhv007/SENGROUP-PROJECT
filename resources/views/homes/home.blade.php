@@ -21,8 +21,7 @@
                             <li><a href="#properties-section" class="nav-link">Properties</a></li>
                             <li><a href="#agents-section" class="nav-link">Agents</a></li>
                             <li><a href="#about-section" class="nav-link">About</a></li>
-                            <li><a href="#news-section" class="nav-link">News</a></li>
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                            <li><a href="#news-section" class="nav-link">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -234,14 +233,14 @@
                         <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
-{{--                <div class="col-md-4 text-center">--}}
-{{--                    <div class="pr-5 second-step">--}}
-{{--                        <span class="text-black">02.</span>--}}
-{{--                        <span class="custom-icon flaticon-coin text-black"></span>--}}
-{{--                        <h3 class="text-dark">Buy Property.</h3>--}}
-{{--                        <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                <div class="col-md-4 text-center">--}}
+                {{--                    <div class="pr-5 second-step">--}}
+                {{--                        <span class="text-black">02.</span>--}}
+                {{--                        <span class="custom-icon flaticon-coin text-black"></span>--}}
+                {{--                        <h3 class="text-dark">Buy Property.</h3>--}}
+                {{--                        <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
                 <div class="col-md-4 text-center">
                     <div class="pr-5">
                         <span class="text-black">03.</span>
