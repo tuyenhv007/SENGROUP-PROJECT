@@ -20,11 +20,11 @@
                         <nav class="site-navigation position-relative text-right" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li><a href="#home-section" class="nav-link">Home</a></li>
-                                <li><a href="#properties-section" class="nav-link">Properties</a></li>
-                                <li><a href="#agents-section" class="nav-link">Agents</a></li>
-                                <li><a href="#about-section" class="nav-link">About</a></li>
-                                <li><a href="#news-section" class="nav-link">News</a></li>
-                                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                                <li><a href="" class="nav-link">Properties</a></li>
+                                <li><a href="" class="nav-link">Agents</a></li>
+                                <li><a href="" class="nav-link">About</a></li>
+                                <li><a href="" class="nav-link">News</a></li>
+                                <li><a href="" class="nav-link">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
