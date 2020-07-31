@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidateRegister;
 use App\User;
-use Illuminate\Http\Request;
+
 
 class LoginController extends Controller
 {
@@ -17,7 +18,7 @@ class LoginController extends Controller
     public function login(){
 
     }
-    public function register(Request $request){
+    public function register(ValidateRegister $request){
         $name=$request->username;
         $email=$request->email;
         $password=$request->password;
@@ -32,4 +33,5 @@ class LoginController extends Controller
         ]);
         return redirect()->route('home');
     }
+
 }
