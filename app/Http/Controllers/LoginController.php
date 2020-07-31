@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+
+use App\Http\Requests\ValidateRegister;
+use App\User;
+
+
 
 class LoginController extends Controller
 {
@@ -17,6 +23,7 @@ class LoginController extends Controller
     public function showFormRegister(){
         return view('users/register');
     }
+
     public function login(Request $request){
         $name=$request->username;
         $password=md5($request->password);
@@ -35,13 +42,12 @@ class LoginController extends Controller
                 return \redirect()->route('user.login');
             }
         }
-
     }
-    public function register(Request $request){
-        \dd($request->role);
+
+    public function register(ValidateRegister $request){
         $name=$request->username;
         $email=$request->email;
-        $password=md5($request->password);
+        $password=$request->password;
         $phone=$request->phone;
         $role=$request->role;
         $address=$request->address;
