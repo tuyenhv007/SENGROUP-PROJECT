@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\House;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,12 @@ class HouseController extends Controller
     {
         $house = House::findOrFail($id);
         return view('houses.detail', compact('house'));
+    }
+
+
+    public function postForm(){
+        $cities = City::all();
+        return view('houses.post-form',compact('cities'));
     }
 
 

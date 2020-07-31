@@ -3,6 +3,7 @@
 <head>
     <title>Warehouse &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
 @yield('content')
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>

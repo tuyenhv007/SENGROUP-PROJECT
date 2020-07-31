@@ -26,6 +26,11 @@ Route::post('register', 'LoginController@register')->name('user.register');
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
+    Route::get('/post-form','HouseController@postForm')->name('houses.postForm');
+    Route::post('/post-form/{idCity}','DistrictController@showDistrictInCity');
+    Route::post('/post-form/road/{idDistrict}','RoadController@showRoadInDistrict');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
+
 });
+
 
