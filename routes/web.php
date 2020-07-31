@@ -16,18 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/homes', function () {
     return view('homes/home');
 });
-Route::get('login', function () {
-    return view('users/login');
-});
-Route::get('register', function () {
-    return view('users/register');
-});
 
+
+
+Route::get('login', 'LoginController@showFormLogin');
+Route::get('register','LoginController@showFormRegister');
+Route::post('login','LoginController@login')->name('user.login');
+Route::post('register', 'LoginController@register')->name('user.register');
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
 });
-
-Route::get('/login','LoginController@showFormLogin');
 
