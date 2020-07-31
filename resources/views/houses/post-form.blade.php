@@ -14,15 +14,10 @@
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
-
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
-
     <link rel="stylesheet" href="{{asset('css/aos.css')}}">
-
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -63,7 +58,6 @@
     </header>
 </div>
 <div class="container">
-
     <div class="card">
         <div class="card-header">
             <h4>Đăng bài cho thuê nhà</h4>
