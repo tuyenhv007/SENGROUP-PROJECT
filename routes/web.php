@@ -24,15 +24,9 @@ Route::get('register', function () {
 });
 
 
-
-
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/show', 'HouseController@show')->name('houses.show');
-});
-
-Route::get('/homes', function () {
-    return view('homes/home');
 });
 
 Route::get('/login','LoginController@showFormLogin');
