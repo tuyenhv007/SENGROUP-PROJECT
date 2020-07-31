@@ -9,42 +9,44 @@
             </div>
             <div style="margin-left: 125px; width: 1500px" class="row">
                 <div class="col-md-7 mb-5">
-                    <form action="#" class="p-5 bg-white">
+                <form action="{{ route('user.register') }}" method="POST" class="p-5 bg-white">
+                    @csrf
                         <h2 class="h4 text-black mb-5">Thông tin</h2>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black" for="email">Full Name</label>
-                                <input type="text" id="name" class="form-control">
+                                <label class="text-black" >Full Name</label>
+                                <input type="text" name="username" id="name" class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black" for="email">Email</label>
-                                <input type="email" id="email" class="form-control">
+                                <label class="text-black">Email</label>
+                                <input type="email" id="email" name="email" class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black" for="email">Mật Khẩu</label>
-                                <input type="password" id="password" class="form-control">
+                                <label class="text-black">Mật Khẩu</label>
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black" for="email">Nhập Lại Mật Khẩu</label>
-                                <input type="password" id="password" class="form-control">
+                                <label class="text-black">Số Điện Thoại</label>
+                                <input name="phone" type="subject" id="subject" class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black" for="subject">Số Điện Thoại</label>
-                                <input type="subject" id="subject" class="form-control">
+                                <label class="text-black">Bạn muốn: </label>
+                                <input type="radio" name="role" value="1">Bán/Cho thuê
+                                <input type="radio" name="role" value="2">Thuê nhà
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black" for="message">Địa Chỉ</label>
-                                <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                                <label class="text-black">Địa Chỉ</label>
+                                <textarea name="address" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
                             </div>
                         </div>
                         <div class="row form-group">
