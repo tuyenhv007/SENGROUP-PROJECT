@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,8 @@ Route::prefix('houses')->group(function () {
     Route::get('/show', 'HouseController@show')->name('houses.show');
 });
 
+Route::get('/homes', function () {
+    return view('homes/home');
+});
+
+Route::get('/login','LoginController@showFormLogin');
