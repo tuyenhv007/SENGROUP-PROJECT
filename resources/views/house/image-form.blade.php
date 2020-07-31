@@ -83,7 +83,10 @@
                     <div class="col-xs-12">
                         <div>
                             <input class="btn btn-brand btn-large" name="image" type="file" accept="image/*"
-                                   multiple="">
+                                   multiple="" required>
+                        </div>
+                        <div class="alert alert-danger">
+
                         </div>
                     </div>
                     <div style="display: inline-block;"><span><i
