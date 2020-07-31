@@ -9,6 +9,8 @@ class LoginController extends Controller
     //
     public function showFormLogin(){
 
+    }
+    public function showFormRegister(){
 
     }
 }
