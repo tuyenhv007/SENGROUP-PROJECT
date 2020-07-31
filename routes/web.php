@@ -25,12 +25,6 @@ Route::get('register','LoginController@showFormRegister');
 Route::post('login','LoginController@login')->name('user.login');
 Route::post('register', 'LoginController@register')->name('user.register');
 
-
-Route::prefix('houses')->group(function () {
-    Route::get('/', 'HouseController@index')->name('houses.list');
-    Route::get('/show', 'HouseController@show')->name('houses.show');
-});
-
 Route::get('/home', function () {
     return view('homes/home');
 })->name('home');
