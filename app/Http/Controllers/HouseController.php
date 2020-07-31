@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\House;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,9 @@ class HouseController extends Controller
         return view('houses.detail');
     }
 
-
+    public function postForm(){
+        $cities = City::all();
+        return view('houses.post-form',compact('cities'));
+    }
 
 }

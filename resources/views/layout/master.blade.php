@@ -3,6 +3,7 @@
 <head>
     <title>Warehouse &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
@@ -44,7 +45,7 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a href="#home-section" class="nav-link">Home</a></li>
-                            <li><a href="#properties-section" class="nav-link">Properties</a></li>
+                            <li><a href="{{route('houses.postForm')}}" >Đăng bài</a></li>
                             <li><a href="#agents-section" class="nav-link">Agents</a></li>
                             <li><a href="#about-section" class="nav-link">About</a></li>
                             <li><a href="#news-section" class="nav-link">News</a></li>
