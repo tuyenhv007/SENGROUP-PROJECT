@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6 col-xl-2">
-                    <h1 class="mb-0 site-logo m-0 p-0"><a href="#" class="mb-0">Warehouse</a></h1>
+
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
@@ -93,17 +93,18 @@
                     <div class="form-group">
                         <label>Chọn quận huyện:</label>
                         <select class="form-control" name="district">
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Chọn xã phường:</label>
                         <select class="form-control" name="road">
+
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Số nhà :</label>
-                        <input type="text" name="sn" class="form-control">
-
+                        <label>Địa chỉ :</label>
+                        <textarea name="sn" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Rooms:</label>
@@ -117,7 +118,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Đăng bài</button>
-
+                        <a href="{{route('houses.list')}}" class="btn btn-secondary">Thoát</a>
                     </div>
                 </form>
             </div>
