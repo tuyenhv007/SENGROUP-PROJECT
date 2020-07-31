@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableBills extends Migration
+class CreateBillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableBills extends Migration
      */
     public function up()
     {
-        Schema::create('table_bills', function (Blueprint $table) {
+        Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->integer('total');
             $table->string('status');
@@ -33,6 +33,6 @@ class CreateTableBills extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_bills');
+        Schema::dropIfExists('bills');
     }
 }
