@@ -16,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/homes', function () {
     return view('homes/home');
 });
-asbdnbsan
+
+Route::prefix('houses')->group(function () {
+
+});
