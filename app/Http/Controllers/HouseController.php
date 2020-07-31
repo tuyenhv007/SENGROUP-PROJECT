@@ -14,11 +14,11 @@ class HouseController extends Controller
         return view('houses.list', compact('houses'));
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('houses.detail');
+        $house = House::findOrFail($id);
+        return view('houses.detail', compact('house'));
     }
-
 
 
 }

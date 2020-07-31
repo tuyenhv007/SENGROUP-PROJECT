@@ -26,7 +26,7 @@ Route::get('register', function () {
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
-    Route::get('/show', 'HouseController@show')->name('houses.show');
+    Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
 });
 
 Route::get('/login','LoginController@showFormLogin');
