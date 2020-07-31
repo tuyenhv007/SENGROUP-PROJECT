@@ -30,3 +30,4 @@ Route::prefix('houses')->group(function () {
 });
 
 Route::get('/login','LoginController@showFormLogin');
+
