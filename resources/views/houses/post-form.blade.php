@@ -32,6 +32,32 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-6 col-xl-2">
+
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="#home-section" class="nav-link">Home</a></li>
+                            <li><a href="{{route('houses.postForm')}}">Đăng bài</a></li>
+                            <li><a href="#agents-section" class="nav-link">Agents</a></li>
+                            <li><a href="#about-section" class="nav-link">About</a></li>
+                            <li><a href="#news-section" class="nav-link">News</a></li>
+                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"
+                                                                            class="site-menu-toggle js-menu-toggle text-white float-right"><span
+                            class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+
 {{--    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">--}}
 {{--        <div class="container">--}}
 {{--            <div class="row align-items-center">--}}
@@ -56,6 +82,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </header>--}}
+
 </div>
 <div class="container pt-5">
     <div class="card">
@@ -87,17 +114,18 @@
                     <div class="form-group">
                         <label>Chọn quận huyện:</label>
                         <select class="form-control" name="district">
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Chọn xã phường:</label>
                         <select class="form-control" name="road">
+
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Số nhà :</label>
-                        <input type="text" name="sn" class="form-control">
-
+                        <label>Địa chỉ :</label>
+                        <textarea name="sn" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Rooms:</label>
@@ -111,7 +139,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Đăng bài</button>
-
+                        <a href="{{route('houses.list')}}" class="btn btn-secondary">Thoát</a>
                     </div>
                 </form>
             </div>
