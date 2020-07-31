@@ -34,3 +34,4 @@ Route::prefix('houses')->group(function () {
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
 });
 
+Route::get('house/form-image', 'ImageController@index')->name('house.form-image');
