@@ -42,7 +42,7 @@
                             <h1 class="text-shadow">Buy &amp; Sell Property Here</h1>
                             <p class="mb-5 text-shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Provident vitae, aut inventore repellendus. Iusto, assumenda! </p>
-                            <p><a href="#" target="_blank" class="btn btn-primary px-5 py-3">Get Started</a></p>
+{{--                            <p><a href="#" target="_blank" class="btn btn-primary px-5 py-3">Get Started</a></p>--}}
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             <h1 class="text-shadow">Find Your Perfect Property For Your Home</h1>
                             <p class="mb-5 text-shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
                                 quam doloribus reprehenderit dolore adipisci rerum?</p>
-                            <p><a href="#" target="_blank" class="btn btn-primary px-5 py-3">Get Started</a></p>
+{{--                            <p><a href="#" target="_blank" class="btn btn-primary px-5 py-3">Get Started</a></p>--}}
                         </div>
                     </div>
                 </div>
