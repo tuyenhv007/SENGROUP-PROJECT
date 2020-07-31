@@ -12,12 +12,13 @@ class HouseController extends Controller
     {
         $houses = House::all();
         return view('houses.list', compact('houses'));
-
     }
 
     public function show()
     {
         return view('houses.detail');
     }
+
+
 
 }
