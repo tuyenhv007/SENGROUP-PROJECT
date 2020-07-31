@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHousesTable extends Migration
+class CreateHostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateHousesTable extends Migration
      */
     public function up()
     {
-        Schema::create('houses', function (Blueprint $table) {
+        Schema::create('hosts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type');
-            $table->string('roooms');
-            $table->string('desc');
-            $table->string('price');
-            $table->string('status');
-            $table->unsignedBigInteger('host_id');
-
+         $table->string('name');
+         $table->string('email');
+         $table->string('phone');
+         $table->string('address');
+         $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateHousesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('houses');
+        Schema::dropIfExists('hosts');
     }
 }
