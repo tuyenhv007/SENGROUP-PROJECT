@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Warehouse &mdash; Website Template by Colorlib</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/ajax-city.js')}}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
@@ -23,7 +23,7 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<div class="site-wrap">
+<div class="site-wrap ">
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
@@ -32,6 +32,12 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
+
+</div>
+<div class="site-mobile-menu site-navbar-target site-block-wrap">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
 
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
         <div class="container">
@@ -58,48 +64,88 @@
         </div>
     </header>
 
-{{--    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row align-items-center">--}}
-{{--                <div class="col-6 col-xl-2">--}}
-{{--                    <h1 class="mb-0 site-logo m-0 p-0"><a href="#" class="mb-0">Warehouse</a></h1>--}}
-{{--                </div>--}}
-{{--                <div class="col-12 col-md-10 d-none d-xl-block">--}}
-{{--                    <nav class="site-navigation position-relative text-right" role="navigation">--}}
-{{--                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">--}}
-{{--                            <li><a href="#home-section" class="nav-link">Home</a></li>--}}
-{{--                            <li><a href="{{route('houses.postForm')}}">Đăng bài</a></li>--}}
-{{--                            <li><a href="#agents-section" class="nav-link">Agents</a></li>--}}
-{{--                            <li><a href="#about-section" class="nav-link">About</a></li>--}}
-{{--                            <li><a href="#news-section" class="nav-link">News</a></li>--}}
-{{--                            <li><a href="#contact-section" class="nav-link">Contact</a></li>--}}
-{{--                        </ul>--}}
-{{--                    </nav>--}}
-{{--                </div>--}}
-{{--                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"--}}
-{{--                                                                            class="site-menu-toggle js-menu-toggle text-white float-right"><span--}}
-{{--                            class="icon-menu h3"></span></a></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </header>--}}
-
 </div>
 <div class="container pt-5">
     <div class="card">
         <div class="card-header">
             <h4>Đăng bài cho thuê nhà</h4>
+
         </div>
-        <div class="card-body">
-            <div class="form-group">
-                <form method="post">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label>Title:</label>
-                        <input type="text" name="name" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Type:</label>
-                        <input type="text" name="type" class="form-control">
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<div>
+    <header class="site-navbar  js-sticky-header site-navbar-target  " role="banner">
+        <div class="container ">
+            <div class="row align-items-center">
+                <div class="col-6 col-xl-2">
+                    <h1 class="mb-0 site-logo m-0 p-0"><a href="#" class="mb-0">Warehouse</a></h1>
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="{{route('houses.list')}}" class="nav-link">Home</a></li>
+                            <li><a href="{{route('houses.postForm')}}">Đăng bài</a></li>
+                            <li><a href="#" class="nav-link">Agents</a></li>
+                            <li><a href="#" class="nav-link">About</a></li>
+                            <li><a href="#" class="nav-link">News</a></li>
+                            <li><a href="#" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"
+                                                                            class="site-menu-toggle js-menu-toggle text-white float-right"><span
+                            class="icon-menu h3"></span></a></div>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="site-blocks-cover inner-page-cover overlay site-block-wrap">
+    <div class="container pt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Đăng bài cho thuê nhà</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <form method="post">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label>Title:</label>
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Type:</label>
+                            <input type="text" name="type" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Chọn tỉnh/thành phố:</label>
+                            <select class="form-control city-up" name="city">
+                                <option value="">---</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Chọn quận huyện:</label>
+                            <select class="form-control" name="district">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Chọn xã phường:</label>
+                            <select class="form-control" name="road">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Số nhà :</label>
+                            <input type="text" name="sn" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Rooms:</label>
+                            <input type="text" name="rooms" class="form-control">
 
                     </div>
                     <div class="form-group">
@@ -131,10 +177,20 @@
                         <label>Rooms:</label>
                         <input type="text" name="rooms" class="form-control">
 
-                    </div>
-                    <div class="form-group">
-                        <label>Price:</label>
-                        <input type="text" name="price" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Price:</label>
+                            <input type="text" name="price" class="form-control">
+
+
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Đăng bài</button>
+
+                        </div>
+                    </form>
+                </div>
 
                     </div>
                     <div class="form-group">
@@ -144,6 +200,8 @@
                 </form>
             </div>
 
+
+            </div>
         </div>
     </div>
 </div>
