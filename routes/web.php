@@ -13,3 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/homes', function () {
+    return view('homes/home');
+});
+
+Route::prefix('houses')->group(function () {
+    Route::get('/show', 'HouseController@show')->name('houses.show');
+});
