@@ -57,7 +57,7 @@
         </div>
     </header>
 </div>
-<div class="container">
+<div class="container pt-5">
     <div class="card">
         <div class="card-header">
             <h4>Đăng bài cho thuê nhà</h4>
