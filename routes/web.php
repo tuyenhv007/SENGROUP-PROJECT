@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/homes', function () {
-   return view('homes/home');
+    return view('homes/home');
 });
-Route::get('login', function (){
-   return view('users/login');
+Route::get('login', function () {
+    return view('users/login');
 });
 Route::get('register', function () {
-   return view('users/register');
+    return view('users/register');
 });
 
 
