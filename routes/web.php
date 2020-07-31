@@ -23,11 +23,10 @@ Route::get('register', function () {
 });
 
 
-Route::get('/homes', function () {
-    return view('homes/home');
-});
+
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/show', 'HouseController@show')->name('houses.show');
 });
+
