@@ -113,5 +113,5 @@
         </div>
     </footer>
 
-</div> <!-- .site-wrap -->
+</div>
 @endsection
