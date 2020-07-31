@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,4 @@ Route::get('/homes', function () {
     return view('homes/home');
 });
 
-Route::prefix('houses')->group(function () {
-
-});
+Route::get('/login','LoginController@showFormLogin');
