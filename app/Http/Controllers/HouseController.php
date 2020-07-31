@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class HouseController extends Controller
 {
+
     public function index()
     {
 
@@ -15,4 +16,5 @@ class HouseController extends Controller
     {
         return view('houses.detail');
     }
+
 }
