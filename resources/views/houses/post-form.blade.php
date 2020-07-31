@@ -1,9 +1,14 @@
 @extends('layout.master')
 @section('content')
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{asset('js/ajax-city.js')}}"></script>
-    <div class="site-blocks-cover inner-page-cover overlay site-block-wrap">
+    <div class="site-blocks-cover inner-page-cover overlay"
+         style="background-image: url({{asset('images/hero_1.jpg')}});" data-aos="fade">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+            </div>
+        </div>
+        <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
+    </div>
+    <div class=" inner-page-cover overlay">
         <div class="container pt-5">
             <div class="card">
                 <div class="card-header">
