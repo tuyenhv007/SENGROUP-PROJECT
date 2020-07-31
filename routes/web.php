@@ -19,5 +19,6 @@ Route::get('/homes', function () {
 });
 
 Route::prefix('houses')->group(function () {
+    Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/show', 'HouseController@show')->name('houses.show');
 });
