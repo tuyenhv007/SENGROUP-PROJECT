@@ -28,15 +28,14 @@ class LoginController extends Controller
             ['email', '=', $email],
             ['password', '=', $password],
         ])->first();
-
         if($user){
             $login=$user->count();
             if($login>0){
-                Session::put('user',$login->email);
-                return \view('houses.list');
+                Session::put('user',$user->name);
+                return redirect()->route('houses.list');
             }else{
                 Session::put('error','Sai tên đăng nhập hoặc mật khẩu!');
-                return \redirect()->route('user.login');
+                return redirect()->route('user.login');
             }
         }
     }
@@ -44,7 +43,7 @@ class LoginController extends Controller
     public function register(ValidateRegister $request){
         $name=$request->name;
         $email=$request->email;
-        $password=$request->password;
+        $password=md5($request->password);
         $phone=$request->phone;
         $role=$request->role;
         $address=$request->address;

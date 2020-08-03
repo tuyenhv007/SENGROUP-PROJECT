@@ -17,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/homes', function () {
-    return view('homes/home');
-});
 
+
+//login-register
+
+
+Route::get('/home', function () {
+    return view('homes/home');
+})->name('home');
 Route::get('login', 'LoginController@showFormLogin')->name('login');
-Route::get('register','LoginController@showFormRegister');
+Route::get('register','LoginController@showFormRegister')->name('register');
 Route::post('login','LoginController@login')->name('user.login');
 Route::post('register', 'LoginController@register')->name('user.register');
 

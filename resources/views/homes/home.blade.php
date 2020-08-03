@@ -21,8 +21,13 @@
                             <li><a href="#properties-section" class="nav-link">Properties</a></li>
                             <li><a href="#agents-section" class="nav-link">Agents</a></li>
                             <li><a href="#about-section" class="nav-link">About</a></li>
-                            <li><a href="#login-section" class="nav-link">Login</a></li>
-                            <li><a href="#register-section" class="nav-link">Register</a></li>
+                            @if(\Illuminate\Support\Facades\Session::get('user'))
+                                <li><a href="" class="nav-link"><?php $name=\Illuminate\Support\Facades\Session::get('user');
+                                echo $name;?></a></li>
+                            @else
+                            <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
+                            <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
