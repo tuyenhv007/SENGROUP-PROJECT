@@ -46,7 +46,7 @@ class HouseController extends Controller
         $house->roooms = $rooms;
         $house->desc = $desc;
         $house->price = $price;
-        $house->host_id = 2;
+        $house->user_id = 2;
         $house->status = $status;
         $house->save();
         $city_id = $request->city;
