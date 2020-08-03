@@ -81,7 +81,7 @@ class HouseController extends Controller
             // nếu không có file nào vi phạm validate thì tiến hành lưu DB
             if ($exe_flg) {
                 foreach ($request->photos as $photo) {
-                    $filename = $photo->store('photos');
+                    $filename = $photo->store('images','public');
                     $image = new Image();
                     $image->image = $filename;
                     $image->house_id = $house->id;
