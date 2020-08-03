@@ -35,15 +35,10 @@
                             <li><a href="#agents-section" class="nav-link">Agents</a></li>
                             <li><a href="#about-section" class="nav-link">About</a></li>
                             @if(Session::get('user'))
-                                <div class="dropdown">
-                                <li><a href="" class="dropdown-toggle">{{Session::get('user')}}</a>
-                                    <div>
-                                    <ul class="dropdown-menu">
-                                        <a class="dropdown-item">Logout</a>
-                                    </ul>
-                                    </div>
+
+                                <li><a href="" class="nav-link">{{Session::get('user')}}</a>
                                 </li>
-                                </div>
+
                             @else
                                 <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
                                 <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
