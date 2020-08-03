@@ -11,7 +11,6 @@
         </div>
 
     </div>
-
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
@@ -54,8 +53,8 @@
     </header>
     <div class="site-block-wrap">
         <div class="owl-carousel with-dots">
-            <div class="site-blocks-cover overlay overlay-3"
-                 style="background-image: url({{asset('images/icons/82859229-sea-view-living-room-with-wooden-floor-and-empty-white-wall-background-in-luxury-beach-house-modern-.jpg')}});"
+            <div class="site-blocks-cover overlay overlay-2"
+                 style="background-image: url({{asset('images/icons/anh5.jpg')}});"
                  data-aos="fade" id="home-section">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
@@ -68,8 +67,8 @@
                     </div>
                 </div>
             </div>
-            <div class="site-blocks-cover overlay overlay-3"
-                 style="background-image: url({{asset('images/icons/90531026-indoor-plant-on-wooden-coffee-table-and-modern-furniture-with-empty-white-concrete-wall-background-b.jpg')}});"
+            <div class="site-blocks-cover overlay overlay-2"
+                 style="background-image: url({{asset('images/icons/anh6.jpg')}});"
                  data-aos="fade" id="home-section">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
@@ -93,12 +92,15 @@
                         <div class="ftco-media-1">
                             <div class="ftco-media-1-inner">
                                 <a href="{{route('houses.show',$house->id)}}" class="d-inline-block mb-4"><img
-                                        src="{{asset('images/property_1.jpg')}}"
+                                        src="{{asset("storage/".$house->images[0]->image)}}"
                                         alt="FImageo"
-                                        class="img-fluid"></a>
+                                        class="img-fluid" style="height: 400px;width: 300px;margin: auto"></a>
                                 <div class="ftco-media-details">
                                     <h3>{{$house->name}}</h3>
-                                    <p>Ha Noi</p>
+                                    <p>{{$house->addresses[0]->road}},
+                                        {{$house->addresses[0]->district}},
+                                        {{$house->addresses[0]->city}}</p>
+
                                     <strong>{{$house->price}}</strong>
                                 </div>
                             </div>
@@ -109,3 +111,4 @@
         </div>
     </div>
 @endsection
+
