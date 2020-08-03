@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-5 mx-auto mt-lg-5 text-center">
-                    <h1>{{$house->addresses[0]->city}}</h1>
+                    <h1>{{$house->type}}</h1>
                     <p class="mb-5"><strong class="text-white">{{$house->price}}</strong></p>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <h5>{{$house->addresses[0]->road}},
                             {{$house->addresses[0]->district}},
                             {{$house->addresses[0]->city}}</h5>
-                        <p class="mb-1">{{$house->roooms}}.</p><br>
+                        <p class="mb-1">{{$house->rooms}}.</p><br>
                         <p class="mb-1">{{$house->desc}}.</p>
                         <div class="pt-2">
                             <a href="#" class="btn btn-primary">Đặt Thuê</a>

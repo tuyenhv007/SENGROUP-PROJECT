@@ -50,7 +50,7 @@
                             <li><a href="#about-section" class="nav-link text-white">About</a></li>
                             @if(Session::get('user'))
 
-                                <li><a href="" class="nav-link">{{Session::get('user')}}</a>
+                                <li><a href="" class="nav-link">{{Session::get('user')->name}}</a>
                                 </li>
 
                             @else
