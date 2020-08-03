@@ -50,7 +50,7 @@
                             <li><a href="#about-section" class="nav-link text-white">About</a></li>
                             @if(Session::get('user'))
 
-                                <li><a href="" class="nav-link">{{Session::get('user')}}</a>
+                                <li><a href="" class="nav-link">{{Session::get('user')->name}}</a>
                                 </li>
 
                             @else
@@ -132,13 +132,13 @@
                     <div class="form-group">
                         <label>Price:</label>
                         <input type="text" name="price" class="form-control">
-                        </div>
+                    </div>
                     <div class="form-group">
 
                     </div>
                     <label for="Product Name"> photos (can upload multi photos):</label>
                     <br>
-                    <input type="file"  id="imageUpload" class="form-control selectImage" name="photos[]" multiple/>
+                    <input type="file" id="imageUpload" class="form-control selectImage" name="photos[]" multiple/>
                     <br>
                     <div id="result"></div>
                     <br>

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Bill;
 use App\City;
 use App\District;
 use App\House;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class HouseController extends Controller
 {
@@ -43,10 +45,10 @@ class HouseController extends Controller
         $house = new House();
         $house->name = $nameHouse;
         $house->type = $type;
-        $house->roooms = $rooms;
+        $house->rooms = $rooms;
         $house->desc = $desc;
         $house->price = $price;
-        $house->user_id = 1;
+        $house->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
         $house->status = $status;
         $house->save();
         $city_id = $request->city;
@@ -95,8 +97,24 @@ class HouseController extends Controller
 
     }
 
-    public function viewBookHouse()
+    public function viewBookHouse($id)
     {
+        $house = House::findOrFail($id);
+        return view('houses.book-house', compact('house'));
+    }
+
+    public function bookHouse(Request $request, $id)
+    {
+        $house = House::findOrFail($id);
+        $bill = new Bill();
+        $bill->checkIn = $request->dateIn;
+        $bill->checkOut = $request->dateOut;
+        $bill->status = 0;
+        $bill->total = $house->price;
+        $bill->house_id = $house->id;
+        $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
+        $bill->save();
+        return back();
 
     }
 
