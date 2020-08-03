@@ -59,8 +59,6 @@
                             <div class="form-group">
                                 <label>Price:</label>
                                 <input type="text" name="price" class="form-control">
-
-
                             </div>
 
                             <div class="form-group">
@@ -69,8 +67,6 @@
                             </div>
                         </form>
                     </div>
-
-
                 </div>
             </div>
 @endsection
