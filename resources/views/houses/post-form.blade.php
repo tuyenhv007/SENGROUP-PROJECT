@@ -42,12 +42,16 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li><a href="{{route('houses.list')}}" class="nav-link">Home</a></li>
-                            <li><a href="{{route('houses.postForm')}}">Đăng bài</a></li>
-                            <li><a href="#agents-section" class="nav-link">Agents</a></li>
-                            <li><a href="#about-section" class="nav-link">About</a></li>
-                            <li><a href="#news-section" class="nav-link">News</a></li>
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+
+                
+
+                            <li><a href="{{route('houses.list')}}" class="nav-link text-white">Home</a></li>
+                            <li><a href="{{route('houses.postForm')}}" class="nav-link text-white">Đăng bài</a></li>
+                            <li><a href="#agents-section" class="nav-link text-white">Agents</a></li>
+                            <li><a href="#about-section" class="nav-link text-white">About</a></li>
+                            <li><a href="#news-section" class="nav-link text-white">News</a></li>
+                            <li><a href="#contact-section" class="nav-link text-white">Contact</a></li>
+
                         </ul>
                     </nav>
                 </div>
@@ -58,7 +62,7 @@
         </div>
     </header>
     <div class="site-blocks-cover inner-page-cover overlay"
-         style="background-image: url({{asset('images/hero_1.jpg')}});" data-aos="fade">
+         style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
         <div class="container">
             <div class="row align-items-center justify-content-center">
 
@@ -82,7 +86,6 @@
                     <div class="form-group">
                         <label>Type:</label>
                         <input type="text" name="type" class="form-control">
-
                     </div>
                     <div class="form-group">
                         <label>Chọn tỉnh/thành phố:</label>
@@ -95,13 +98,17 @@
                     </div>
                     <div class="form-group">
                         <label>Chọn quận huyện:</label>
+
                         <select class="form-control" name="district" id="district">
+
 
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Chọn xã phường:</label>
+
                         <select class="form-control" name="road" id="road">
+
 
                         </select>
                     </div>
@@ -116,13 +123,11 @@
                     <div class="form-group">
                         <label>Rooms:</label>
                         <input type="text" name="rooms" class="form-control">
-
                     </div>
                     <div class="form-group">
                         <label>Price:</label>
                         <input type="text" name="price" class="form-control">
-
-                    </div>
+                        </div>
                     <div class="form-group">
 
                     </div>
@@ -140,11 +145,9 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
-
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
@@ -158,7 +161,6 @@
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
 <script src="{{asset('js/jquery.sticky.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -167,3 +169,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
