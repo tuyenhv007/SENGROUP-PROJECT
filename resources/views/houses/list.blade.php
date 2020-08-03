@@ -34,8 +34,12 @@
                             <li><a href="{{route('houses.postForm')}}" >Đăng bài</a></li>
                             <li><a href="#agents-section" class="nav-link">Agents</a></li>
                             <li><a href="#about-section" class="nav-link">About</a></li>
-                            <li><a href="" class="nav-link">News</a></li>
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                            @if(Session::get('user'))
+                                <li><a href="" class="nav-link">{{Session::get('user')}}</a></li>
+                            @else
+                                <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
+                                <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
