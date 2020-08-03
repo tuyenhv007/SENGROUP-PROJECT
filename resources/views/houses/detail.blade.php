@@ -19,7 +19,7 @@
                     <div class="owl-carousel slide-one-item with-dots">
                         @foreach($house->images as $image)
                             <div><img src="{{asset('storage/'.$image->image)}}" class="img-fluid"
-                                      style="width: 500px;height: 700px"></div>
+                                      style="width: 100%;height: 700px"></div>
                         @endforeach
                     </div>
                 </div>

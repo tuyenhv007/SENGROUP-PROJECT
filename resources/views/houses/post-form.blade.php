@@ -5,7 +5,7 @@
     <title>Warehouse &mdash; Website Template by Colorlib</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="utf-8">
-    <script src="{{asset('js/ajax-city.js')}}"></script>
+    <script src="{{asset('js/ajax-city.js')}}" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="site-wrap">
@@ -46,8 +48,15 @@
                             <li><a href="{{route('houses.postForm')}}" class="nav-link text-white">Đăng bài</a></li>
                             <li><a href="#agents-section" class="nav-link text-white">Agents</a></li>
                             <li><a href="#about-section" class="nav-link text-white">About</a></li>
-                            <li><a href="#news-section" class="nav-link text-white">News</a></li>
-                            <li><a href="#contact-section" class="nav-link text-white">Contact</a></li>
+                            @if(Session::get('user'))
+
+                                <li><a href="" class="nav-link">{{Session::get('user')}}</a>
+                                </li>
+
+                            @else
+                                <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
+                                <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
@@ -129,11 +138,9 @@
                     </div>
                     <label for="Product Name"> photos (can upload multi photos):</label>
                     <br>
-                    <input type="file"  id="images" class="form-control selectImage" name="photos[]" multiple/>
+                    <input type="file"  id="imageUpload" class="form-control selectImage" name="photos[]" multiple/>
                     <br>
-                    <div class="row justify-content-center" id="showImage">
-
-                    </div>
+                    <div id="result"></div>
                     <br>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Đăng bài</button>

@@ -22,8 +22,7 @@ class HouseController extends Controller
     public function show($id)
     {
         $house = House::findOrFail($id);
-        $address= Address::where('house_id','LIKE',"$id")->get();
-        return view('houses.detail', compact('house','address'));
+        return view('houses.detail', compact('house'));
     }
 
 
@@ -82,7 +81,7 @@ class HouseController extends Controller
             // nếu không có file nào vi phạm validate thì tiến hành lưu DB
             if ($exe_flg) {
                 foreach ($request->photos as $photo) {
-                    $filename = $photo->store('images','public');
+                    $filename = $photo->store('images', 'public');
                     $image = new Image();
                     $image->image = $filename;
                     $image->house_id = $house->id;
@@ -93,6 +92,11 @@ class HouseController extends Controller
                 echo "Falied to upload. Only accept jpg, png photos.";
             }
         }
+
+    }
+
+    public function viewBookHouse()
+    {
 
     }
 
