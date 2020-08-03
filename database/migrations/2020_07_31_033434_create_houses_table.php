@@ -21,7 +21,8 @@ class CreateHousesTable extends Migration
             $table->string('desc');
             $table->string('price');
             $table->string('status');
-            $table->unsignedBigInteger('host_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
