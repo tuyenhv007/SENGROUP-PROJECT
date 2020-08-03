@@ -38,7 +38,7 @@
 
                                 <li><a href="" class="nav-link">{{Session::get('user')}}</a>
                                 </li>
-
+                                <li><a href="{{route('logout')}}" class="nav-link">Đăng xuất</a></li>
                             @else
                                 <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
                                 <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
