@@ -17,13 +17,12 @@ class CreateHousesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
-            $table->string('roooms');
+            $table->string('rooms');
             $table->string('desc');
             $table->string('price');
-            $table->string('status');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
+            $table->string('status');
             $table->timestamps();
         });
     }
