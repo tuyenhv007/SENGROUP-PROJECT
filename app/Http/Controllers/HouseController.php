@@ -22,7 +22,8 @@ class HouseController extends Controller
     public function show($id)
     {
         $house = House::findOrFail($id);
-        return view('houses.detail', compact('house'));
+        $address= Address::where('house_id','LIKE',"$id")->get();
+        return view('houses.detail', compact('house','address'));
     }
 
 
@@ -46,7 +47,7 @@ class HouseController extends Controller
         $house->roooms = $rooms;
         $house->desc = $desc;
         $house->price = $price;
-        $house->host_id = 2;
+        $house->host_id = 1;
         $house->status = $status;
         $house->save();
         $city_id = $request->city;

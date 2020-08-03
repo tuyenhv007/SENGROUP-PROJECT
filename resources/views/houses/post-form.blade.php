@@ -42,16 +42,12 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-
-                
-
                             <li><a href="{{route('houses.list')}}" class="nav-link text-white">Home</a></li>
                             <li><a href="{{route('houses.postForm')}}" class="nav-link text-white">Đăng bài</a></li>
                             <li><a href="#agents-section" class="nav-link text-white">Agents</a></li>
                             <li><a href="#about-section" class="nav-link text-white">About</a></li>
                             <li><a href="#news-section" class="nav-link text-white">News</a></li>
                             <li><a href="#contact-section" class="nav-link text-white">Contact</a></li>
-
                         </ul>
                     </nav>
                 </div>
