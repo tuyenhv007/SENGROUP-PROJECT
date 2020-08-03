@@ -36,10 +36,9 @@ class HouseController extends Controller
     public function postHouse(ValidatePostHouse $request)
     {
         $house = new House();
-
         $house->name = $request->name;
         $house->type = $request->type;
-        $house->rooms = $request->rooms;
+        $house->roooms = $request->rooms;
         $house->desc = $request->desc;
         $house->price = $request->price;
         $house->user_id = Session::get('user')->id;
