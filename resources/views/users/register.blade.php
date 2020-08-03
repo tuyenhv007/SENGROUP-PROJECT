@@ -51,7 +51,7 @@
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại</label>
-                                <input type="text" name="text" id="text"
+                                <input type="text" name="phone" id="text"
                                        class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}">
                             </div>
                             @if($errors->first('phone'))

@@ -21,23 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 //login-register
 
-Route::get('/login', 'LoginController@showFormLogin')->name('login');
-Route::get('/register','LoginController@showFormRegister')->name('register');
-Route::post('/login','LoginController@login')->name('user.login');
-Route::post('/register', 'LoginController@register')->name('user.register');
-//endLogin-register
-
-Route::prefix('houses')->group(function () {
-    Route::get('/', 'HouseController@index')->name('houses.list');
-    Route::get('/show', 'HouseController@show')->name('houses.show');
-});
-
 
 Route::get('/home', function () {
     return view('homes/home');
 })->name('home');
-Route::get('login', 'LoginController@showFormLogin');
-Route::get('register','LoginController@showFormRegister');
+Route::get('login', 'LoginController@showFormLogin')->name('login');
+Route::get('register','LoginController@showFormRegister')->name('register');
 Route::post('login','LoginController@login')->name('user.login');
 Route::post('register', 'LoginController@register')->name('user.register');
 
