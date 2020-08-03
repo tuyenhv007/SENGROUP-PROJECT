@@ -25,7 +25,7 @@ class ValidateLogin extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required|min:8|max:32'
+            'password' => 'required|min:6|max:32'
         ];
     }
 
@@ -35,8 +35,8 @@ class ValidateLogin extends FormRequest
             'email.required' => 'Email không được để trống!',
             'email.email' => 'Email không đúng định dạng!',
             'password.required' => 'Password không được để trống!',
-            'password.min' => 'Mật khẩu phải hơn 8 ký tự.',
-            'password.max' => 'Mật khẩu phải không được vượt quá 32 ký tự.'
+            'password.min' => 'Mật khẩu phải hơn 6 ký tự.',
+            'password.max' => 'Mật khẩu phải không được vượt quá 32ký tự.'
         ];
     }
 }
