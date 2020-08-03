@@ -86,7 +86,7 @@
                         <div class="ftco-media-1">
                             <div class="ftco-media-1-inner">
                                 <a href="{{route('houses.show',$house->id)}}" class="d-inline-block mb-4"><img
-                                        src="{{asset('images/property_1.jpg')}}"
+                                        src="{{asset("storage/".$house->images[0]->image)}}"
                                         alt="FImageo"
                                         class="img-fluid"></a>
                                 <div class="ftco-media-details">
@@ -102,3 +102,4 @@
         </div>
     </div>
 @endsection
+
