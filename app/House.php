@@ -12,9 +12,9 @@ class House extends Model
         return $this->hasMany('App\Image', 'house_id', 'id');
     }
 
-    public function address()
+    public function addresses()
     {
-        return $this->belongsTo('App\Address');
+        return $this->hasMany('App\Address','house_id','id');
     }
 
     public function bills()

@@ -46,7 +46,10 @@ class HouseController extends Controller
         $house->roooms = $rooms;
         $house->desc = $desc;
         $house->price = $price;
+
         $house->user_id = 2;
+
+ 
         $house->status = $status;
         $house->save();
         $city_id = $request->city;
@@ -81,7 +84,7 @@ class HouseController extends Controller
             // nếu không có file nào vi phạm validate thì tiến hành lưu DB
             if ($exe_flg) {
                 foreach ($request->photos as $photo) {
-                    $filename = $photo->store('images','public');
+                    $filename = $photo->store('images', 'public');
                     $image = new Image();
                     $image->image = $filename;
                     $image->house_id = $house->id;
@@ -92,6 +95,11 @@ class HouseController extends Controller
                 echo "Falied to upload. Only accept jpg, png photos.";
             }
         }
+
+    }
+
+    public function viewBookHouse()
+    {
 
     }
 
