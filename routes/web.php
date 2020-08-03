@@ -24,11 +24,10 @@ Route::get('/homes', function () {
 
 //login-register
 
-
-Route::get('login', 'LoginController@showFormLogin');
-Route::get('register','LoginController@showFormRegister');
-Route::post('login','LoginController@login')->name('user.login');
-Route::post('register', 'LoginController@register')->name('user.register');
+Route::get('/login', 'LoginController@showFormLogin')->name('login');
+Route::get('/register','LoginController@showFormRegister')->name('register');
+Route::post('/login','LoginController@login')->name('user.login');
+Route::post('/register', 'LoginController@register')->name('user.register');
 //endLogin-register
 
 Route::prefix('houses')->group(function () {

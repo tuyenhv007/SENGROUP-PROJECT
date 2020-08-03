@@ -9,7 +9,7 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-        
+
     </div>
 
     <div class="site-mobile-menu site-navbar-target">
@@ -34,7 +34,7 @@
                             <li><a href="{{route('houses.postForm')}}" >Đăng bài</a></li>
                             <li><a href="#agents-section" class="nav-link">Agents</a></li>
                             <li><a href="#about-section" class="nav-link">About</a></li>
-                            <li><a href="#news-section" class="nav-link">News</a></li>
+                            <li><a href="" class="nav-link">News</a></li>
                             <li><a href="#contact-section" class="nav-link">Contact</a></li>
                         </ul>
                     </nav>
