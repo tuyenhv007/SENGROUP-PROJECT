@@ -13,6 +13,7 @@ use App\Http\Requests\ValidateRegister;
 
 
 
+
 class LoginController extends Controller
 {
     //
