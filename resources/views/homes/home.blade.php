@@ -23,11 +23,10 @@
                             <li><a href="#about-section" class="nav-link">About</a></li>
                             @if(\Illuminate\Support\Facades\Session::get('user'))
                                 <li><a href="" class="nav-link"><?php $name=\Illuminate\Support\Facades\Session::get('user');
-                                echo $name;
-                                        ?></a></li>
+                                echo $name;?></a></li>
                             @else
                             <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
-                            <li><a href="" class="nav-link">Register</a></li>
+                            <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
                             @endif
                         </ul>
                     </nav>
