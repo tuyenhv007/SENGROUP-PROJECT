@@ -34,13 +34,12 @@ class LoginController extends Controller
         ])->first();
         if ($user) {
             $login = $user->count();
-            if ($login > 0) {
-                Session::put('user', $user->name);
-                Session::put('user_role', $user->role);
+            if ($login > 0){
+                Session::put('user',$user);
                 return redirect()->route('houses.list');
             } else {
                 Session::put('error', 'Sai tên đăng nhập hoặc mật khẩu!');
-                return redirect()->route('user.login');
+                return redirect()->route('login');
             }
         }
     }
@@ -48,8 +47,7 @@ class LoginController extends Controller
     public function logout()
     {
         Session::put('user', null);
-        Session::put('user_role',null);
-        return redirect()->route('login');
+        return back();
     }
 
     public function register(ValidateRegister $request)

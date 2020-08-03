@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //login-register
 
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('homes/home');
 })->name('home');
 Route::get('/login', 'LoginController@showFormLogin')->name('login');
@@ -35,12 +35,14 @@ Route::get('/logout','LoginController@logout')->name('logout');
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
-    Route::get('/post-form','HouseController@postForm')->name('houses.postForm');
-    Route::post('/post-form/{idCity}','DistrictController@showDistrictInCity');
-    Route::post('/post-form/road/{idDistrict}','RoadController@showRoadInDistrict');
-    Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
-    Route::post('/post-form/','HouseController@postHouse')->name('houses.postHouse');
-    Route::get('/book-house/{id}','HouseController@viewBookHouse')->name('houses.viewBookHouse');
+    Route::middleware(['user'])->group(function (){
+        Route::get('/post-form','HouseController@postForm')->name('houses.postForm');
+        Route::post('/post-form/{idCity}','DistrictController@showDistrictInCity');
+        Route::post('/post-form/road/{idDistrict}','RoadController@showRoadInDistrict');
+        Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
+        Route::post('/post-form/','HouseController@postHouse')->name('houses.postHouse');
+        Route::get('/book-house/{id}','HouseController@viewBookHouse')->name('houses.viewBookHouse');
+    });
 });
 
 
