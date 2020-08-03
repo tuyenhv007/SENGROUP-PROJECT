@@ -42,18 +42,19 @@
                         Sai tên đăng nhập hoặc mật khẩu!
                     </div>
                 @endif
-                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>
+{{--                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>--}}
                 <div class="wrap-input100 validate-input" data-validate = "Enter email">
                     <input class="input100" type="text" name="email" placeholder="Email">
                     <span class="{{$errors->first('email') ? 'text-danger': ''}}"></span>
                 </div>
-                <div class="ml-3 mt-3"><h6>Nhập mật khẩu:</h6></div>
+{{--                <div class="ml-3 mt-3"><h6>Nhập mật khẩu:</h6></div>--}}
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
                     <input class="input100" type="password" name="password" placeholder="Password">
                     <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
                 </div>
                 <div class="container-login100-form-btn m-t-32">
-                    <input value="Login" class="login100-form-btn" type="submit">
+                    <input value="Login" class="login100-form-btn mr-1" type="submit">
+                    <a class="login100-form-btn ml-1" href="{{route('register')}}">Register</a>
                 </div>
             </form>
         </div>
