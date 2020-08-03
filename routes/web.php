@@ -41,6 +41,7 @@ Route::prefix('houses')->group(function () {
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
     Route::post('/post-form/','HouseController@postHouse')->name('houses.postHouse');
     Route::get('/book-house/{id}','HouseController@viewBookHouse')->name('houses.viewBookHouse');
+    Route::post('/book-house/{id}','HouseController@bookHouse')->name('houses.bookHouse');
 });
 
 

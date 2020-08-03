@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Bill;
 use App\City;
 use App\District;
 use App\House;
@@ -10,10 +11,10 @@ use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HouseController extends Controller
 {
-
     public function index()
     {
         $houses = House::all();
@@ -26,7 +27,6 @@ class HouseController extends Controller
         return view('houses.detail', compact('house'));
     }
 
-
     public function postForm()
     {
         $cities = City::all();
@@ -35,27 +35,19 @@ class HouseController extends Controller
 
     public function postHouse(ValidatePostHouse $request)
     {
-        $nameHouse = $request->name;
-        $type = $request->type;
-        $rooms = $request->rooms;
-        $desc = $request->desc;
-        $price = $request->price;
-        $status = HouseStatus::EMPTY;
         $house = new House();
-        $house->name = $nameHouse;
-        $house->type = $type;
-        $house->roooms = $rooms;
-        $house->desc = $desc;
-        $house->price = $price;
-        $house->user_id = 1;
-        $house->status = $status;
+
+        $house->name = $request->name;
+        $house->type = $request->type;
+        $house->rooms = $request->rooms;
+        $house->desc = $request->desc;
+        $house->price = $request->price;
+        $house->user_id = Session::get('user')->id;
+        $house->status = HouseStatus::EMPTY;
         $house->save();
-        $city_id = $request->city;
-        $city = City::where('id', $city_id)->get();
-        $district_id = $request->district;
-        $district = District::where('id', $district_id)->get();
-        $road_id = $request->road;
-        $road = Road::where('id', $road_id)->get();
+        $city = City::where('id', $request->city)->get();
+        $district = District::where('id', $request->district)->get();
+        $road = Road::where('id', $request->road)->get();
         $sn = $request->sn;
         $address = new Address();
         $address->city = $city[0]['name'];
@@ -89,16 +81,31 @@ class HouseController extends Controller
                     $image->save();
                 }
                 echo "Upload successfully";
+                return redirect()->route('houses.list');
             } else {
-                echo "Falied to upload. Only accept jpg, png photos.";
+                echo "Falied to upload. ";
             }
         }
-
     }
 
-    public function viewBookHouse()
+    public function viewBookHouse($id)
     {
+        $house = House::findOrFail($id);
+        return view('houses.book-house', compact('house'));
+    }
 
+    public function bookHouse(Request $request, $id)
+    {
+        $house = House::findOrFail($id);
+        $bill = new Bill();
+        $bill->checkIn = $request->dateIn;
+        $bill->checkOut = $request->dateOut;
+        $bill->status = 0;
+        $bill->total = $house->price;
+        $bill->house_id = $house->id;
+        $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
+        $bill->save();
+        return back();
     }
 
 }

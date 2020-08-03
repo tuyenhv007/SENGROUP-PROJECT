@@ -50,7 +50,7 @@
                             <li><a href="#about-section" class="nav-link text-white">About</a></li>
                             @if(Session::get('user'))
 
-                                <li><a href="" class="nav-link">{{Session::get('user')}}</a>
+                                <li><a href="" class="nav-link">{{Session::get('user')->name}}</a>
                                 </li>
 
                             @else
@@ -165,12 +165,15 @@
                     @if($errors->first('price'))
                     <p class="text-danger">{{ $errors->first('price') }}</p>
                     @endif
+
                     <div class="form-group">
 
                     </div>
                     <label class="{{ $errors->first('photos[]') ? 'text-danger' : '' }}" for="Product Name"> Hình ảnh  (Có thể tải lên nhiều ảnh):</label>
                     <br>
+
                     <input type="file"  id="imageUpload" class="form-control selectImage" name="photos[]" multiple {{ $errors->first('photos[]') ? 'is-invalid' : '' }}/>
+
                     <br>
                     @if($errors->first('photos[]'))
                         <p class="text-danger">{{ $errors->first('photos[]') }}</p>

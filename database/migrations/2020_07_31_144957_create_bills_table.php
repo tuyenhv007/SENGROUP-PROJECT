@@ -15,7 +15,7 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->integer('total');
+            $table->string('total');
             $table->string('status');
             $table->date('checkIn')->nullable();
             $table->date('checkOut')->nullable();
