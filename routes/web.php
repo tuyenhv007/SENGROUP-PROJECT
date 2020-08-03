@@ -36,6 +36,7 @@ Route::prefix('houses')->group(function () {
     Route::post('/post-form/{idCity}','DistrictController@showDistrictInCity');
     Route::post('/post-form/road/{idDistrict}','RoadController@showRoadInDistrict');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
+    Route::post('/post-form/','HouseController@postHouse')->name('houses.postHouse');
 });
 
 

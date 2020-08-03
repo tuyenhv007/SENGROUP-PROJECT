@@ -42,12 +42,16 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+
+                
+
                             <li><a href="{{route('houses.list')}}" class="nav-link text-white">Home</a></li>
                             <li><a href="{{route('houses.postForm')}}" class="nav-link text-white">Đăng bài</a></li>
                             <li><a href="#agents-section" class="nav-link text-white">Agents</a></li>
                             <li><a href="#about-section" class="nav-link text-white">About</a></li>
                             <li><a href="#news-section" class="nav-link text-white">News</a></li>
                             <li><a href="#contact-section" class="nav-link text-white">Contact</a></li>
+
                         </ul>
                     </nav>
                 </div>
@@ -73,8 +77,8 @@
         </div>
         <div class="card-body">
             <div class="form-group">
-                <form method="post">
-                    {{ csrf_field() }}
+                <form method="post" action="{{route('houses.postHouse')}}" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label>Title:</label>
                         <input type="text" name="name" class="form-control">
@@ -85,7 +89,7 @@
                     </div>
                     <div class="form-group">
                         <label>Chọn tỉnh/thành phố:</label>
-                        <select class="form-control city-up" name="city">
+                        <select class="form-control city-up" name="city" id="city">
                             <option value="">---</option>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -94,17 +98,27 @@
                     </div>
                     <div class="form-group">
                         <label>Chọn quận huyện:</label>
-                        <select class="form-control" name="district">
+
+                        <select class="form-control" name="district" id="district">
+
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Chọn xã phường:</label>
-                        <select class="form-control" name="road">
+
+                        <select class="form-control" name="road" id="road">
+
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Địa chỉ :</label>
                         <textarea name="sn" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả :</label>
+                        <textarea name="desc" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Rooms:</label>
@@ -114,6 +128,17 @@
                         <label>Price:</label>
                         <input type="text" name="price" class="form-control">
                         </div>
+                    <div class="form-group">
+
+                    </div>
+                    <label for="Product Name"> photos (can upload multi photos):</label>
+                    <br>
+                    <input type="file"  id="images" class="form-control selectImage" name="photos[]" multiple/>
+                    <br>
+                    <div class="row justify-content-center" id="showImage">
+
+                    </div>
+                    <br>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Đăng bài</button>
                         <a href="{{route('houses.list')}}" class="btn btn-secondary">Thoát</a>
