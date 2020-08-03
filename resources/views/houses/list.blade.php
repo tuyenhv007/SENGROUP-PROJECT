@@ -47,28 +47,31 @@
     </header>
     <div class="site-block-wrap">
         <div class="owl-carousel with-dots">
-            <div class="site-blocks-cover overlay overlay-2"
-                 style="background-image: url({{asset('images/hero_1.jpg')}});"
+            <div class="site-blocks-cover overlay overlay-3"
+                 style="background-image: url({{asset('images/icons/82859229-sea-view-living-room-with-wooden-floor-and-empty-white-wall-background-in-luxury-beach-house-modern-.jpg')}});"
                  data-aos="fade" id="home-section">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-6 mt-lg-5 text-center">
-                            <h1 class="text-shadow">Buy &amp; Sell Property Here</h1>
-                            <p class="mb-5 text-shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Provident vitae, aut inventore repellendus. Iusto, assumenda! </p>
+                            <p class="mb-5 text-shadow text-capitalize text-black">Mái ấm thân thương. Đây là nơi để tìm
+                                hạnh phúc. Nếu không tìm
+                                thấy hạnh phúc ở đây, người ta không thể tìm thấy hạnh phúc ở bất cứ nơi nào khác.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="site-blocks-cover overlay overlay-2"
-                 style="background-image: url({{asset('images/hero_2.jpg')}});"
+            <div class="site-blocks-cover overlay overlay-3"
+                 style="background-image: url({{asset('images/icons/90531026-indoor-plant-on-wooden-coffee-table-and-modern-furniture-with-empty-white-concrete-wall-background-b.jpg')}});"
                  data-aos="fade" id="home-section">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-6 mt-lg-5 text-center">
-                            <h1 class="text-shadow">Find Your Perfect Property For Your Home</h1>
-                            <p class="mb-5 text-shadow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
-                                quam doloribus reprehenderit dolore adipisci rerum?</p>
+                            <p class="mb-5 text-shadow text-capitalize text-black">Mỗi một con người, dù đi khắp tứ
+                                phương, rốt cục cũng chỉ muốn
+                                tìm một mái nhà để dừng chân ghé về. Có được một nơi gọi là nhà, có được một người
+                                thương yêu để cùng chia sẻ vui buồn.
+                            </p>
                         </div>
                     </div>
                 </div>
