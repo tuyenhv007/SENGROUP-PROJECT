@@ -16,7 +16,8 @@
                                 Có vấn đề khi tạo tài khoản người dùng.
                             </div>
                         @endif
-                        <h2 class="h4 text-black mb-5">Thông tin</h2>
+                        <h2 class="h4
+                         text-black mb-5">Thông tin</h2>
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name</label>
@@ -51,7 +52,7 @@
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại</label>
-                                <input type="text" name="text" id="text"
+                                <input type="text" name="phone" id="text"
                                        class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}">
                             </div>
                             @if($errors->first('phone'))

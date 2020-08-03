@@ -21,7 +21,7 @@ Route::get('/homes', function () {
     return view('homes/home');
 });
 
-Route::get('login', 'LoginController@showFormLogin');
+Route::get('login', 'LoginController@showFormLogin')->name('login');
 Route::get('register','LoginController@showFormRegister');
 Route::post('login','LoginController@login')->name('user.login');
 Route::post('register', 'LoginController@register')->name('user.register');

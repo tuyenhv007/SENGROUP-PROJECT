@@ -38,9 +38,11 @@ class ValidateRegister extends FormRequest
             'name.required' => 'Tên không được để trống!',
             'email.required' => 'Email không được để trống!',
             'email.email' => 'Email không đúng định dạng!',
+            'email.unique' => 'Email đã tồn tại!',
             'phone.required' => 'Số điện thoại không được để trống!',
             'phone.min' => 'Số điện thoại không được dưới 10 số! Ví dụ: 098.xxx.xxxx',
             'phone.max' => 'Số điện thoại không được quá 12 số! Ví dụ: 098.xxx.xxxx',
+            'phone.unique' => 'Số điện thoại đã tồn tại!',
             'password.required' => 'Mật khẩu không được để trống!',
             'password.min' => 'Mật khẩu không được ít hơn 6 ký tự',
             'password.max' => 'Mật khẩu không được quá hơn 12 ký tự'

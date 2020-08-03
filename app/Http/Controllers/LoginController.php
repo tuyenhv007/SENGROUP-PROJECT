@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\ValidateLogin;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
 use App\Http\Requests\ValidateRegister;
 
 
@@ -24,18 +21,18 @@ class LoginController extends Controller
         return view('users/register');
     }
 
-    public function login(Request $request){
-        $name=$request->username;
+    public function login(ValidateLogin $request){
+        $email = $request->email;
         $password=md5($request->password);
         $user = User::where([
-            ['name', '=', $name],
+            ['email', '=', $email],
             ['password', '=', $password],
         ])->first();
 
         if($user){
             $login=$user->count();
             if($login>0){
-                Session::put('user',$login->name);
+                Session::put('user',$login->email);
                 return \view('houses.list');
             }else{
                 Session::put('error','Sai tên đăng nhập hoặc mật khẩu!');
@@ -45,7 +42,7 @@ class LoginController extends Controller
     }
 
     public function register(ValidateRegister $request){
-        $name=$request->username;
+        $name=$request->name;
         $email=$request->email;
         $password=$request->password;
         $phone=$request->phone;
