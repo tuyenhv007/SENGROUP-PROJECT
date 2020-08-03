@@ -19,6 +19,9 @@ $(document).ready(function () {
                 console.log(this.url)
                 $("select[name='district']").children().remove();
                 $("select[name='district']").focus();
+                $("select[name='district']").append(
+                    "<option >" + "---" + "</option>"
+                );
                 $.each(result, function (key, value) {
                     $("select[name='district']").append(
                         "<option value=" + value.id + ">" + value.name + "</option>"
@@ -48,6 +51,9 @@ $(document).ready(function () {
                 console.log(this.url)
                 $("select[name='road']").children().remove();
                 $("select[name='road']").focus();
+                $("select[name='road']").append(
+                    "<option >" + "---" + "</option>"
+                );
                 $.each(result, function (key, value) {
                     $("select[name='road']").append(
                         "<option value=" + value.id + ">" + value.name + "</option>"
