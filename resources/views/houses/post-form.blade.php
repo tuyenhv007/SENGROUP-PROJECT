@@ -82,7 +82,6 @@
                     <div class="form-group">
                         <label>Type:</label>
                         <input type="text" name="type" class="form-control">
-
                     </div>
                     <div class="form-group">
                         <label>Chọn tỉnh/thành phố:</label>
