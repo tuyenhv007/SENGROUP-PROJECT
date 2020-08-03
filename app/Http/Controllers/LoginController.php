@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests\ValidateRegister;
-use App\User;
+
 
 
 

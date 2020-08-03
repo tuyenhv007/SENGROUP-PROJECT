@@ -45,7 +45,6 @@
             </div>
         </div>
     </header>
-
     <div class="site-block-wrap">
         <div class="owl-carousel with-dots">
             <div class="site-blocks-cover overlay overlay-2"

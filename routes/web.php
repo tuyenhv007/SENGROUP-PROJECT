@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/homes', function () {
-    return view('homes/home');
-});
 
 
 //login-register
@@ -39,7 +36,6 @@ Route::prefix('houses')->group(function () {
 Route::get('/home', function () {
     return view('homes/home');
 })->name('home');
-
 Route::get('login', 'LoginController@showFormLogin');
 Route::get('register','LoginController@showFormRegister');
 Route::post('login','LoginController@login')->name('user.login');
