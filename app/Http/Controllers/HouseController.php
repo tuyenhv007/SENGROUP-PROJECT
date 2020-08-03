@@ -6,6 +6,7 @@ use App\Address;
 use App\City;
 use App\District;
 use App\House;
+use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class HouseController extends Controller
         return view('houses.post-form', compact('cities'));
     }
 
-    public function postHouse(Request $request)
+    public function postHouse(ValidatePostHouse $request)
     {
         $nameHouse = $request->name;
         $type = $request->type;
