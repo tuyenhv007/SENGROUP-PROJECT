@@ -7,6 +7,7 @@ use App\Bill;
 use App\City;
 use App\District;
 use App\House;
+use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class HouseController extends Controller
         $cities = City::all();
         return view('houses.post-form', compact('cities'));
     }
-    public function postHouse(Request $request)
+
+    public function postHouse(ValidatePostHouse $request)
     {
         $house = new House();
 
@@ -84,7 +86,6 @@ class HouseController extends Controller
                 echo "Falied to upload. ";
             }
         }
-
     }
 
     public function viewBookHouse($id)
@@ -105,7 +106,6 @@ class HouseController extends Controller
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
         $bill->save();
         return back();
-
     }
 
 }
