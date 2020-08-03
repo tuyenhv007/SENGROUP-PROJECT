@@ -11,16 +11,6 @@
         </div>
 
     </div>
-
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">
-                <span class="icon-close2 js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
         <div class="container">
             <div class="row align-items-center">
@@ -52,30 +42,29 @@
             </div>
         </div>
     </header>
+
     <div class="site-block-wrap">
         <div class="owl-carousel with-dots">
-            <div class="site-blocks-cover overlay overlay-3"
-                 style="background-image: url({{asset('images/icons/82859229-sea-view-living-room-with-wooden-floor-and-empty-white-wall-background-in-luxury-beach-house-modern-.jpg')}});"
+            <div class="site-blocks-cover overlay overlay-2"
+                 style="background-image: url({{asset('i')}});"
                  data-aos="fade" id="home-section">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-6 mt-lg-5 text-center">
-                            <p class="mb-5 text-shadow text-capitalize text-black">Mái ấm thân thương. Đây là nơi để tìm
-                                hạnh phúc. Nếu không tìm
+                            <p class="mb-5 text-shadow text-capitalize text-black">Mái ấm thân thương. Đây là nơi để tìm hạnh phúc. Nếu không tìm
                                 thấy hạnh phúc ở đây, người ta không thể tìm thấy hạnh phúc ở bất cứ nơi nào khác.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="site-blocks-cover overlay overlay-3"
-                 style="background-image: url({{asset('images/icons/90531026-indoor-plant-on-wooden-coffee-table-and-modern-furniture-with-empty-white-concrete-wall-background-b.jpg')}});"
+            <div class="site-blocks-cover overlay overlay-2"
+                 style="background-image: url({{asset('images/hero_2.jpg')}});"
                  data-aos="fade" id="home-section">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-6 mt-lg-5 text-center">
-                            <p class="mb-5 text-shadow text-capitalize text-black">Mỗi một con người, dù đi khắp tứ
-                                phương, rốt cục cũng chỉ muốn
+                            <p class="mb-5 text-shadow text-capitalize text-black">Mỗi một con người, dù đi khắp tứ phương, rốt cục cũng chỉ muốn
                                 tìm một mái nhà để dừng chân ghé về. Có được một nơi gọi là nhà, có được một người
                                 thương yêu để cùng chia sẻ vui buồn.
                             </p>
