@@ -60,7 +60,6 @@
                                 <label>Price:</label>
                                 <input type="text" name="price" class="form-control">
                             </div>
-
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Đăng bài</button>
                                 <a href="{{route('houses.list')}}" class="btn btn-secondary">Thoát</a>
