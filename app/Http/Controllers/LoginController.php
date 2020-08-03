@@ -59,6 +59,7 @@ class LoginController extends Controller
             'address'=>$address,
             'phone'=>$phone
         ]);
+
         return redirect()->route('user.login');
     }
 }

@@ -6,11 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    protected $fillable = 'address';
-
-    public function House()
-    {
+    public function house(){
         return $this->belongsTo('App\House');
     }
-
 }
