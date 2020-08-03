@@ -34,8 +34,8 @@ class LoginController extends Controller
         ])->first();
         if ($user) {
             $login = $user->count();
-            if ($login > 0){
-                Session::put('user',$user);
+            if ($login > 0) {
+                Session::put('user', $user);
                 return redirect()->route('houses.list');
             } else {
                 Session::put('error', 'Sai tên đăng nhập hoặc mật khẩu!');
