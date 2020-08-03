@@ -53,6 +53,9 @@
                     <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
                 </div>
                 <div class="container-login100-form-btn m-t-32">
+                    @if(Session('user'))
+                        <p>{{Session('user')}}</p>
+                        @endif
                     <input value="Login" class="login100-form-btn" type="submit">
                 </div>
             </form>
