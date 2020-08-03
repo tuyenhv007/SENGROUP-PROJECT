@@ -52,7 +52,6 @@
                     <input class="input100" type="password" name="password" placeholder="Password">
                     <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
                 </div>
-
                 <div class="container-login100-form-btn m-t-32">
                     <input value="Login" class="login100-form-btn" type="submit">
                 </div>

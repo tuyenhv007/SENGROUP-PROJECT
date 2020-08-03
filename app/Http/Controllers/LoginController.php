@@ -40,6 +40,11 @@ class LoginController extends Controller
         }
     }
 
+    public function logout(){
+        Session::put('user',null);
+        return redirect()->route('login');
+    }
+
     public function register(ValidateRegister $request){
         $name=$request->name;
         $email=$request->email;
