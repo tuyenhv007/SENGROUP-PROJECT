@@ -39,7 +39,7 @@
                 @csrf
                 @if($errors->all())
                     <div class="alert alert-danger" role="alert">
-                        Có vấn đề khi đăng nhập.
+                        Sai tên đăng nhập hoặc mật khẩu!
                     </div>
                 @endif
                 <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>
