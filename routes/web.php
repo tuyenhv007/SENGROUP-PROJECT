@@ -29,6 +29,7 @@ Route::get('login', 'LoginController@showFormLogin')->name('login');
 Route::get('register','LoginController@showFormRegister')->name('register');
 Route::post('login','LoginController@login')->name('user.login');
 Route::post('register', 'LoginController@register')->name('user.register');
+Route::get('logout','LoginController@logout')->name('logout');
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
