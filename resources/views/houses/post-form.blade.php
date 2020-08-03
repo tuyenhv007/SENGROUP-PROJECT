@@ -96,13 +96,11 @@
                     <div class="form-group">
                         <label>Chọn quận huyện:</label>
                         <select class="form-control" name="district">
-
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Chọn xã phường:</label>
                         <select class="form-control" name="road">
-
                         </select>
                     </div>
                     <div class="form-group">
@@ -112,24 +110,20 @@
                     <div class="form-group">
                         <label>Rooms:</label>
                         <input type="text" name="rooms" class="form-control">
-
                     </div>
                     <div class="form-group">
                         <label>Price:</label>
                         <input type="text" name="price" class="form-control">
-
-                    </div>
+                        </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Đăng bài</button>
                         <a href="{{route('houses.list')}}" class="btn btn-secondary">Thoát</a>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
-
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
@@ -143,7 +137,6 @@
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
 <script src="{{asset('js/jquery.sticky.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -152,3 +145,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
