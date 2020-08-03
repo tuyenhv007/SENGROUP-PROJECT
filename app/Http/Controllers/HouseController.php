@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Bill;
 use App\City;
 use App\District;
 use App\House;
@@ -33,6 +34,7 @@ class HouseController extends Controller
     public function postHouse(Request $request)
     {
         $house = new House();
+
         $house->name = $request->name;
         $house->type = $request->type;
         $house->rooms = $request->rooms;
@@ -85,8 +87,24 @@ class HouseController extends Controller
 
     }
 
-    public function viewBookHouse()
+    public function viewBookHouse($id)
     {
+        $house = House::findOrFail($id);
+        return view('houses.book-house', compact('house'));
+    }
+
+    public function bookHouse(Request $request, $id)
+    {
+        $house = House::findOrFail($id);
+        $bill = new Bill();
+        $bill->checkIn = $request->dateIn;
+        $bill->checkOut = $request->dateOut;
+        $bill->status = 0;
+        $bill->total = $house->price;
+        $bill->house_id = $house->id;
+        $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
+        $bill->save();
+        return back();
 
     }
 
