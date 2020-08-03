@@ -37,14 +37,20 @@
 				</span>
             <form action="{{ route('user.login') }}" method="POST" class="login100-form validate-form p-b-33 p-t-5">
                 @csrf
-                <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                    <input class="input100" type="text" name="username" placeholder="User name">
-                    <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                @if($errors->all())
+                    <div class="alert alert-danger" role="alert">
+                        Có vấn đề khi đăng nhập.
+                    </div>
+                @endif
+                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>
+                <div class="wrap-input100 validate-input" data-validate = "Enter email">
+                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <span class="{{$errors->first('email') ? 'text-danger': ''}}"></span>
                 </div>
-
+                <div class="ml-3 mt-3"><h6>Nhập mật khẩu:</h6></div>
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
                     <input class="input100" type="password" name="password" placeholder="Password">
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                    <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
                 </div>
 
                 <div class="container-login100-form-btn m-t-32">

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+
+use App\Http\Requests\ValidateLogin;
 use App\User;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ValidateRegister;
 
 
@@ -22,11 +21,11 @@ class LoginController extends Controller
         return view('users/register');
     }
 
-    public function login(Request $request){
-        $name=$request->username;
+    public function login(ValidateLogin $request){
+        $email = $request->email;
         $password=md5($request->password);
         $user = User::where([
-            ['name', '=', $name],
+            ['email', '=', $email],
             ['password', '=', $password],
         ])->first();
         if($user){
