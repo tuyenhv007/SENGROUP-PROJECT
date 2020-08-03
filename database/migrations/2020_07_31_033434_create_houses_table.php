@@ -20,10 +20,9 @@ class CreateHousesTable extends Migration
             $table->string('rooms');
             $table->longText('desc');
             $table->string('price');
-            $table->string('status');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
+            $table->string('status');
             $table->timestamps();
         });
     }
