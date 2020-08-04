@@ -44,12 +44,12 @@
                 @endif
                 <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>
                 <div class="wrap-input100 validate-input" data-validate = "Enter email">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <input class="input100" type="text" name="email" placeholder="Email" autofocus>
                     <span class="{{$errors->first('email') ? 'text-danger': ''}}"></span>
                 </div>
                 <div class="ml-3 mt-3"><h6>Nhập mật khẩu:</h6></div>
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="Password" autofocus>
                     <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
                 </div>
                 <div class="container-login100-form-btn m-t-32">
