@@ -13,6 +13,7 @@ use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HouseController extends Controller
@@ -20,7 +21,10 @@ class HouseController extends Controller
     public function index()
     {
         $houses = House::all();
-        return view('houses.list', compact('houses'));
+        $cities = City::all();
+        $districts = District::all();
+        $roads = Road::all();
+        return view('houses.list', compact('houses', 'cities', 'districts', 'roads'));
     }
 
     public function show($id)
@@ -94,16 +98,33 @@ class HouseController extends Controller
 
     public function bookHouse(ValidateFormBookHouse $request, $id)
     {
+        $dateIn = $request->dateIn;
+        $dateOut = $request->dateOut;
+        $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
         $house = House::findOrFail($id);
         $bill = new Bill();
         $bill->checkIn = $request->dateIn;
         $bill->checkOut = $request->dateOut;
         $bill->status = 0;
-        $bill->total = $house->price;
+        $bill->total = ($house->price) * $days;
         $bill->house_id = $house->id;
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
         $bill->save();
+        toastr()->success('Thuê nhà thành công !', 'Thông báo');
         return back();
+    }
+
+    public function search(Request $request)
+    {
+        $city_id = $request->city;
+        $city = City::find($city_id);
+        $district_id = $request->district;
+        $district = District::find($district_id);
+        $road_id = $request->road;
+        $road = Road::find($road_id);
+        $addresses = Address::where('city', "$city->name")->where('district', "$district->name")->where('road', "$road->name")->get();
+
+        dd($addresses);
     }
 
 }

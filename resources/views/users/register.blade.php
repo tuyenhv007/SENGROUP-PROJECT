@@ -1,11 +1,18 @@
-
 @extends('layout/master')
 @section('content')
+    <div class="site-blocks-cover inner-page-cover overlay"
+         style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+            </div>
+        </div>
+        <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
+    </div>
     <div class="site-section bg-light bg-image" id="contact-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title mb-3">Đăng Ký thành viên</h2>
+                    <h2>Đăng Ký thành viên</h2>
                 </div>
             </div>
             <div style="margin-left: 125px; width: 1500px" class="row">
@@ -53,6 +60,7 @@
                                 <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
                                 <input type="password" name="password" id="password"
                                        class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus>
+
                             </div>
                             @if($errors->first('password'))
                                 <p class="text-danger">{{ $errors->first('password') }}</p>

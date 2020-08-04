@@ -2,7 +2,9 @@ $(document).ready(function () {
     $("select[name='city']").change(function () {
 
         let city_id = $(this).val();
+        console.log(city_id);
         let origin = location.origin;
+        console.log(origin);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -20,8 +22,9 @@ $(document).ready(function () {
                 $("select[name='district']").children().remove();
                 $("select[name='district']").focus();
                 $("select[name='district']").append(
-                    "<option >" + "---" + "</option>"
+                    "<option >" + "Quận/Huyện" + "</option>"
                 );
+                console.log(result);
                 $.each(result, function (key, value) {
                     $("select[name='district']").append(
                         "<option value=" + value.id + ">" + value.name + "</option>"
@@ -34,6 +37,7 @@ $(document).ready(function () {
     $("select[name='district']").change(function () {
 
         let district_id = $(this).val();
+        console.log(district_id);
         let origin = location.origin;
         $.ajaxSetup({
             headers: {
@@ -52,8 +56,9 @@ $(document).ready(function () {
                 $("select[name='road']").children().remove();
                 $("select[name='road']").focus();
                 $("select[name='road']").append(
-                    "<option >" + "---" + "</option>"
+                    "<option >" + "Xã/Phường" + "</option>"
                 );
+                console.log(result);
                 $.each(result, function (key, value) {
                     $("select[name='road']").append(
                         "<option value=" + value.id + ">" + value.name + "</option>"
