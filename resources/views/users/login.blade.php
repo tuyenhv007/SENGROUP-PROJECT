@@ -30,7 +30,7 @@
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url({{asset('images/bg-01.jpg')}});">
         <div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
 					Account Login
@@ -43,7 +43,7 @@
                     </div>
                 @endif
                 <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>
-                <div class="wrap-input100 validate-input" data-validate = "Enter email">
+                <div class="wrap-input100 validate-input" data-validate="Enter email">
                     <input class="input100" type="text" name="email" placeholder="Email">
                     <span class="{{$errors->first('email') ? 'text-danger': ''}}"></span>
                 </div>
