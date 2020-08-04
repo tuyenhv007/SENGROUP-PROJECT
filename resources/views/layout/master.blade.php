@@ -5,7 +5,6 @@
     @toastr_css
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/ajax-city1.js')}}"></script>
@@ -178,7 +177,6 @@
     </div>
 </footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
-<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -191,9 +189,7 @@
 <script src="{{asset('js/jquery.sticky.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/ajax-city.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
