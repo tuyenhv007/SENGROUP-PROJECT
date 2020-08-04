@@ -66,6 +66,7 @@ class LoginController extends Controller
         $user->address = $address;
         $user->role = $role;
         $user->save();
+        toastr()->success('Đăng kí thành công !', 'Thông báo');
         return redirect()->route('user.login');
     }
 }

@@ -40,7 +40,7 @@ class HouseController extends Controller
         $house = new House();
         $house->name = $request->name;
         $house->type = $request->type;
-        $house->roooms = $request->rooms;
+        $house->rooms = $request->rooms;
         $house->desc = $request->desc;
         $house->price = $request->price;
         $house->user_id = Session::get('user')->id;
@@ -81,10 +81,10 @@ class HouseController extends Controller
                     $image->house_id = $house->id;
                     $image->save();
                 }
-                echo "Upload successfully";
+                toastr()->success('Đăng bài thành công !', 'Thông báo');
                 return redirect()->route('houses.list');
             } else {
-                echo "Falied to upload. ";
+                toastr()->error('Đăng bài thất bại, bạn vui lòng kiểm tra lạ i!');
             }
         }
     }
