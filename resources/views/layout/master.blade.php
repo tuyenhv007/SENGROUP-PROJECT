@@ -3,51 +3,41 @@
 <head>
     <title>Warehouse &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/ajax-city.js')}}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
-<link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
-
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/drop.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/liner_icon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/themify-icons.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="{{asset('js/ajax-city.js')}}"></script>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="site-wrap">
@@ -60,38 +50,61 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 </div>
-<header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-6 col-xl-2">
-                <h1 class="mb-0 site-logo m-0 p-0"><a href="#" class="mb-0">Warehouse</a></h1>
+<header class="main_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> WAREHOUSE </a>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                            id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                <a class="nav-link" href="{{route('houses.list')}}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="category.html"> Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                @if(Session::get('user'))
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                                        {{Session::get('user')->name}}
+                                    </a>
+                                    <div style="margin-left: 30px " class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a style="text-align: center" class="dropdown-item" href="single-blog.html">Edit Profile</a>
+                                    <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                    </div>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{route('login')}}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('register')}}">Register</a>
+                                </li>
+                                @endif
+                            </ul>
+                        </div>
+                        <div style="margin-top: 10px" class="header_social_icon d-none d-lg-block">
+                            <ul>
+                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-google fa-lg" aria-hidden="true"></i></a></li>
+                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a></li>
+                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-skype fa-lg" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
-            <div class="col-12 col-md-10 d-none d-xl-block">
-                <nav class="site-navigation position-relative text-right" role="navigation">
-                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li><a href="{{route('houses.list')}}" class="nav-link">Home</a></li>
-                        <li><a href="{{route('houses.postForm')}}" >Đăng bài</a></li>
-                        <li><a href="#agents-section" class="nav-link">Agents</a></li>
-                        <li><a href="#about-section" class="nav-link">About</a></li>
-                        @if(Session::get('user'))
-
-                            <li><a href="" class="nav-link">{{Session::get('user')->name}}</a>
-                            </li>
-
-                        @else
-                            <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
-                            <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
-                        @endif
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#"
-                                                                        class="site-menu-toggle js-menu-toggle text-white float-right"><span
-                        class="icon-menu h3"></span></a></div>
         </div>
-    </div>
-</header>
-
+    </header>
 @yield('content')
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
@@ -106,6 +119,7 @@
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
 <script src="{{asset('js/jquery.sticky.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/ajax-city.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

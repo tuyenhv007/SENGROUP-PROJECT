@@ -32,7 +32,7 @@
                         <p class="mb-1">{{$house->rooms}}.</p><br>
                         <p class="mb-1">{{$house->desc}}.</p>
                         <div class="pt-2">
-                            <a href="#" class="btn btn-primary">Đặt Thuê</a>
+                            <a href="{{route('houses.viewBookHouse',$house->id)}}" class="btn btn-primary">Đặt Thuê</a>
                             <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                         </div>
                     </div>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Bill;
 use App\City;
 use App\District;
 use App\House;
+use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
@@ -30,12 +32,13 @@ class HouseController extends Controller
         $cities = City::all();
         return view('houses.post-form', compact('cities'));
     }
-    public function postHouse(Request $request)
+
+    public function postHouse(ValidatePostHouse $request)
     {
         $house = new House();
         $house->name = $request->name;
         $house->type = $request->type;
-        $house->rooms = $request->rooms;
+        $house->roooms = $request->rooms;
         $house->desc = $request->desc;
         $house->price = $request->price;
         $house->user_id = Session::get('user')->id;
@@ -82,12 +85,26 @@ class HouseController extends Controller
                 echo "Falied to upload. ";
             }
         }
-
     }
 
-    public function viewBookHouse()
+    public function viewBookHouse($id)
     {
+        $house = House::findOrFail($id);
+        return view('houses.book-house', compact('house'));
+    }
 
+    public function bookHouse(Request $request, $id)
+    {
+        $house = House::findOrFail($id);
+        $bill = new Bill();
+        $bill->checkIn = $request->dateIn;
+        $bill->checkOut = $request->dateOut;
+        $bill->status = 0;
+        $bill->total = $house->price;
+        $bill->house_id = $house->id;
+        $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
+        $bill->save();
+        return back();
     }
 
 }
