@@ -19,8 +19,8 @@
                     <div class="col-lg-7">
                         <div class="owl-carousel slide-one-item with-dots">
                             @foreach($house->images as $image)
-                                <div><img src="{{asset('storage/'.$image->image)}}" class="img-fluid"
-                                          style="width: 100%;height: 700px"></div>
+                                <span id="zoom"><img src="{{asset('storage/'.$image->image)}}" class="img-fluid"
+                                                     style="width: 100%;height: 700px"></span>
                             @endforeach
                         </div>
                     </div>
@@ -30,10 +30,11 @@
                             <h5>{{$house->addresses[0]->road}},
                                 {{$house->addresses[0]->district}},
                                 {{$house->addresses[0]->city}}</h5>
-                            <p class="mb-1">{{$house->rooms}}.</p><br>
+                            <p class="mb-1">Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
                             <p class="mb-1">{{$house->desc}}.</p>
                             <div class="pt-2">
-                                <a href="{{route('houses.viewBookHouse',$house->id)}}" class="btn btn-primary">Đặt
+                                <a href="{{route('houses.viewBookHouse',$house->id)}}"
+                                   class="btn btn-primary {{($house->user->name)===(\Illuminate\Support\Facades\Session::get('user')->name) ? 'd-none' : 'd-inline'}}">Đặt
                                     Thuê</a>
                                 <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                             </div>

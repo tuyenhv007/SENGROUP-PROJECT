@@ -52,10 +52,37 @@
             </div>
         </div>
     </div>
-    <div class="pb-1 pt-5">
-        <div class="container">
-            <div>
-
+    <div class="container pt-5">
+        <div class="card">
+            <div class="card-body">
+                <form action="#" method="post" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-5">
+                                    <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-2">
+                                    <input type="text" class="form-control search-slt" placeholder="Enter Drop City">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-2">
+                                    <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                        <option>Select Vehicle</option>
+                                        <option>Example one</option>
+                                        <option>Example one</option>
+                                        <option>Example one</option>
+                                        <option>Example one</option>
+                                        <option>Example one</option>
+                                        <option>Example one</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 p-0 ml-4">
+                                    <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
