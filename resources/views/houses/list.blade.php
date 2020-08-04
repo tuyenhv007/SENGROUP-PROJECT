@@ -84,44 +84,44 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
                                         <select class="form-control" name="district" id="district">
-
+                                            <option value="">Quận/Huyện:</option>
 
                                         </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
                                         <select class="form-control" name="road" id="road">
-
+                                            <option value="">Xã/Phường:</option>
 
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row pt-1">
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
-                                        <input type="text" class="form-control search-slt"
-                                               placeholder="Enter Pickup City">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <input type="text" class="form-control search-slt"
-                                               placeholder="Enter Drop City">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                            <option>Select Vehicle</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="row pt-1">--}}
+{{--                            <div class="col-lg-12">--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">--}}
+{{--                                        <input type="text" class="form-control search-slt"--}}
+{{--                                               placeholder="Enter Pickup City">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">--}}
+{{--                                        <input type="text" class="form-control search-slt"--}}
+{{--                                               placeholder="Enter Drop City">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">--}}
+{{--                                        <select class="form-control search-slt" id="exampleFormControlSelect1">--}}
+{{--                                            <option>Select Vehicle</option>--}}
+{{--                                            <option>Example one</option>--}}
+{{--                                            <option>Example one</option>--}}
+{{--                                            <option>Example one</option>--}}
+{{--                                            <option>Example one</option>--}}
+{{--                                            <option>Example one</option>--}}
+{{--                                            <option>Example one</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </form>
             </div>
