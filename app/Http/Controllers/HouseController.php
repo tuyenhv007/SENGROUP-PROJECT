@@ -116,13 +116,26 @@ class HouseController extends Controller
     public function search(Request $request)
     {
         $city_id = $request->city;
-        $city = City::find($city_id);
-        $district_id = $request->district;
-        $district = District::find($district_id);
-        $road_id = $request->road;
-        $road = Road::find($road_id);
-        $addresses = Address::where('city', "$city->name")->where('district', "$district->name")->where('road', "$road->name")->get();
+        $city = City::findOrFail($city_id);
+        if ($request->district) {
+            $district_id = $request->district;
+            $district = District::findOrFail($district_id);
+            $disName=$district->name;
+        } else {
+            $disName=null;
+        }
+        if ($request->road) {
+            $road_id = $request->road;
+            $road = Road::findOrFail($road_id);
+            $roadName=$road->name;
+        } else {
+            $roadName = null;
 
+        }
+        $addresses = Address::where('city', "$city->name")->get();
+        if ($disName){
+            $addresses1 = $addresses::where('district',$disName)->get();
+        }
         dd($addresses);
     }
 
