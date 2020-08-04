@@ -62,7 +62,7 @@
                                 <a href="{{route('houses.show',$house->id)}}" class="d-inline-block mb-4"><img
                                         src="{{asset("storage/".$house->images[0]->image)}}"
                                         alt="FImageo"
-                                        class="img-fluid" style="height: 500px;width: 300px;margin: auto"></a>
+                                        class="img-fluid" style="height: 400px;width: 300px;margin: auto"></a>
                                 <div class="ftco-media-details">
                                     <h3>{{$house->name}}</h3>
                                     <p>{{$house->addresses[0]->road}},

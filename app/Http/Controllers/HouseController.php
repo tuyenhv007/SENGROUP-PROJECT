@@ -56,7 +56,7 @@ class HouseController extends Controller
         $address->house_id = $house->id;
         $address->save();
         if ($request->hasFile('photos')) {
-            $allowedfileExtension = ['jpg', 'png', 'jpeg', 'gif'];
+            $allowedfileExtension = ['jpg', 'png', 'jpeg'];
             $files = $request->file('photos');
             // flag xem có thực hiện lưu DB không. Mặc định là có
             $exe_flg = true;
