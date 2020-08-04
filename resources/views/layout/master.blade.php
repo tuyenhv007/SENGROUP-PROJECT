@@ -67,7 +67,7 @@
                                 <a style="font-family: inherit" class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
                             </li>
                             <li class="nav-item">
-                                <a style="font-family: inherit" class="nav-link" href="#"> Category</a>
+                                <a style="font-family: inherit" class="nav-link" href="#a"> Category</a>
                             </li>
                             <li class="nav-item">
                                 <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
