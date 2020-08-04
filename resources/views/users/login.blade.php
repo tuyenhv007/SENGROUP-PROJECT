@@ -39,7 +39,7 @@
 				</span>
             <form action="{{ route('user.login') }}" method="POST" class="login100-form validate-form p-b-33 p-t-5">
                 @csrf
-                @if($errors->all() || Session::get('mess'))
+                @if( Session::get('mess'))
                     <div class="alert alert-danger" role="alert">
                         Sai tên đăng nhập hoặc mật khẩu!
                         <?php
@@ -47,15 +47,25 @@
                         ?>
                     </div>
                 @endif
-{{--                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>--}}
+                @if( $errors->all())
+                    <div class="alert alert-danger" role="alert">
+                        Lỗi đăng nhập!!!
+                    </div>
+                @endif
                 <div class="wrap-input100 validate-input" data-validate = "Enter email">
                     <input class="input100" type="text" name="email" placeholder="Email">
                     <span class="{{$errors->first('email') ? 'text-danger': ''}}"></span>
+                    @if($errors->first('email'))
+                        <p style="margin-left: 45px" class="text-danger">{{ $errors->first('email') }}</p>
+                    @endif
                 </div>
-{{--                <div class="ml-3 mt-3"><h6>Nhập mật khẩu:</h6></div>--}}
+
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
                     <input class="input100" type="password" name="password" placeholder="Password">
                     <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
+                    @if($errors->first('password'))
+                        <p style="margin-left: 45px" class="text-danger">{{ $errors->first('password') }}</p>
+                    @endif
                 </div>
                 <div class="container-login100-form-btn m-t-32">
                     <input value="Login" class="login100-form-btn mr-1" type="submit">
