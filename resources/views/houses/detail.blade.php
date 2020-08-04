@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="mb-5">
                                         <div class="mt-5">
-                                            <img src="{{asset('images/person_1.jpg')}}" alt="Image"
+                                            <img src="{{asset('storage/images/'.$house->user->image)}}" alt="Image"
                                                  class="w-25 mb-3 rounded-circle">
                                             <h5 class="text-black">Người Đăng: {{$house->user->name}}</h5>
                                             <p class="text-black"> Phone: {{$house->user->phone}}</p>
