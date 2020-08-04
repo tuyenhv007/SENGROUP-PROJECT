@@ -97,7 +97,7 @@
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <input type="submit" value="Đăng ký" class="btn btn-primary btn-md text-white">
-                                <button class="btn btn-secondary" onclick="window.history.go(-1); return false">Cancel</button>
+                                <a href=""></a>
 
                             </div>
                         </div>

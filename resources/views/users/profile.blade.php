@@ -134,7 +134,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-6">
                                                         <input class="btn btn-primary" type="submit" value="Cập nhập" />
-                                                        <input class="btn btn-secondary" type="submit" value="Trở lại" />
+                                                        <a class="btn btn-secondary" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Trở lại</a>
                                                     </div>
                                                 </div>
                                             </div>
