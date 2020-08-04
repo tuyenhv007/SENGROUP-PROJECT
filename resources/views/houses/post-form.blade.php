@@ -148,7 +148,7 @@
                         <select class="form-control city-up" name="city" id="city">
                             <option value="">---</option>
                             @foreach($cities as $city)
-                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                <option value="{{ $city->id }}">{{ $city->name }} </option>
                             @endforeach
                         </select>
                     </div>
@@ -180,7 +180,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
 
-                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" ></textarea>
+                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" >{{ old('sn') }}</textarea>
                     </div>
                     @if($errors->first('sn'))
                         <p class="text-danger">{{ $errors->first('sn') }}</p>
@@ -188,7 +188,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('desc') ? 'text-danger' : '' }}">Mô tả :</label>
 
-                        <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }}></textarea>
+                        <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }}>{{ old('desc') }}</textarea>
 
                     </div>
                     @if($errors->first('desc'))
