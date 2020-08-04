@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Session;
 class HouseController extends Controller
 {
     public function index()
-    {<<<<<<< search
+    {
         $houses = House::all();
         $cities = City::all();
         $districts = District::all();
