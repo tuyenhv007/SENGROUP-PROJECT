@@ -44,7 +44,6 @@
                             <div class="col-md-12">
                                 <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
                                 <input type="password" name="password" id="password"
-                                       class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}">
                             </div>
                             @if($errors->first('password'))
                                 <p class="text-danger">{{ $errors->first('password') }}</p>
@@ -90,12 +89,11 @@
                                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false">Cancel
                                 </button>
                             </div>
+
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{{asset('js/jquery.register.js')}}" type="text/javascript"></script>
-
 @endsection

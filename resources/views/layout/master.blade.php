@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <title>Warehouse &mdash; Website Template by Colorlib</title>
+    @toastr_css
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/ajax-city.js')}}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,6 +37,8 @@
     <link rel="stylesheet" href="{{asset('css/themify-icons.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="site-wrap">
@@ -55,12 +56,12 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> WAREHOUSE </a>
+                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> SENGROUP </a>
                         <div class="collapse navbar-collapse main-menu-item justify-content-center"
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                <a class="nav-link" href="{{route('houses.list')}}">Home</a>
+                                <a class="nav-link" href="{{route('houses.list')}}">Trang chủ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
@@ -84,10 +85,10 @@
                                 </li>
                                 @else
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{route('login')}}">Login</a>
+                                <a class="nav-link" href="{{route('login')}}">Đăng nhập</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('register')}}">Register</a>
+                                    <a class="nav-link" href="{{route('register')}}">Đăng ký</a>
                                 </li>
                                 @endif
                             </ul>
@@ -130,4 +131,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
+@jquery
+@toastr_js
+@toastr_render
 </html>

@@ -26,11 +26,13 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/util-login.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main-login.css')}}">
     <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url({{asset('images/bg-01.jpg')}});">
         <div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
 					Account Login
@@ -55,6 +57,9 @@
                 <div class="container-login100-form-btn m-t-32">
                     <input value="Login" class="login100-form-btn mr-1" type="submit">
                     <a class="login100-form-btn ml-1" href="{{route('register')}}">Register</a>
+                </div>
+                <div class="container-login100-form-btn m-t-32" >
+                    <a href="{{route('houses.list')}}"><span class="glyphicon glyphicon-home">Home</span></a>
                 </div>
             </form>
         </div>

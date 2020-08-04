@@ -7,7 +7,9 @@ use App\Bill;
 use App\City;
 use App\District;
 use App\House;
+use App\Http\Requests\ValidateFormBookHouse;
 use App\Http\Requests\ValidatePostHouse;
+
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
@@ -38,7 +40,7 @@ class HouseController extends Controller
         $house = new House();
         $house->name = $request->name;
         $house->type = $request->type;
-        $house->roooms = $request->rooms;
+        $house->rooms = $request->rooms;
         $house->desc = $request->desc;
         $house->price = $request->price;
         $house->user_id = Session::get('user')->id;
@@ -56,21 +58,17 @@ class HouseController extends Controller
         $address->house_id = $house->id;
         $address->save();
         if ($request->hasFile('photos')) {
-            $allowedfileExtension = ['jpg', 'png', 'jpeg', 'gif'];
+            $allowedfileExtension = ['jpg', 'png', 'jpeg'];
             $files = $request->file('photos');
-            // flag xem có thực hiện lưu DB không. Mặc định là có
             $exe_flg = true;
-            // kiểm tra tất cả các files xem có đuôi mở rộng đúng không
             foreach ($files as $file) {
                 $extension = $file->getClientOriginalExtension();
                 $check = in_array($extension, $allowedfileExtension);
                 if (!$check) {
-                    // nếu có file nào không đúng đuôi mở rộng thì đổi flag thành false
                     $exe_flg = false;
                     break;
                 }
             }
-            // nếu không có file nào vi phạm validate thì tiến hành lưu DB
             if ($exe_flg) {
                 foreach ($request->photos as $photo) {
                     $filename = $photo->store('images', 'public');
@@ -79,10 +77,10 @@ class HouseController extends Controller
                     $image->house_id = $house->id;
                     $image->save();
                 }
-                echo "Upload successfully";
+                toastr()->success('Đăng bài thành công !', 'Thông báo');
                 return redirect()->route('houses.list');
             } else {
-                echo "Falied to upload. ";
+                toastr()->error('Đăng bài thất bại, bạn vui lòng kiểm tra lạ i!');
             }
         }
     }
@@ -93,7 +91,7 @@ class HouseController extends Controller
         return view('houses.book-house', compact('house'));
     }
 
-    public function bookHouse(Request $request, $id)
+    public function bookHouse(ValidateFormBookHouse $request, $id)
     {
         $house = House::findOrFail($id);
         $bill = new Bill();
