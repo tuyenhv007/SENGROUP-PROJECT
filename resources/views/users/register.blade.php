@@ -12,8 +12,8 @@
                 <form action="{{ route('user.register') }}" method="POST" class="p-5 bg-white">
                     @csrf
                     @if($errors->all())
-                        <div class="alert alert-danger" role="alert">
-                            Có vấn đề khi tạo tài khoản người dùng.
+                        <div id="msg_div" class="alert alert-danger d-none" role="alert">
+                            <span id="res_message"></span>
                         </div>
                     @endif
                     <h2 class="h4
@@ -81,6 +81,7 @@
                         <div class="col-md-12">
                             <input type="submit" value="Đăng ký" class="btn btn-primary btn-md text-white">
                             <button class="btn btn-secondary" onclick="window.history.go(-1); return false">Cancel</button>
+
                         </div>
                     </div>
                 </form>
@@ -88,6 +89,4 @@
         </div>
     </div>
 </div>
-<script src="{{asset('js/jquery.register.js')}}" type="text/javascript"></script>
-
 @endsection
