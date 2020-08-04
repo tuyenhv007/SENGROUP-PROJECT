@@ -127,7 +127,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('name') ? 'text-danger' : '' }}">Tiêu đề:</label>
 
-                        <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" value="{{old('name')}}">
+                        <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" value="{{old('name')}}" required>
 
 
                     </div>
@@ -137,7 +137,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('type') ? 'text-danger' : '' }}">Kiểu nhà:</label>
 
-                        <input type="text" name="type" autofocus class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}" value="{{old('type')}}">
+                        <input type="text" name="type" autofocus class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}" value="{{old('type')}}" required>
 
                     </div>
                     @if($errors->first('type'))
@@ -145,7 +145,7 @@
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('city') ? 'text-danger' : '' }}">Chọn tỉnh/thành phố:</label>
-                        <select class="form-control city-up" name="city" id="city">
+                        <select class="form-control city-up" name="city" id="city" required>
                             <option value="">---</option>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}">{{ $city->name }} </option>
@@ -158,7 +158,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('district') ? 'text-danger' : '' }}">Chọn quận huyện:</label>
 
-                        <select class="form-control" name="district" id="district">
+                        <select class="form-control" name="district" id="district" required>
 
 
                         </select>
@@ -169,7 +169,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('road') ? 'text-danger' : '' }}">Chọn xã phường:</label>
 
-                        <select class="form-control" name="road" id="road">
+                        <select class="form-control" name="road" id="road" required>
 
 
                         </select>
@@ -180,7 +180,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
 
-                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" >{{ old('sn') }}</textarea>
+                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" required>{{ old('sn') }}</textarea>
                     </div>
                     @if($errors->first('sn'))
                         <p class="text-danger">{{ $errors->first('sn') }}</p>
@@ -188,7 +188,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('desc') ? 'text-danger' : '' }}">Mô tả :</label>
 
-                        <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }}>{{ old('desc') }}</textarea>
+                        <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }} required>{{ old('desc') }}</textarea>
 
                     </div>
                     @if($errors->first('desc'))
@@ -197,7 +197,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('rooms') ? 'text-danger' : '' }}">Số phòng:</label>
 
-                        <input type="text" name="rooms" autofocus class="form-control {{ $errors->first('rooms') ? 'is-invalid' : '' }}" value="{{ old('rooms') }}">
+                        <input type="text" name="rooms" autofocus class="form-control {{ $errors->first('rooms') ? 'is-invalid' : '' }}" value="{{ old('rooms') }}" required>
 
                     </div>
                     @if($errors->first('rooms'))
@@ -206,7 +206,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê:</label>
 
-                        <input type="text" name="price" autofocus class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}">
+                        <input type="text" name="price" autofocus class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}" required>
 
                     </div>
                     @if($errors->first('price'))
@@ -221,7 +221,7 @@
                     <br>
 
                     <input type="file" id="imageUpload" class="form-control selectImage {{ $errors->first('photos[]') ? 'is-invalid' : '' }}" name="photos[]"
-                           multiple />
+                           multiple required/>
                     <br>
                     <div id="result"></div>
                     @if($errors->first('photos[]'))
