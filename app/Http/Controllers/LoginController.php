@@ -34,15 +34,13 @@ class LoginController extends Controller
         ])->first();
         if ($user) {
             $login = $user->count();
-            dd($login);
             if ($login > 0) {
                 Session::put('user', $user);
                 return redirect()->route('houses.list');
             }
-            if ($login === null) {
-                Session::put('error', 'Sai tên đăng nhập hoặc mật khẩu!');
-                return redirect()->route('login');
-            }
+        } else {
+            Session::put('mess', 'Sai tên đăng nhập hoặc mật khẩu!');
+            return redirect()->route('login');
         }
     }
 
@@ -74,7 +72,7 @@ class LoginController extends Controller
             $user->image = $newFileName;
             $user->save();
         }
-        return redirect()->route('');
+        return redirect()->route('login');
 
     }
 }
