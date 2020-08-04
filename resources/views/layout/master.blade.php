@@ -55,7 +55,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href=""> WAREHOUSE </a>
+                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> WAREHOUSE </a>
                         <div class="collapse navbar-collapse main-menu-item justify-content-center"
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
