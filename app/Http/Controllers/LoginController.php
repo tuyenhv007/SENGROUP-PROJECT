@@ -58,15 +58,21 @@ class LoginController extends Controller
         $phone = $request->phone;
         $role = $request->role;
         $address = $request->address;
-        $user = new User();
-        $user->name = $name;
-        $user->email = $email;
-        $user->password = $password;
-        $user->phone = $phone;
-        $user->address = $address;
-        $user->role = $role;
-        $user->save();
-        toastr()->success('Đăng kí thành công !', 'Thông báo');
-        return redirect()->route('user.login');
+        if ($request->hasFile('avatar')) {
+            $cover = $request->file('avatar');
+            $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
+            $cover->storeAs('public/images', $newFileName);
+            $user = new User();
+            $user->name = $name;
+            $user->email = $email;
+            $user->password = $password;
+            $user->phone = $phone;
+            $user->address = $address;
+            $user->role = $role;
+            $user->image = $newFileName;
+            $user->save();
+        }
+        return redirect()->route('');
+
     }
 }
