@@ -61,10 +61,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="row">
-{{--                                    <div class="col-lg-6 col-md-6 col-sm-12 p-0 ml-4">--}}
-{{--                                        <input type="text" class="form-control search-slt"--}}
-{{--                                               placeholder="Enter Pickup City">--}}
-{{--                                    </div>--}}
+                                    <div class="col-lg-6 col-md-6 col-sm-12 p-0 ml-4">
+                                        <input type="text" class="form-control search-slt"
+                                               placeholder="Enter Pickup City">
+                                    </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 p-0 ml-4">
                                         <button type="submit" class="btn btn-danger wrn-btn">Search</button>
                                     </div>
