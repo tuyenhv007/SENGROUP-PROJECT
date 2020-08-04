@@ -47,7 +47,7 @@ class LoginController extends Controller
     public function logout()
     {
         Session::put('user', null);
-        return back();
+        return redirect()->route('houses.list');
     }
 
     public function register(ValidateRegister $request)

@@ -35,12 +35,14 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/liner_icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{assert('css/profile.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
-
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+@include('sweetalert::alert')
 <div class="site-wrap">
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
@@ -78,9 +80,9 @@
                                         <i class="fa fa-user-o" aria-hidden="true"></i>
                                         {{Session::get('user')->name}}
                                     </a>
-                                    <div style="margin-left: 30px " class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a style="text-align: center" class="dropdown-item" href="single-blog.html">Edit Profile</a>
-                                    <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                    <div style="margin-left: 30px;background-color: #171a1d " class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a style="text-align: center; color: wheat" class="dropdown-item" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin</a>
+                                    <a style="text-align: center;color: wheat" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                                     </div>
                                 </li>
                                 @else
@@ -130,8 +132,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+@include('sweetalert::alert')
 </body>
-@jquery
-@toastr_js
-@toastr_render
 </html>
