@@ -53,6 +53,7 @@
                                 <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
                                 <input type="password" name="password" id="password"
                                        class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus>
+
                             </div>
                             @if($errors->first('password'))
                                 <p class="text-danger">{{ $errors->first('password') }}</p>

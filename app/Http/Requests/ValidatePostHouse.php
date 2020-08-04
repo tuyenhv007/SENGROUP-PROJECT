@@ -30,7 +30,7 @@ class ValidatePostHouse extends FormRequest
             'district' => 'required',
             'road' => 'required',
             'sn' => 'required|max:100',
-            'desc' => 'required|max:500',
+            'desc' => 'required|max:2000',
             'rooms' => 'required|max:4',
             'price' => 'required|max:15',
             'photos[]' =>'
