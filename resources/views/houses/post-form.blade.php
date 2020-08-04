@@ -127,7 +127,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('name') ? 'text-danger' : '' }}">Tiêu đề:</label>
 
-                        <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}">
+                        <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" value="{{old('name')}}">
 
 
                     </div>
@@ -137,7 +137,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('type') ? 'text-danger' : '' }}">Kiểu nhà:</label>
 
-                        <input type="text" name="type" autofocus class="form-control" {{ $errors->first('type') ? 'is-invalid' : '' }}>
+                        <input type="text" name="type" autofocus class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}" value="{{old('type')}}">
 
                     </div>
                     @if($errors->first('type'))
@@ -180,7 +180,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
 
-                        <textarea name="sn" class="form-control" autofocus rows="3" {{ $errors->first('sn') ? 'is-invalid' : '' }}></textarea>
+                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" ></textarea>
                     </div>
                     @if($errors->first('sn'))
                         <p class="text-danger">{{ $errors->first('sn') }}</p>
@@ -197,7 +197,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('rooms') ? 'text-danger' : '' }}">Số phòng:</label>
 
-                        <input type="text" name="rooms" autofocus class="form-control" {{ $errors->first('rooms') ? 'is-invalid' : '' }}>
+                        <input type="text" name="rooms" autofocus class="form-control {{ $errors->first('rooms') ? 'is-invalid' : '' }}" value="{{ old('rooms') }}">
 
                     </div>
                     @if($errors->first('rooms'))
@@ -206,7 +206,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê:</label>
 
-                        <input type="text" name="price" autofocus class="form-control" {{ $errors->first('price') ? 'is-invalid' : '' }}>
+                        <input type="text" name="price" autofocus class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}">
 
                     </div>
                     @if($errors->first('price'))
@@ -220,8 +220,8 @@
                         (Có thể tải lên nhiều ảnh):</label>
                     <br>
 
-                    <input type="file" id="imageUpload" class="form-control selectImage" name="photos[]"
-                           multiple {{ $errors->first('photos[]') ? 'is-invalid' : '' }}/>
+                    <input type="file" id="imageUpload" class="form-control selectImage {{ $errors->first('photos[]') ? 'is-invalid' : '' }}" name="photos[]"
+                           multiple />
                     <br>
                     <div id="result"></div>
                     @if($errors->first('photos[]'))

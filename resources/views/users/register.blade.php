@@ -43,7 +43,7 @@
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
-                                <input type="password" name="password" id="password"
+                                <input type="password" name="password" id="password">
                             </div>
                             @if($errors->first('password'))
                                 <p class="text-danger">{{ $errors->first('password') }}</p>
