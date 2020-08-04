@@ -77,10 +77,11 @@ class HouseController extends Controller
                     $image->house_id = $house->id;
                     $image->save();
                 }
-                toastr()->success('Đăng bài thành công !', 'Thông báo');
+                alert('Đăng bài thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
             } else {
-                toastr()->error('Đăng bài thất bại, bạn vui lòng kiểm tra lạ i!');
+                alert('Đăng bài thất bại', 'Successfully', 'success')->autoClose(1500);
+                return back();
             }
         }
     }

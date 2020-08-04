@@ -43,7 +43,6 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
     }
-
     public function logout()
     {
         Session::put('user', null);
