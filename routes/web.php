@@ -22,10 +22,6 @@ use Illuminate\Support\Facades\Route;
 //login-register
 
 
-Route::get('/', function () {
-    return view('homes/home');
-})->name('home');
-
 
 Route::get('/login', 'LoginController@showFormLogin')->name('login');
 Route::get('/register','LoginController@showFormRegister')->name('register');

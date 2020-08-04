@@ -18,42 +18,43 @@
                     @endif
                     <h2 class="h4
                          text-black mb-5">Thông tin</h2>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name</label>
-                            <input type="text" name="name" id="name"
-                                   class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}">
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name</label>
+                                <input type="text" name="name" id="name"
+                                       class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}" autofocus>
+                            </div>
+                            @if($errors->first('name'))
+                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                            @endif
                         </div>
-                        @if($errors->first('name'))
-                            <p class="text-danger">{{ $errors->first('name') }}</p>
-                        @endif
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email</label>
-                            <input type="email" id="email" name="email"
-                                   class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}"
-                                   value="{{old('email')}}">
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email</label>
+                                <input type="email" id="email" name="email"
+                                       class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}"
+                                       value="{{old('email')}}" autofocus>
+                            </div>
+                            @if($errors->first('email'))
+                                <p class="text-danger">{{ $errors->first('email') }}</p>
+                            @endif
                         </div>
-                        @if($errors->first('email'))
-                            <p class="text-danger">{{ $errors->first('email') }}</p>
-                        @endif
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
-                            <input type="password" name="password" id="password"
-                                   class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}">
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
+                                <input type="password" name="password" id="password"
+                                       class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus>
+                            </div>
+                            @if($errors->first('password'))
+                                <p class="text-danger">{{ $errors->first('password') }}</p>
+                            @endif
                         </div>
-                        @if($errors->first('password'))
-                            <p class="text-danger">{{ $errors->first('password') }}</p>
-                        @endif
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại</label>
-                            <input type="text" name="phone" id="text"
-                                   class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}">
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại</label>
+                                <input type="text" name="phone" id="text"
+                                       class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}" autofocus>
+                         
                         </div>
                         @if($errors->first('phone'))
                             <p class="text-danger">{{ $errors->first('phone') }}</p>
@@ -78,8 +79,9 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input id="send_form" type="submit" value="Đăng ký" class="btn btn-primary btn-md text-white">
-                            <button  class="btn btn-secondary">Cancel</button>
+                            <input type="submit" value="Đăng ký" class="btn btn-primary btn-md text-white">
+                            <button class="btn btn-secondary" onclick="window.history.go(-1); return false">Cancel</button>
+
                         </div>
                     </div>
                 </form>
