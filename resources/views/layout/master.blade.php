@@ -35,11 +35,15 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/liner_icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{assert('css/profile.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+@include('sweetalert::alert')
 <div class="site-wrap">
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
@@ -51,61 +55,128 @@
     </div>
 </div>
 <header class="main_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> SENGROUP </a>
-                        <div class="collapse navbar-collapse main-menu-item justify-content-center"
-                            id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                <a class="nav-link" href="{{route('houses.list')}}">Trang chủ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="category.html"> Category</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
-                                @if(Session::get('user'))
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}">
+                        SENGROUP </a>
+                    <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                         id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a style="font-family: inherit" class="nav-link" href="{{route('houses.list')}}">Trang chủ</a>
+                            </li>
+                            <li style="font-family: inherit" class="nav-item">
+                                <a style="font-family: inherit" class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-family: inherit" class="nav-link" href="#a"> Category</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
+                            </li>
+                            @if(Session::get('user'))
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a style="font-family: inherit" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-user-o" aria-hidden="true"></i>
                                         {{Session::get('user')->name}}
                                     </a>
-                                    <div style="margin-left: 30px " class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a style="text-align: center" class="dropdown-item" href="single-blog.html">Edit Profile</a>
-                                    <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                    <div style="margin-left: 30px " class="dropdown-menu"
+                                         aria-labelledby="navbarDropdown">
+                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
+                                        </a>
+                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                                     </div>
                                 </li>
-                                @else
+                            @else
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{route('login')}}">Đăng nhập</a>
+                                    <a style="font-family: inherit" class="nav-link" href="{{route('login')}}">Đăng nhập</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('register')}}">Đăng ký</a>
+                                    <a style="font-family: inherit" class="nav-link" href="{{route('register')}}">Đăng ký</a>
                                 </li>
-                                @endif
-                            </ul>
-                        </div>
-                        <div style="margin-top: 10px" class="header_social_icon d-none d-lg-block">
-                            <ul>
-                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-google fa-lg" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a></li>
-                                <li><a href="#" class="d-none d-lg-block"><i class="fa fa-skype fa-lg" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
+                            @endif
+                        </ul>
+                    </div>
+                    <div style="margin-top: 10px" class="header_social_icon d-none d-lg-block">
+                        <ul>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-facebook fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-google fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-instagram fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-skype fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 @yield('content')
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 style="font-family: inherit" class="footer-heading mb-4">Về chúng tôi</h2>
+                        <p style="font-family: inherit">Đội ngũ phát triển luôn luôn lao động hết mình để đem lại giá trị cuộc sống của khách hàng</p>
+                    </div>
+                    <div class="col-md-3 mx-auto">
+                        <h2 style="font-family: inherit" class="footer-heading mb-4">Chuyển nhanh</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="{{route('register')}}">Đăng ký</a></li>
+                            <li><a href="{{route('login')}}">Đăng nhập</a></li>
+                            <li><a href="{{route('houses.postForm')}}">Đăng bài</a></li>
+{{--                            <li><a href="#"></a></li>--}}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-4">
+                    <h2 style="font-family: inherit" class="footer-heading mb-4">Đăng ký nhận thông tin</h2>
+                    <form action="#" method="post" class="footer-subscribe">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-black" type="button" id="button-addon2">Gửi</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="">
+                    <h2 style="font-family: inherit" class="footer-heading mb-4">Theo dõi chúng tôi</h2>
+                    <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                    <a href="#" class="pl-3 pr-3"><span class="icon-google"></span></a>
+                    <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                    <a href="#" class="pl-3 pr-3"><span class="icon-skype"></span></a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                    <p class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Đã đăng ký bản quyền | Thực hiện bởi <a href="{{route('houses.list')}}" target="_blank" >SenGroup </a><i class="icon-heart text-danger" aria-hidden="true"></i>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
@@ -129,8 +200,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+@include('sweetalert::alert')
 </body>
-@jquery
-@toastr_js
-@toastr_render
 </html>

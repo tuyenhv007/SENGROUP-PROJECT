@@ -44,11 +44,10 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
     }
-
     public function logout()
     {
         Session::put('user', null);
-        return back();
+        return redirect()->route('houses.list');
     }
 
     public function register(ValidateRegister $request)

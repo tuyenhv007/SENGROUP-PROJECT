@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Session;
 class HouseController extends Controller
 {
     public function index()
-    {
+    {<<<<<<< search
         $houses = House::all();
         $cities = City::all();
         $districts = District::all();
@@ -81,10 +81,11 @@ class HouseController extends Controller
                     $image->house_id = $house->id;
                     $image->save();
                 }
-                toastr()->success('Đăng bài thành công !', 'Thông báo');
+                alert('Đăng bài thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
             } else {
-                toastr()->error('Đăng bài thất bại, bạn vui lòng kiểm tra lạ i!');
+                alert('Đăng bài thất bại', 'Successfully', 'success')->autoClose(1500);
+                return back();
             }
         }
     }
@@ -137,5 +138,6 @@ class HouseController extends Controller
         $districts = District::all();
         $roads = Road::all();
         return view('houses.list', compact('houses', 'cities', 'districts', 'roads'));
+
     }
 }
