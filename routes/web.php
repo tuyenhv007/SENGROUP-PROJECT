@@ -21,6 +21,15 @@ Route::post('/login', 'LoginController@login')->name('user.login');
 Route::post('/register', 'LoginController@register')->name('user.register');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
+
+Route::prefix('user')->group(function (){
+    Route::get('/profile','UserController@showProfile')->name('user.show');
+    Route::post('/profile/edit/{id}','UserController@editProfile')->name('user.edit');
+    Route::post('/profile/update/avatar/{id}','UserController@updateAvatar')->name('user.edit.avatar');
+});
+
+
+
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
@@ -34,6 +43,8 @@ Route::prefix('houses')->group(function () {
         Route::post('/book-house/{id}', 'HouseController@bookHouse')->name('houses.bookHouse');
     });
 });
+
+
 
 
 

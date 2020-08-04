@@ -45,42 +45,44 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> WAREHOUSE </a>
+                    <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> SENGROUP </a>
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                          id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{route('houses.list')}}">Home</a>
+                                <a style="font-family: inherit" class="nav-link" href="{{route('houses.list')}}">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
+                                <a style="font-family: inherit" class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="category.html"> Category</a>
+                                <a style="font-family: inherit" class="nav-link" href="#"> Category</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
                             </li>
                             @if(Session::get('user'))
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    <a style="font-family: inherit" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-user-o" aria-hidden="true"></i>
                                         {{Session::get('user')->name}}
                                     </a>
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
-                                        <a style="text-align: center" class="dropdown-item" href="single-blog.html">Edit
-                                            Profile</a>
-                                        <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Logout</a>
+
+                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item"  href="{{route('user.show',['id'=>\Illuminate\Support\Facades\Session::get('user')->id])}}">
+
+                                            Thông tin</a>
+                                        <a style="font-family: inherit" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                                     </div>
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('login')}}">Login</a>
+                                    <a class="nav-link" href="{{route('login')}}">Đăng nhập</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('register')}}">Register</a>
+                                    <a class="nav-link" href="{{route('register')}}">Đăng ký</a>
                                 </li>
                             @endif
                         </ul>
@@ -113,7 +115,7 @@
 <div class="container pt-5">
     <div class="card">
         <div class="card-header">
-            <h4>Đăng bài cho thuê nhà</h4>
+            <h4 style="font-family: inherit">Đăng bài cho thuê nhà</h4>
         </div>
         <div class="card-body">
             <div class="form-group">
@@ -127,7 +129,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('name') ? 'text-danger' : '' }}">Tiêu đề:</label>
 
-                        <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" value="{{old('name')}}">
+                        <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" value="{{old('name')}}" required>
 
 
                     </div>
@@ -137,7 +139,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('type') ? 'text-danger' : '' }}">Kiểu nhà:</label>
 
-                        <input type="text" name="type" autofocus class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}" value="{{old('type')}}">
+                        <input type="text" name="type" autofocus class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}" value="{{old('type')}}" required>
 
                     </div>
                     @if($errors->first('type'))
@@ -145,7 +147,7 @@
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('city') ? 'text-danger' : '' }}">Chọn tỉnh/thành phố:</label>
-                        <select class="form-control city-up" name="city" id="city">
+                        <select class="form-control city-up" name="city" id="city" required>
                             <option value="">---</option>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}">{{ $city->name }} </option>
@@ -158,7 +160,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('district') ? 'text-danger' : '' }}">Chọn quận huyện:</label>
 
-                        <select class="form-control" name="district" id="district">
+                        <select class="form-control" name="district" id="district" required>
 
 
                         </select>
@@ -169,7 +171,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('road') ? 'text-danger' : '' }}">Chọn xã phường:</label>
 
-                        <select class="form-control" name="road" id="road">
+                        <select class="form-control" name="road" id="road" required>
 
 
                         </select>
@@ -180,7 +182,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
 
-                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" >{{ old('sn') }}</textarea>
+                        <textarea name="sn" class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}" autofocus rows="3" required>{{ old('sn') }}</textarea>
                     </div>
                     @if($errors->first('sn'))
                         <p class="text-danger">{{ $errors->first('sn') }}</p>
@@ -188,7 +190,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('desc') ? 'text-danger' : '' }}">Mô tả :</label>
 
-                        <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }}>{{ old('desc') }}</textarea>
+                        <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }} required>{{ old('desc') }}</textarea>
 
                     </div>
                     @if($errors->first('desc'))
@@ -197,7 +199,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('rooms') ? 'text-danger' : '' }}">Số phòng:</label>
 
-                        <input type="text" name="rooms" autofocus class="form-control {{ $errors->first('rooms') ? 'is-invalid' : '' }}" value="{{ old('rooms') }}">
+                        <input type="text" name="rooms" autofocus class="form-control {{ $errors->first('rooms') ? 'is-invalid' : '' }}" value="{{ old('rooms') }}" required>
 
                     </div>
                     @if($errors->first('rooms'))
@@ -206,7 +208,7 @@
                     <div class="form-group">
                         <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê:</label>
 
-                        <input type="text" name="price" autofocus class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}">
+                        <input type="text" name="price" autofocus class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}" required>
 
                     </div>
                     @if($errors->first('price'))
@@ -221,7 +223,7 @@
                     <br>
 
                     <input type="file" id="imageUpload" class="form-control selectImage {{ $errors->first('photos[]') ? 'is-invalid' : '' }}" name="photos[]"
-                           multiple />
+                           multiple required/>
                     <br>
                     <div id="result"></div>
                     @if($errors->first('photos[]'))
@@ -237,6 +239,65 @@
         </div>
     </div>
 </div>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 style="font-family: inherit" class="footer-heading mb-4">Về chúng tôi</h2>
+                        <p style="font-family: inherit">Đội ngũ phát triển luôn luôn lao động hết mình để đem lại giá trị cuộc sống của khách hàng</p>
+                    </div>
+                    <div class="col-md-3 mx-auto">
+                        <h2 style="font-family: inherit" class="footer-heading mb-4">Chuyển nhanh</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="{{route('register')}}">Đăng ký</a></li>
+                            <li><a href="{{route('login')}}">Đăng nhập</a></li>
+                            <li><a href="{{route('houses.postForm')}}">Đăng bài</a></li>
+                            {{--                            <li><a href="#"></a></li>--}}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-4">
+                    <h2 style="font-family: inherit" class="footer-heading mb-4">Đăng ký nhận thông tin</h2>
+                    <form action="#" method="post" class="footer-subscribe">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-black" type="button" id="button-addon2">Gửi</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="">
+                    <h2 style="font-family: inherit" class="footer-heading mb-4">Theo dõi chúng tôi</h2>
+                    <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                    <a href="#" class="pl-3 pr-3"><span class="icon-google"></span></a>
+                    <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                    <a href="#" class="pl-3 pr-3"><span class="icon-skype"></span></a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                    <p class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Đã đăng ký bản quyền | Thực hiện bởi <a href="{{route('houses.list')}}" target="_blank" >SenGroup </a><i class="icon-heart text-danger" aria-hidden="true"></i>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
