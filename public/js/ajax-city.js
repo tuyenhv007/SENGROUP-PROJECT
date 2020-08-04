@@ -20,7 +20,7 @@ $(document).ready(function () {
                 $("select[name='district']").children().remove();
                 $("select[name='district']").focus();
                 $("select[name='district']").append(
-                    "<option >" + "---" + "</option>"
+                    "<option >" + "Quận/Huyện" + "</option>"
                 );
                 $.each(result, function (key, value) {
                     $("select[name='district']").append(
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 $("select[name='road']").children().remove();
                 $("select[name='road']").focus();
                 $("select[name='road']").append(
-                    "<option >" + "---" + "</option>"
+                    "<option >" + "Xã/Phường" + "</option>"
                 );
                 $.each(result, function (key, value) {
                     $("select[name='road']").append(

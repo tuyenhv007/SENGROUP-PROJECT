@@ -55,7 +55,8 @@
     <div class="container pt-3">
         <div class="card">
             <div class="card-body">
-                <form action="#" method="post" novalidate="novalidate">
+                <form action="{{route('house.search')}}" method="post" novalidate="novalidate">
+                    @csrf
                     <div class="col ml-3">
                         <div class="row">
                             <div class="col-lg-12">
@@ -65,7 +66,7 @@
                                                placeholder="Enter Pickup City">
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 p-0 ml-4">
-                                        <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                                        <button type="submit" class="btn btn-danger wrn-btn">Search</button>
                                     </div>
                                 </div>
                             </div>
@@ -74,22 +75,23 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
-                                        <input type="text" class="form-control search-slt"
-                                               placeholder="Enter Pickup City">
+                                        <select class="form-control search-slt" id="city" name="city">
+                                            <option value="">Tỉnh/Thành Phố:</option>
+                                            @foreach($cities as $city)
+                                                <option value="{{ $city->id }}">{{ $city->name }} </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <input type="text" class="form-control search-slt"
-                                               placeholder="Enter Drop City">
+                                        <select class="form-control" name="district" id="district">
+
+
+                                        </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                            <option>Select Vehicle</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
+                                        <select class="form-control" name="road" id="road">
+
+
                                         </select>
                                     </div>
                                 </div>
