@@ -64,12 +64,15 @@
                             </li>
                             @if(Session::get('user'))
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-user-o" aria-hidden="true"></i>
                                         {{Session::get('user')->name}}
                                     </a>
-                                    <div style="margin-left: 30px " class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a style="text-align: center" class="dropdown-item" href="single-blog.html">Edit Profile</a>
+                                    <div style="margin-left: 30px " class="dropdown-menu"
+                                         aria-labelledby="navbarDropdown">
+                                        <a style="text-align: center" class="dropdown-item" href="single-blog.html">Edit
+                                            Profile</a>
                                         <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Logout</a>
                                     </div>
                                 </li>
@@ -85,10 +88,14 @@
                     </div>
                     <div style="margin-top: 10px" class="header_social_icon d-none d-lg-block">
                         <ul>
-                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-google fa-lg" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-skype fa-lg" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-facebook fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-google fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-instagram fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="d-none d-lg-block"><i class="fa fa-skype fa-lg"
+                                                                         aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -113,14 +120,19 @@
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('name') ? 'text-danger' : '' }}">Tiêu đề:</label>
+
                         <input type="text" name="name" autofocus class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}">
+
+
                     </div>
                     @if($errors->first('name'))
                         <p class="text-danger">{{ $errors->first('name') }}</p>
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('type') ? 'text-danger' : '' }}">Kiểu nhà:</label>
+
                         <input type="text" name="type" autofocus class="form-control" {{ $errors->first('type') ? 'is-invalid' : '' }}>
+
                     </div>
                     @if($errors->first('type'))
                         <p class="text-danger">{{ $errors->first('type') }}</p>
@@ -161,6 +173,7 @@
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
+
                         <textarea name="sn" class="form-control" autofocus rows="3" {{ $errors->first('sn') ? 'is-invalid' : '' }}></textarea>
                     </div>
                     @if($errors->first('sn'))
@@ -168,21 +181,27 @@
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('desc') ? 'text-danger' : '' }}">Mô tả :</label>
+
                         <textarea name="desc" class="form-control" autofocus rows="3" {{ $errors->first('desc') ? 'is-invalid' : '' }}></textarea>
+
                     </div>
                     @if($errors->first('desc'))
                         <p class="text-danger">{{ $errors->first('desc') }}</p>
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('rooms') ? 'text-danger' : '' }}">Số phòng:</label>
+
                         <input type="text" name="rooms" autofocus class="form-control" {{ $errors->first('rooms') ? 'is-invalid' : '' }}>
+
                     </div>
                     @if($errors->first('rooms'))
                         <p class="text-danger">{{ $errors->first('rooms') }}</p>
                     @endif
                     <div class="form-group">
                         <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê:</label>
+
                         <input type="text" name="price" autofocus class="form-control" {{ $errors->first('price') ? 'is-invalid' : '' }}>
+
                     </div>
                     @if($errors->first('price'))
                         <p class="text-danger">{{ $errors->first('price') }}</p>
@@ -191,16 +210,17 @@
                     <div class="form-group">
 
                     </div>
-                    <label class="{{ $errors->first('photos[]') ? 'text-danger' : '' }}" for="Product Name"> Hình ảnh  (Có thể tải lên nhiều ảnh):</label>
+                    <label class="{{ $errors->first('photos[]') ? 'text-danger' : '' }}" for="Product Name"> Hình ảnh
+                        (Có thể tải lên nhiều ảnh):</label>
                     <br>
 
-                    <input type="file"  id="imageUpload" class="form-control selectImage" name="photos[]" multiple {{ $errors->first('photos[]') ? 'is-invalid' : '' }}/>
-
+                    <input type="file" id="imageUpload" class="form-control selectImage" name="photos[]"
+                           multiple {{ $errors->first('photos[]') ? 'is-invalid' : '' }}/>
                     <br>
+                    <div id="result"></div>
                     @if($errors->first('photos[]'))
                         <p class="text-danger">{{ $errors->first('photos[]') }}</p>
                     @endif
-                    <div id="result"></div>
                     <br>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Đăng bài</button>
