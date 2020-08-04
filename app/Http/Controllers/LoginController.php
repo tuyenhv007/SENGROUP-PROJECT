@@ -37,10 +37,10 @@ class LoginController extends Controller
             if ($login > 0) {
                 Session::put('user', $user);
                 return redirect()->route('houses.list');
-            } else {
-                Session::put('error', 'Sai tên đăng nhập hoặc mật khẩu!');
-                return redirect()->route('login');
             }
+        } else {
+            Session::put('mess', 'Sai tên đăng nhập hoặc mật khẩu!');
+            return redirect()->route('login');
         }
     }
 
@@ -72,7 +72,7 @@ class LoginController extends Controller
             $user->image = $newFileName;
             $user->save();
         }
-        return redirect()->route('');
+        return redirect()->route('login');
 
     }
 }

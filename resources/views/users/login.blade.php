@@ -39,9 +39,12 @@
 				</span>
             <form action="{{ route('user.login') }}" method="POST" class="login100-form validate-form p-b-33 p-t-5">
                 @csrf
-                @if($errors->all())
+                @if($errors->all() || Session::get('mess'))
                     <div class="alert alert-danger" role="alert">
                         Sai tên đăng nhập hoặc mật khẩu!
+                        <?php
+                        Session::put('mess',null);
+                        ?>
                     </div>
                 @endif
 {{--                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>--}}
