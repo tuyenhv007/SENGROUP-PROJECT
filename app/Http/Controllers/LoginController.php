@@ -36,6 +36,7 @@ class LoginController extends Controller
             $login = $user->count();
             if ($login > 0) {
                 Session::put('user', $user);
+                toastr()->success('Đăng nhập thành công !');
                 return redirect()->route('houses.list');
             }
         } else {
@@ -52,25 +53,20 @@ class LoginController extends Controller
 
     public function register(ValidateRegister $request)
     {
-        $name = $request->name;
-        $email = $request->email;
-        $password = md5($request->password);
-        $phone = $request->phone;
-        $role = $request->role;
-        $address = $request->address;
         if ($request->hasFile('avatar')) {
             $cover = $request->file('avatar');
             $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
             $cover->storeAs('public/images', $newFileName);
             $user = new User();
-            $user->name = $name;
-            $user->email = $email;
-            $user->password = $password;
-            $user->phone = $phone;
-            $user->address = $address;
-            $user->role = $role;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = md5($request->password);
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->role = $request->role;
             $user->image = $newFileName;
             $user->save();
+            toastr()->success('Đăng ký thành công !', 'Thông báo');
         }
         return redirect()->route('login');
 
