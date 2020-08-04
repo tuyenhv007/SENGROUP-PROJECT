@@ -67,10 +67,10 @@
                                 <a style="font-family: inherit" class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
                             </li>
                             <li class="nav-item">
-                                <a style="font-family: inherit" class="nav-link" href="category.html"> Category</a>
+                                <a style="font-family: inherit" class="nav-link" href="#a"> Category</a>
                             </li>
                             <li class="nav-item">
-                                <a style="font-family: inherit" class="nav-link" href="contact.html">Contact</a>
+                                <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
                             </li>
                             @if(Session::get('user'))
                                 <li class="nav-item dropdown">
@@ -81,9 +81,9 @@
                                     </a>
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
-                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="single-blog.html">Edit
-                                            Profile</a>
-                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="single-blog.html">Thông tin
+                                        </a>
+                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                                     </div>
                                 </li>
                             @else
