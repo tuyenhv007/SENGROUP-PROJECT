@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Session;
 class HouseController extends Controller
 {
     public function index()
-    {
+    {<<<<<<< search
         $houses = House::all();
         $cities = City::all();
         $districts = District::all();
@@ -117,27 +117,27 @@ class HouseController extends Controller
     public function search(Request $request)
     {
         $city_id = $request->city;
-        $city = City::findOrFail($city_id);
-        if ($request->district) {
-            $district_id = $request->district;
-            $district = District::findOrFail($district_id);
-            $disName=$district->name;
+        $city = City::find($city_id);
+        $district_id = $request->district;
+        $district = District::find($district_id);
+        $road_id = $request->road;
+        $road = Road::find($road_id);
+        if ($city_id && !$district_id && !$road_id) {
+            $addresses = Address::where('city', $city->name)->get();
+        } elseif ($city_id && $district_id && !$road_id) {
+            $addresses = Address::where('district', $district->name)->get();
         } else {
-            $disName=null;
+            $addresses = Address::where('road', $road->name)->get();
         }
-        if ($request->road) {
-            $road_id = $request->road;
-            $road = Road::findOrFail($road_id);
-            $roadName=$road->name;
-        } else {
-            $roadName = null;
+        $houses = [];
+        foreach ($addresses as $address) {
+            $house = House::find($address->house_id);
+            array_push($houses, $house);
+        }
+        $cities = City::all();
+        $districts = District::all();
+        $roads = Road::all();
+        return view('houses.list', compact('houses', 'cities', 'districts', 'roads'));
 
-        }
-        $addresses = Address::where('city', "$city->name")->get();
-        if ($disName){
-            $addresses1 = $addresses::where('district',$disName)->get();
-        }
-        dd($addresses);
     }
-
 }
