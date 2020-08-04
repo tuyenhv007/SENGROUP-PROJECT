@@ -19,7 +19,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'email', 'password','id'
+        'name', 'email', 'password', 'id', 'image'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -38,10 +38,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function houses(){
+
+    public function houses()
+    {
         return $this->hasMany('App\House');
     }
-    public function bills(){
+
+    public function bills()
+    {
         return $this->hasMany('App\Bill');
     }
 }
