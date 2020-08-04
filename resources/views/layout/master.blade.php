@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Warehouse &mdash; Website Template by Colorlib</title>
+    @toastr_css
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -130,4 +131,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
+@jquery
+@toastr_js
+@toastr_render
 </html>
