@@ -16,6 +16,7 @@ class UserController extends Controller
         $user=User::find($id);
         return view('users.profile',compact(['user']));
     }
+
     public function editProfile(Request $request,$id){
         User::where('id',$id)->update([
             'name'=>$request->name,
@@ -25,6 +26,7 @@ class UserController extends Controller
         alert('Profile Update', 'Successfully', 'success')->autoClose(1500);
         return redirect()->route('user.show');
     }
+
     public function updateAvatar(Request $request ,$id){
         if ($request->hasFile('cover')) {
             $cover = $request->file('cover');

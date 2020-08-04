@@ -1,7 +1,6 @@
 @extends('layout.master')
 @section('content')
-
-    <div class="container" style="margin-top: 50px">
+    <div class="container pb-5" style="margin-top: 50px">
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -17,16 +16,18 @@
                                              style="width: 150px; height: 150px" class="img-thumbnail"/>
 
                                     @endif
-                                        <form action="{{route('user.edit.avatar',Session::get('user')->id)}}" method="post" enctype="multipart/form-data">
-                                            @csrf
-                                    <div class="middle mt-3">
-                                        <input class="form-control" type="file" onchange="this.form.submit()" id="profilePicture"
-                                                                                          name="cover"/>
-                                    </div>
-                                        </form>
+                                    <form action="{{route('user.edit.avatar',Session::get('user')->id)}}" method="post"
+                                          enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="middle mt-3">
+                                            <input class="form-control" type="file" onchange="this.form.submit()"
+                                                   id="profilePicture"
+                                                   name="cover"/>
+                                        </div>
+                                    </form>
                                     <div class="userData mt-3">
-                                            <p style="color: #0a0a0a;font-size: 20px; font-family: inherit">Thông tin
-                                                cá nhân</p>
+                                        <p style="color: #0a0a0a;font-size: 20px; font-family: inherit">Thông tin
+                                            cá nhân</p>
                                     </div>
                                 </div>
                                 <div class="ml-auto">
@@ -41,7 +42,8 @@
                                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="basicInfo-tab" data-toggle="tab"
-                                           href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Chi tiết</a>
+                                           href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Chi
+                                            tiết</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="connectedServices-tab" data-toggle="tab"
@@ -106,7 +108,8 @@
                                                         <label style=" font-family: inherit">Tên</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input class="form-control" type="text" name="name" value="{{$user->name}}" />
+                                                        <input class="form-control" type="text" name="name"
+                                                               value="{{$user->name}}"/>
                                                     </div>
                                                 </div>
                                                 <hr/>
@@ -115,7 +118,8 @@
                                                         <label style="font-family: inherit">Số điện thoại</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input class="form-control" type="text" name="phone" value="{{$user->phone}}" />
+                                                        <input class="form-control" type="text" name="phone"
+                                                               value="{{$user->phone}}"/>
                                                     </div>
                                                 </div>
                                                 <hr/>
@@ -124,17 +128,20 @@
                                                         <label style="font-family: inherit">Địa chỉ</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input class="form-control" type="text" name="address" value="{{$user->address}}" />
+                                                        <input class="form-control" type="text" name="address"
+                                                               value="{{$user->address}}"/>
                                                     </div>
                                                 </div>
                                                 <hr/>
-                                                <div class="row mt-2" >
+                                                <div class="row mt-2">
                                                     <div class="col-sm-3 col-md-2 col-5">
 
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input class="btn btn-primary" type="submit" value="Cập nhập" />
-                                                        <a class="btn btn-secondary" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Trở lại</a>
+                                                        <input class="btn btn-primary" type="submit" value="Cập nhập"/>
+                                                        <a class="btn btn-secondary"
+                                                           href="{{route('user.show',['id'=>Session::get('user')->id])}}">Trở
+                                                            lại</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,10 +150,7 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </div>
