@@ -7,7 +7,9 @@ use App\Bill;
 use App\City;
 use App\District;
 use App\House;
+use App\Http\Requests\ValidateFormBookHouse;
 use App\Http\Requests\ValidatePostHouse;
+
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
@@ -93,7 +95,7 @@ class HouseController extends Controller
         return view('houses.book-house', compact('house'));
     }
 
-    public function bookHouse(Request $request, $id)
+    public function bookHouse(ValidateFormBookHouse $request, $id)
     {
         $house = House::findOrFail($id);
         $bill = new Bill();
