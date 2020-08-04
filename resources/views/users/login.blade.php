@@ -44,6 +44,11 @@
                         Sai tên đăng nhập hoặc mật khẩu!
                     </div>
                 @endif
+                @if(Session::get('mess'))
+                    <div class="alert alert-danger" role="alert">
+                        {{Session::get('mess')}}
+                    </div>
+                    @endif
 {{--                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>--}}
                 <div class="wrap-input100 validate-input" data-validate = "Enter email">
                     <input class="input100" type="text" name="email" placeholder="Email">
