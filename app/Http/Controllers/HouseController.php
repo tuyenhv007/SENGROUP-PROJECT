@@ -93,12 +93,16 @@ class HouseController extends Controller
 
     public function bookHouse(ValidateFormBookHouse $request, $id)
     {
+        $dateIn = $request->dateIn;
+        $dateOut = $request->dateOut;
+        $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
+//        dd($days);
         $house = House::findOrFail($id);
         $bill = new Bill();
         $bill->checkIn = $request->dateIn;
         $bill->checkOut = $request->dateOut;
         $bill->status = 0;
-        $bill->total = $house->price;
+        $bill->total = ($house->price)*$days;
         $bill->house_id = $house->id;
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
         $bill->save();
