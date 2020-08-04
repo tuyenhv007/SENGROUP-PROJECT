@@ -20,7 +20,7 @@
                                         <form action="{{route('user.edit.avatar',Session::get('user')->id)}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                     <div class="middle mt-3">
-                                        <input type="file" onchange="this.form.submit()" id="profilePicture"
+                                        <input class="form-control" type="file" onchange="this.form.submit()" id="profilePicture"
                                                                                           name="cover"/>
                                     </div>
                                         </form>
@@ -106,7 +106,7 @@
                                                         <label style=" font-family: inherit">Tên</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input type="text" name="name" value="{{$user->name}}" />
+                                                        <input class="form-control" type="text" name="name" value="{{$user->name}}" />
                                                     </div>
                                                 </div>
                                                 <hr/>
@@ -115,7 +115,7 @@
                                                         <label style="font-family: inherit">Số điện thoại</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input type="text" name="phone" value="{{$user->phone}}" />
+                                                        <input class="form-control" type="text" name="phone" value="{{$user->phone}}" />
                                                     </div>
                                                 </div>
                                                 <hr/>
@@ -124,7 +124,7 @@
                                                         <label style="font-family: inherit">Địa chỉ</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input type="text" name="address" value="{{$user->address}}" />
+                                                        <input class="form-control" type="text" name="address" value="{{$user->address}}" />
                                                     </div>
                                                 </div>
                                                 <hr/>
