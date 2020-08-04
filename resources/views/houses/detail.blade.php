@@ -42,8 +42,8 @@
                             <div class="mt-5">
                                 <img src="{{asset('images/person_1.jpg')}}" alt="Image"
                                      class="w-25 mb-3 rounded-circle">
-                                <h4 class="text-black">Kyla Stewart</h4>
-                                <p class="text-muted mb-4">Real Estate Agent</p>
+                                <h5 class="text-black">Người Đăng: {{$house->user->name}}</h5>
+                                <p class="text-black"> Phone: {{$house->user->phone}}</p>
                             </div>
                         </div>
                     </div>

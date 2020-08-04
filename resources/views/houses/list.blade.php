@@ -52,6 +52,13 @@
             </div>
         </div>
     </div>
+    <div class="pb-1 pt-5">
+        <div class="container">
+            <div>
+
+            </div>
+        </div>
+    </div>
     <div class="site-section" id="properties-section">
         <div class="container">
             <div class="row large-gutters">
@@ -62,7 +69,7 @@
                                 <a href="{{route('houses.show',$house->id)}}" class="d-inline-block mb-4"><img
                                         src="{{asset("storage/".$house->images[0]->image)}}"
                                         alt="FImageo"
-                                        class="img-fluid" style="height: 400px;width: 300px;margin: auto"></a>
+                                        class="img-fluid" style="height: 500px;width: 300px;margin: auto"></a>
                                 <div class="ftco-media-details">
                                     <h3>{{$house->name}}</h3>
                                     <p>{{$house->addresses[0]->road}},
