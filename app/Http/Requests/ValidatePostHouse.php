@@ -34,10 +34,9 @@ class ValidatePostHouse extends FormRequest
             'rooms' => 'required|max:4',
             'price' => 'required|max:15',
             'photos[]' =>'
-            required|
             image:jpeg,png,jpg|
-            size:10240|
-            dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
+            size:10240'
+
 
         ];
     }
@@ -60,10 +59,8 @@ class ValidatePostHouse extends FormRequest
             'rooms.max' => 'Số phòng quá lớn!',
             'price.required' => 'Giá không được để trống!',
             'price.max' => 'Giá cho thuê quá lớn!',
-            'photos[].required' => 'Bạn chưa chọn ảnh!',
             'photos[].image' => 'Ảnh không đúng đính dạng: jpeg,png,jpg',
-            'photos[].size' => 'Dung lượng ảnh tối đa là 10Mb',
-            'photos[].dimensions' => 'Kích cỡ ảnh phù hợp là từ: 100x100 - 1000x1000'
+            'photos[].size' => 'Dung lượng ảnh tối đa là 10Mb'
         ];
     }
 }
