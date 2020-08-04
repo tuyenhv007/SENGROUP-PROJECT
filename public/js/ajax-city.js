@@ -34,6 +34,7 @@ $(document).ready(function () {
     $("select[name='district']").change(function () {
 
         let district_id = $(this).val();
+        console.log(district_id);
         let origin = location.origin;
         $.ajaxSetup({
             headers: {
@@ -54,6 +55,7 @@ $(document).ready(function () {
                 $("select[name='road']").append(
                     "<option value=''>" + "Xã/Phường:" + "</option>"
                 );
+                console.log(result);
                 $.each(result, function (key, value) {
                     $("select[name='road']").append(
                         "<option value=" + value.id + ">" + value.name + "</option>"
