@@ -39,12 +39,6 @@ $(document).ready(function () {
         let district_id = $(this).val();
         console.log(district_id);
         let origin = location.origin;
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
         $.ajax({
             url: origin + '/houses/post-form/road/' + district_id,
             method: 'POST',

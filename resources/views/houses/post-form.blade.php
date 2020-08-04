@@ -70,7 +70,7 @@
                                     </a>
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
-                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item" href="#">
+                                        <a style="font-family: inherit" style="text-align: center" class="dropdown-item"  href="{{route('user.show',['id'=>\Illuminate\Support\Facades\Session::get('user')->id])}}">
                                             Thông tin</a>
                                         <a style="font-family: inherit" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                                     </div>
