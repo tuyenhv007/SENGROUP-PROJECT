@@ -33,12 +33,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Ngày Đến Ở : </label>
-                                <input type="date" class="form-control"
+                                <input type="datetime-local" class="form-control"
                                        name="dateIn">
                             </div>
                             <div class="form-group">
                                 <label>Ngày Trả Nhà :</label>
-                                <input type="date" class="form-control"
+                                <input type="datetime-local" class="form-control"
                                        name="dateOut">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
