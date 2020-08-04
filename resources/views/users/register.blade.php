@@ -1,4 +1,3 @@
-
 @extends('layout/master')
 @section('content')
     <div class="site-section bg-light bg-image" id="contact-section">
