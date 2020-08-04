@@ -22,9 +22,7 @@ class HouseController extends Controller
     {
         $houses = House::all();
         $cities = City::all();
-        $districts = District::all();
-        $roads = Road::all();
-        return view('houses.list', compact('houses', 'cities', 'districts', 'roads'));
+        return view('houses.list', compact('houses', 'cities'));
     }
 
     public function show($id)
@@ -116,28 +114,34 @@ class HouseController extends Controller
 
     public function search(Request $request)
     {
-        $city_id = $request->city;
-        $city = City::find($city_id);
-        $district_id = $request->district;
-        $district = District::find($district_id);
-        $road_id = $request->road;
-        $road = Road::find($road_id);
-        if ($city_id && !$district_id && !$road_id) {
-            $addresses = Address::where('city', $city->name)->get();
-        } elseif ($city_id && $district_id && !$road_id) {
-            $addresses = Address::where('district', $district->name)->get();
+        if (!$request->city && !$request->search) {
+            return redirect()->route('houses.list');
+        } elseif ($request->city && !$request->search) {
+            $city_id = $request->city;
+            $city = City::find($city_id);
+            $district_id = $request->district;
+            $district = District::find($district_id);
+            $road_id = $request->road;
+            $road = Road::find($road_id);
+            if ($city_id && !$district_id && !$road_id) {
+                $addresses = Address::where('city', $city->name)->get();
+            } elseif ($city_id && $district_id && !$road_id) {
+                $addresses = Address::where('district', $district->name)->get();
+            } else {
+                $addresses = Address::where('road', $road->name)->get();
+            }
+            $houses = [];
+            foreach ($addresses as $address) {
+                $house = House::find($address->house_id);
+                array_push($houses, $house);
+            }
+            $cities = City::all();
+            return view('houses.list', compact('houses', 'cities'));
         } else {
-            $addresses = Address::where('road', $road->name)->get();
+            $search = $request->search;
+            $houses = House::where('name', 'LIKE', '%' . $search . '%')->get();
+            $cities = City::all();
+            return view('houses.list', compact('houses', 'cities'));
         }
-        $houses = [];
-        foreach ($addresses as $address) {
-            $house = House::find($address->house_id);
-            array_push($houses, $house);
-        }
-        $cities = City::all();
-        $districts = District::all();
-        $roads = Road::all();
-        return view('houses.list', compact('houses', 'cities', 'districts', 'roads'));
-
     }
 }

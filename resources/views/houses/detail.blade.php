@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-    <div>
+    <div class="pb-5">
         <div class="site-blocks-cover inner-page-cover overlay"
              style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
             <div class="container">
@@ -22,7 +22,8 @@
                                 <div class="col-lg-7">
                                     <div class="owl-carousel slide-one-item with-dots">
                                         @foreach($house->images as $image)
-                                            <span id="zoom"><img src="{{asset('storage/'.$image->image)}}" class="img-fluid"
+                                            <span id="zoom"><img src="{{asset('storage/'.$image->image)}}"
+                                                                 class="img-fluid"
                                                                  style="width: 100%;height: 700px"></span>
                                         @endforeach
                                     </div>
@@ -38,7 +39,7 @@
                                         <div class="pt-2">
                                             <a href="{{route('houses.viewBookHouse',$house->id)}}"
                                                class="btn btn-primary">Đặt
-                                            Thuê</a>
+                                                Thuê</a>
                                             <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                                         </div>
                                     </div>
@@ -58,7 +59,5 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 @endsection
