@@ -38,7 +38,11 @@
                                         <p class="mb-1">{{$house->desc}}.</p>
                                         <div class="pt-2">
                                             <a href="{{route('houses.viewBookHouse',$house->id)}}"
-                                               class="btn btn-primary">Đặt
+                                               class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
+                                                   d-none
+                                                   @else
+                                                   d-inline
+                                                   @endif">Đặt
                                                 Thuê</a>
                                             <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                                         </div>
