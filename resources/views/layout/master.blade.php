@@ -56,12 +56,12 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> WAREHOUSE </a>
+                        <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}"> SENGROUP </a>
                         <div class="collapse navbar-collapse main-menu-item justify-content-center"
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                <a class="nav-link" href="{{route('houses.list')}}">Home</a>
+                                <a class="nav-link" href="{{route('houses.list')}}">Trang chủ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
@@ -85,10 +85,10 @@
                                 </li>
                                 @else
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{route('login')}}">Login</a>
+                                <a class="nav-link" href="{{route('login')}}">Đăng nhập</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('register')}}">Register</a>
+                                    <a class="nav-link" href="{{route('register')}}">Đăng ký</a>
                                 </li>
                                 @endif
                             </ul>
