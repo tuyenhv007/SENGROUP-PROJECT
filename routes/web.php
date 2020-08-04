@@ -24,6 +24,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
+    Route::post('/search/', 'HouseController@search')->name('house.search');
     Route::middleware(['user'])->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/{idCity}', 'DistrictController@showDistrictInCity');
