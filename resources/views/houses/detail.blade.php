@@ -45,8 +45,11 @@
                                                         @endif" data-toggle="modal"
                                                     data-target="#exampleModal" data-whatever="@mdo">Đặt Thuê
                                             </button>
+
                                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
+                                                    @csrf
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -57,7 +60,6 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
                                                                 <div class="form-group">
                                                                     <label for="recipient-name" class="col-form-label">Ngày
                                                                         Đến:</label>
@@ -76,7 +78,7 @@
                                                                     <textarea class="form-control" name="note"
                                                                               id="desc"></textarea>
                                                                 </div>
-                                                            </form>
+
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -87,7 +89,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </form>
                                             </div>
+
                                             <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                                         </div>
                                     </div>
