@@ -144,7 +144,7 @@
                                                         src="{{asset("storage/".$house->images[0]->image)}}"
                                                         alt="FImageo"
                                                         class="img-fluid"
-                                                        style="height: 500px;width: 300px;margin: auto"></a>
+                                                        style="height: 400px;width: 300px;margin: auto"></a>
                                                 <div class="ftco-media-details">
                                                     <h3>{{$house->name}}</h3>
                                                     <p>{{$house->addresses[0]->road}},
@@ -157,10 +157,15 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                <div class="col-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-12 col-md-10"></div>
+{{--                                        <div class=" col-12 col-md-2">  {{$houses->appends(request()->query())}}</div>--}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
