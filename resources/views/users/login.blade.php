@@ -4,30 +4,52 @@
         <div class="card-header">
             <h2 class="text-center">Đăng nhập</h2>
             <hr>
+            @if($errors->all())
+                <div id="msg_div" class="alert alert-danger d-none" role="alert">
+                    <span id="res_message"></span>
+                </div>
+                <div>
+                    <span style="color: red">Lỗi đăng nhập!!!</span>
+                </div>
+            @endif
         </div>
         <div class="card-body">
             <div class="login-form">
                 <form action="{{route('user.login')}}" method="post">
                     @csrf
+                    @if($errors->all())
+                        <div id="msg_div" class="alert alert-danger d-none" role="alert">
+                            <span id="res_message"></span>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <span class="fa fa-user"></span>
-                    </span>
+                                <span class="input-group-text">
+                                    <span class="fa fa-user"></span>
+                                </span>
                             </div>
-                            <input autofocus  type="text" class="form-control" name="email" placeholder="Enter your email" required="required">
+                            <input autofocus type="text"
+                                   class="form-control {{$errors->first('email') ? 'text-danger': ''}}" name="email"
+                                   placeholder="Enter your email" value="{{old('email')}}">
                         </div>
+                        @if($errors->first('email'))
+                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                        @endif
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
-                    </span>
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
                             </div>
-                            <input type="password" class="form-control" name="password" placeholder="Enter your Password" required="required">
+                            <input type="password" class="form-control {{$errors->first('password') ? 'text-danger': ''}}" name="password"
+                                   placeholder="Enter your Password">
                         </div>
+                        @if($errors->first('password'))
+                            <p class="text-danger">{{ $errors->first('password') }}</p>
+                        @endif
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary login-btn btn-block">Đăng nhập</button>
@@ -44,7 +66,8 @@
                         <a href="" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
                         <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a></div>
                 </form>
-                <p class="text-center text-muted small">Chưa có tài khoản? <a href="{{route('register')}}">Đăng kí ở đây!</a></p>
+                <p class="text-center text-muted small">Chưa có tài khoản? <a href="{{route('register')}}">Đăng kí ở
+                        đây!</a></p>
             </div>
         </div>
     </div>
