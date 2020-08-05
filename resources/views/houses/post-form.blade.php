@@ -134,13 +134,13 @@
 
 
                                 <div class="form-group">
-                                    <label class="{{ $errors->first('photos[]') ? 'text-danger' : '' }}"
+                                    <label class="{{ $errors->first('photos') ? 'text-danger' : '' }}"
                                            for="Product Name">
                                         Hình
                                         ảnh
                                         (Có thể tải lên nhiều ảnh):</label>
                                     <input type="file" id="imageUpload"
-                                           class="form-control selectImage {{ $errors->first('photos[]') ? 'is-invalid' : '' }}"
+                                           class="form-control selectImage {{ $errors->first('photos') ? 'is-invalid' : '' }}"
                                            name="photos[]"
                                            multiple/>
                                     @if($errors->first('photos'))
