@@ -29,7 +29,6 @@ class ValidateRegister extends FormRequest
             'email' => 'required|unique:users,email',
             'phone' => 'required|unique:users,phone|min:10|max:12',
             'password' => 'required|min:6|max:12|regex:[^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$]',
-            'address' => 'required'
         ];
     }
 
@@ -48,7 +47,6 @@ class ValidateRegister extends FormRequest
             'password.min' => 'Mật khẩu không được ít hơn 6 ký tự',
             'password.max' => 'Mật khẩu không được quá hơn 12 ký tự',
             'password.regex' => 'Mật khẩu phải có chữ và số (Không có ký tự đặc biệt!)',
-            'address.required' => 'Địa chỉ không được để trống'
         ];
     }
 }
