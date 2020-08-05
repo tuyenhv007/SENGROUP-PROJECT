@@ -4,12 +4,17 @@
         <div class="card-header">
             <h2 class="text-center">Đăng nhập</h2>
             <hr>
-            @if($errors->all())
-                <div id="msg_div" class="alert alert-danger d-none" role="alert">
-                    <span id="res_message"></span>
+            @if( Session::get('mess'))
+                <div class="alert alert-danger" role="alert">
+                    Sai tên đăng nhập hoặc mật khẩu!
+                    <?php
+                    Session::put('mess',null);
+                    ?>
                 </div>
-                <div>
-                    <span style="color: red">Lỗi đăng nhập!!!</span>
+            @endif
+            @if( $errors->all())
+                <div class="alert alert-danger" role="alert">
+                    Lỗi đăng nhập!!!
                 </div>
             @endif
         </div>
