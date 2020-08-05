@@ -37,6 +37,7 @@
                             <input autofocus type="text"
                                    class="form-control {{$errors->first('email') ? 'text-danger': ''}}" name="email"
                                    placeholder="Nhập Email" value="{{old('email')}}">
+                            <span class="{{$errors->first('email') ? 'is-invalid' : ''}}"></span>
                         </div>
                         @if($errors->first('email'))
                             <p class="text-danger">{{ $errors->first('email') }}</p>
@@ -51,6 +52,7 @@
                             </div>
                             <input type="password" class="form-control {{$errors->first('password') ? 'text-danger': ''}}" name="password"
                                    placeholder="Nhập mật khẩu">
+                            <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
                         </div>
                         @if($errors->first('password'))
                             <p class="text-danger">{{ $errors->first('password') }}</p>
