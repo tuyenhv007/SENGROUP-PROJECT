@@ -125,11 +125,12 @@
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
 
+                                                    <strong>{{number_format($house->price)}} VNĐ</strong>
+                                                    <p>{{ $house->created_at->diffForHumans() }}</p>
 
                                                     <strong><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}} VNĐ</strong>
                                                     <br>
                                                     <strong><i class='fas fa-house-user'></i> &nbsp; Tình Trạng: {{$house->status}} </strong>
-
 
                                                 </div>
                                             </div>
@@ -139,6 +140,8 @@
                                 <div class="col-12 col-md-12">
                                     <div class="row">
                                         <div class="col-12 col-md-10"></div>
+
+                                        {{--                                        <div class=" col-12 col-md-2">  {{$houses->appends(request()->query())}}</div>--}}
                                     </div>
                                 </div>
                             </div>
