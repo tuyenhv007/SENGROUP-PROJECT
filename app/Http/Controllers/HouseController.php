@@ -13,6 +13,7 @@ use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -20,7 +21,8 @@ class HouseController extends Controller
 {
     public function index()
     {
-        $houses = House::orderBy('id', 'DESC')->get();
+        Carbon::setLocale('vi');
+        $houses = House::orderBy('created_at', 'DESC')->limit(5)->get();
         $cities = City::all();
         return view('houses.list', compact('houses', 'cities'));
     }
