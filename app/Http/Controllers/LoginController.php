@@ -52,23 +52,23 @@ class LoginController extends Controller
 
     public function register(ValidateRegister $request)
     {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = md5($request->password);
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->role = $request->role;
+        $user->save();
         if ($request->hasFile('avatar')) {
             $cover = $request->file('avatar');
             $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
             $cover->storeAs('public/images', $newFileName);
             $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = md5($request->password);
-            $user->phone = $request->phone;
-            $user->address = $request->address;
             $user->image = $newFileName;
-            $user->role = $request->role;
             $user->save();
-            alert('Thành công', 'Successfully', 'success')->autoClose(1500);
-            return redirect()->route('login');
         }
-        alert('Đăng kí thất bại', 'Fail', 'success')->autoClose(1500);
-        return back();
+        alert('Đăng kí thành công', 'Success', 'success')->autoClose(1500);
+        return redirect()->route('login');
     }
 }

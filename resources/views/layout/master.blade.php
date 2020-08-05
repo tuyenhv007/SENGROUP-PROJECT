@@ -54,7 +54,7 @@
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a style="font-size:170%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}">
-                        SENGROUP </a>
+                            SENGROUP</a>
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                          id="navbarSupportedContent">
                         <ul class="navbar-nav">
