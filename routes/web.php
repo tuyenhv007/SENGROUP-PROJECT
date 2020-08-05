@@ -22,22 +22,21 @@ Route::post('/register', 'LoginController@register')->name('user.register');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 
-Route::prefix('user')->group(function (){
-    Route::get('/profile','UserController@showProfile')->name('user.show');
-    Route::post('/profile/edit/{id}','UserController@editProfile')->name('user.edit');
-    Route::post('/profile/update/avatar/{id}','UserController@updateAvatar')->name('user.edit.avatar');
+Route::prefix('user')->group(function () {
+    Route::get('/profile', 'UserController@showProfile')->name('user.show');
+    Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
+    Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
 });
-
 
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
     Route::post('/search/', 'HouseController@search')->name('house.search');
+    Route::post('/post-form/{idCity}', 'DistrictController@showDistrictInCity');
+    Route::post('/post-form/road/{idDistrict}', 'RoadController@showRoadInDistrict');
     Route::middleware(['user'])->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
-        Route::post('/post-form/{idCity}', 'DistrictController@showDistrictInCity');
-        Route::post('/post-form/road/{idDistrict}', 'RoadController@showRoadInDistrict');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
         Route::get('/book-house/{id}', 'HouseController@viewBookHouse')->name('houses.viewBookHouse');
         Route::post('/book-house/{id}', 'HouseController@bookHouse')->name('houses.bookHouse');
