@@ -101,6 +101,17 @@ class HouseController extends Controller
 
     public function bookHouse(Request $request, $id)
     {
+        $request->validate([
+            'dateIn' => 'required|date|after:yesterday',
+            'dateOut' => 'required|date|after:dateIn'
+        ],
+            [
+                'dateIn.required'=>'Ngày đến không được để trống !',
+                'dateOut.required'=>'Ngày đi không được để trống !',
+                'dateIn.after'=>'Ngày đến phải sau ngày hôm nay !',
+                'dateOut.after'=>'Ngày đi phải sau ngày đến !'
+            ]);
+
         $dateIn = $request->dateIn;
         $dateOut = $request->dateOut;
         $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);

@@ -59,12 +59,10 @@ class LoginController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->role = $request->role;
-        $user->save();
         if ($request->hasFile('avatar')) {
             $cover = $request->file('avatar');
             $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
             $cover->storeAs('public/images', $newFileName);
-            $user = new User();
             $user->image = $newFileName;
             $user->save();
         }
