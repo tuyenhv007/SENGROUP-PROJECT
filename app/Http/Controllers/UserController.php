@@ -23,7 +23,7 @@ class UserController extends Controller
             'phone'=>$request->phone,
             'address'=>$request->address
         ]);
-        alert('Profile Update', 'Successfully', 'success')->autoClose(1500);
+        alert('Sửa thành công', 'Successfully', 'success')->autoClose(1500);
         return redirect()->route('user.show');
     }
 
@@ -36,7 +36,7 @@ class UserController extends Controller
             $user->image = $newFileName;
             $user->save();
         }
-        alert('Avatar Update', 'Successfully', 'success')->autoClose(1500);
+        alert('Cập nhập thành công', 'Successfully', 'success')->autoClose(1500);
         return redirect()->back();
     }
 }

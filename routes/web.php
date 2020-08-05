@@ -32,7 +32,6 @@ Route::prefix('user')->group(function (){
 });
 
 
-
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
