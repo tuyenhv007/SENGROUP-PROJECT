@@ -146,12 +146,15 @@
                                                         class="img-fluid"
                                                         style="height: 400px;width: 300px;margin: auto"></a>
                                                 <div class="ftco-media-details">
-                                                    <h3>{{$house->name}}</h3>
-                                                    <p>{{$house->addresses[0]->road}},
+                                                    <h3> <span class="glyphicon glyphicon-tags"></span> &nbsp;{{$house->name}}</h3>
+                                                    <br>
+                                                    <p><span class="glyphicon glyphicon-map-marker"></span> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
 
-                                                    <strong>{{$house->price}}</strong>
+                                                    <strong> <span class="glyphicon glyphicon-usd"></span> &nbsp;{{$house->price}}</strong>
+                                                    <br>
+                                                    <strong> <span class="glyphicon glyphicon-usd"></span> &nbsp;{{$house->price}}</strong>
                                                 </div>
                                             </div>
                                         </div>
