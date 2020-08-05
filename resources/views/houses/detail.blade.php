@@ -36,7 +36,8 @@
                                             {{$house->addresses[0]->city}}</h5>
 
                                         <h5 class="mb-2"><i class='fas fa-bed'></i> &nbsp; Số phòng ngủ: {{$house->rooms}} phòng.</h5><br>
-                                        <p class="mb-1"><i class='fas fa-list-alt'></i> &nbsp; {{$house->desc}}.</p>
+
+                                        <p class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; {!! $house->desc !!}.</p>
                                         <h4 class="mb-1"><i class="fa fa-money "></i> &nbsp;Giá Tiền: {{number_format($house->price)}} VNĐ</h4>
                                         <div class="pt-2">
                                             <button type="button"
