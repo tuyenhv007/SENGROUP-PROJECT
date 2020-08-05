@@ -97,7 +97,7 @@
                             @endif
                         </div>
                         <div>
-                            <p style="color: red">Ghi chú: Những mục tích dầu (*) là bắt buộc</p>
+                            <p style="color: red">Ghi chú: Những mục tích dấu (*) là bắt buộc</p>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
