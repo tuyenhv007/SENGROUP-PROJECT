@@ -37,13 +37,57 @@
                                         <p class="mb-1">Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
                                         <p class="mb-1">{{$house->desc}}.</p>
                                         <div class="pt-2">
-                                            <a href="{{route('houses.viewBookHouse',$house->id)}}"
-                                               class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
-                                                   d-none
-                                                   @else
-                                                   d-inline
-                                                   @endif">Đặt
-                                                Thuê</a>
+                                            <button type="button"
+                                                    class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
+                                                        d-none
+                                                        @else
+                                                        d-inline
+                                                        @endif" data-toggle="modal"
+                                                    data-target="#exampleModal" data-whatever="@mdo">Đặt Thuê
+                                            </button>
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Đặt nhà:</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Ngày
+                                                                        Đến:</label>
+                                                                    <input type="date" class="form-control"
+                                                                           id="recipient-name" name="dateIn">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="message-text" class="col-form-label">Ngày
+                                                                        Đi:</label>
+                                                                    <input class="form-control"
+                                                                           id="message-text" type="date" name="dateOut">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="message-text" class="col-form-label">Ghi
+                                                                        Chú:</label>
+                                                                    <textarea class="form-control" name="note"
+                                                                              id="desc"></textarea>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary">Send message
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                                         </div>
                                     </div>
