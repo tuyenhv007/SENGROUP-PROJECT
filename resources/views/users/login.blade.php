@@ -29,8 +29,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
 <body>
+@include('sweetalert::alert')
 <div class="limiter">
     <div class="container-login100" style="background-image: url({{asset('images/bg-01.jpg')}});">
         <div class="wrap-login100 p-t-30 p-b-50">
