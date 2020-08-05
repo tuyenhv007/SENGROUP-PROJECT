@@ -33,10 +33,10 @@ class ValidatePostHouse extends FormRequest
             'desc' => 'required|max:2000',
             'rooms' => 'required|max:4',
             'price' => 'required|max:15',
-            'photos' => '
-            image:jpeg,png,jpg|
-            size:10240|
-            required'
+//            'photos' => '
+//            image:jpeg,png,jpg|
+//            size:10240|
+//            required'
 
 
         ];
