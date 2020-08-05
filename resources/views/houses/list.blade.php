@@ -151,7 +151,7 @@
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
 
-                                                    <strong>{{$house->price}}</strong>
+                                                    <strong>{{number_format($house->price)}} VNĐ</strong>
                                                 </div>
                                             </div>
                                         </div>
