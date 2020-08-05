@@ -53,7 +53,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a style="font-size:190%;font-style: inherit; margin-top: 30px;margin-left: -40px" class="navbar-brand" href="{{route('houses.list')}}">
+                    <a style="font-size:190%;font-style: inherit;" class="navbar-brand" href="{{route('houses.list')}}">
                             SENGROUP</a>
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                          id="navbarSupportedContent">

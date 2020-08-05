@@ -35,7 +35,7 @@
                                             {{$house->addresses[0]->district}},
                                             {{$house->addresses[0]->city}}</h5>
                                         <p class="mb-1">Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
-                                        <p class="mb-1">{{$house->desc}}.</p>
+                                        <p class="mb-1" >{{$house->desc}}.</p>
                                         <div class="pt-2">
                                             <button type="button"
                                                     class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
