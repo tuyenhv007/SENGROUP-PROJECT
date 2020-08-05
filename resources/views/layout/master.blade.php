@@ -92,6 +92,9 @@
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
                                         </a>
+                                        <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.formChangePassword',Session::get('user')->id)}}">Đổi mật khẩu
+                                        </a>
                                         <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng
                                             xuất</a>
 
