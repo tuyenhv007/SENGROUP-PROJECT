@@ -99,31 +99,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{--                        <div class="row pt-1">--}}
-                            {{--                            <div class="col-lg-12">--}}
-                            {{--                                <div class="row">--}}
-                            {{--                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">--}}
-                            {{--                                        <input type="text" class="form-control search-slt"--}}
-                            {{--                                               placeholder="Enter Pickup City">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">--}}
-                            {{--                                        <input type="text" class="form-control search-slt"--}}
-                            {{--                                               placeholder="Enter Drop City">--}}
-                            {{--                                    </div>--}}
-                            {{--                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">--}}
-                            {{--                                        <select class="form-control search-slt" id="exampleFormControlSelect1">--}}
-                            {{--                                            <option>Select Vehicle</option>--}}
-                            {{--                                            <option>Example one</option>--}}
-                            {{--                                            <option>Example one</option>--}}
-                            {{--                                            <option>Example one</option>--}}
-                            {{--                                            <option>Example one</option>--}}
-                            {{--                                            <option>Example one</option>--}}
-                            {{--                                            <option>Example one</option>--}}
-                            {{--                                        </select>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            {{--                        </div>--}}
                         </div>
                     </form>
                 </div>
@@ -151,7 +126,6 @@
                                                     <p><span class="glyphicon glyphicon-map-marker"></span> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
-
                                                     <strong><span class="glyphicon glyphicon-usd"></span> &nbsp;{{number_format($house->price)}} VNĐ</strong>
 
                                                 </div>
@@ -162,7 +136,6 @@
                                 <div class="col-12 col-md-12">
                                     <div class="row">
                                         <div class="col-12 col-md-10"></div>
-{{--                                        <div class=" col-12 col-md-2">  {{$houses->appends(request()->query())}}</div>--}}
                                     </div>
                                 </div>
                             </div>
