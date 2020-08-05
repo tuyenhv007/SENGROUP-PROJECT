@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Warehouse &mdash; Website Template by Colorlib</title>
-    @toastr_css
+    <title>Sen-Group</title>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('js/ajax-city.js')}}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('5450a1d242bd8945c12b0c8db58a2bcd.ico/favicon-32x32.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
@@ -34,7 +33,6 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 @include('sweetalert::alert')
@@ -91,7 +89,6 @@
                                 <li class="nav-item">
                                     <a style="font-family: inherit" class="nav-link" href="{{route('register')}}">Đăng ký</a>
                                 </li>
-                            @endif
                         </ul>
                     </div>
                     <div style="margin-top: 10px" class="header_social_icon d-none d-lg-block">
@@ -106,6 +103,7 @@
                                                                          aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
+                    @endif
                 </nav>
             </div>
         </div>
@@ -190,6 +188,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-@include('sweetalert::alert')
 </body>
 </html>

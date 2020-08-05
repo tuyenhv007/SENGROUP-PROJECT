@@ -108,7 +108,7 @@ class HouseController extends Controller
         $bill->house_id = $house->id;
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
         $bill->save();
-        toastr()->success('Thuê nhà thành công !', 'Thông báo');
+        Alert()->success('Thuê nhà thành công !');
         return back();
     }
 
