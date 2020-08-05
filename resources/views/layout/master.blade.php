@@ -88,9 +88,11 @@
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
 
-                                        <a  style="text-align: center" class="dropdown-item" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
+                                        <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
                                         </a>
-                                        <a  style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
+                                        <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng
+                                            xuất</a>
 
                                     </div>
                                 </li>
@@ -182,7 +184,7 @@
     </div>
 </footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
-<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+{{--<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>--}}
 <script src="{{asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
 <script src="{{asset('ckeditor/styles.js')}}" type="text/javascript"></script>
 <script src="{{asset('ckeditor/config.js')}}" type="text/javascript"></script>
