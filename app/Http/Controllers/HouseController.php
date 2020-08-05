@@ -15,7 +15,10 @@ use App\Road;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class HouseController extends Controller
 {
@@ -90,13 +93,13 @@ class HouseController extends Controller
         }
     }
 
-    public function viewBookHouse($id)
-    {
-        $house = House::findOrFail($id);
-        return view('houses.book-house', compact('house'));
-    }
+//    public function viewBookHouse($id)
+//    {
+//        $house = House::findOrFail($id);
+//        return view('houses.book-house', compact('house'));
+//    }
 
-    public function bookHouse(ValidateFormBookHouse $request, $id)
+    public function bookHouse(Request $request, $id)
     {
         $dateIn = $request->dateIn;
         $dateOut = $request->dateOut;
@@ -105,7 +108,8 @@ class HouseController extends Controller
         $bill = new Bill();
         $bill->checkIn = $request->dateIn;
         $bill->checkOut = $request->dateOut;
-        $bill->status = 0;
+        $bill->status = BillStatus::ORDER;
+        $bill->note = $request->note;
         $bill->total = ($house->price) * $days;
         $bill->house_id = $house->id;
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
