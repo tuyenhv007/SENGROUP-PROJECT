@@ -20,7 +20,7 @@ class HouseController extends Controller
 {
     public function index()
     {
-        $houses = House::all();
+        $houses = House::orderBy('id', 'DESC')->get();
         $cities = City::all();
         return view('houses.list', compact('houses', 'cities'));
     }
