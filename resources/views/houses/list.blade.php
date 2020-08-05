@@ -146,13 +146,15 @@
                                                         class="img-fluid"
                                                         style="height: 400px;width: 300px;margin: auto"></a>
                                                 <div class="ftco-media-details">
-                                                    <h3> <span class="glyphicon glyphicon-tags"></span> &nbsp;{{$house->name}}</h3>
+                                                    <h3> <i class='fas fa-tags'></i> &nbsp;{{$house->name}}</h3>
                                                     <br>
-                                                    <p><span class="glyphicon glyphicon-map-marker"></span> &nbsp;{{$house->addresses[0]->road}},
+                                                    <p><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
 
-                                                    <strong><span class="glyphicon glyphicon-usd"></span> &nbsp;{{number_format($house->price)}} VNĐ</strong>
+                                                    <strong><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}} VNĐ</strong>
+                                                    <br>
+                                                    <strong><i class='fas fa-house-user'></i> &nbsp; Tình Trạng: {{$house->status}} </strong>
 
                                                 </div>
                                             </div>

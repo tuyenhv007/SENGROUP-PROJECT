@@ -6,8 +6,8 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-5 mx-auto mt-lg-5 text-center">
-                        <h1>{{$house->type}}</h1>
-                        <p class="mb-5"><strong class="text-white">{{$house->price}}</strong></p>
+                        <h1><i class='fas fa-house-user'></i> &nbsp;{{$house->type}}</h1>
+                        <p class="mb-5"><strong class="text-white"><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}} VNĐ</strong></p>
                     </div>
                 </div>
             </div>
@@ -30,12 +30,12 @@
                                 </div>
                                 <div class="col-lg-5 pl-lg-5 ml-auto">
                                     <div class="mb-5">
-                                        <h3 class="text-black mb-4">{{$house->name}}.</h3>
-                                        <h5>{{$house->addresses[0]->road}},
+                                        <h3 class="text-black mb-4"><i class='fas fa-tags'></i> &nbsp;{{$house->name}}.</h3>
+                                        <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->road}},
                                             {{$house->addresses[0]->district}},
                                             {{$house->addresses[0]->city}}</h5>
-                                        <p class="mb-1">Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
-                                        <p class="mb-1">{{$house->desc}}.</p>
+                                        <p class="mb-1"><i class='fas fa-bed'></i> &nbsp; Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
+                                        <p class="mb-1"><i class='fas fa-list-alt'></i> &nbsp; {{$house->desc}}.</p>
                                         <div class="pt-2">
                                             <button type="button"
                                                     class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
@@ -94,9 +94,9 @@
                                     <div class="mb-5">
                                         <div class="mt-5">
                                             <img src="{{asset('storage/images/'.$house->user->image)}}" alt="Image"
-                                                 class="w-25 mb-3 rounded-circle">
-                                            <h5 class="text-black">Người Đăng: {{$house->user->name}}</h5>
-                                            <p class="text-black"> Phone: {{$house->user->phone}}</p>
+                                                 class="w-25 mb-3 " style="width: 100px;height: 100px">
+                                            <h5 class="text-black"><i class='fas fa-user-edit'></i> &nbsp; Người Đăng: {{$house->user->name}}</h5>
+                                            <p class="text-black"><i class='fas fa-phone-square-alt'></i> &nbsp; Phone: {{$house->user->phone}}</p>
                                         </div>
                                     </div>
                                 </div>
