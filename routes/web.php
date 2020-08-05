@@ -21,6 +21,9 @@ Route::post('/login', 'LoginController@login')->name('user.login');
 Route::post('/register', 'LoginController@register')->name('user.register');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
+//Route::get('/user/redirect','SocialController@redirectToProvider')->name('user.redirect');
+//Route::get('/user/callback','SocialController@handleProviderCallback');
+
 
 Route::prefix('user')->group(function (){
     Route::get('/profile','UserController@showProfile')->name('user.show');

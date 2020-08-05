@@ -72,7 +72,10 @@
                     <a class="login100-form-btn ml-1" href="{{route('register')}}">Register</a>
                 </div>
                 <div class="container-login100-form-btn m-t-32" >
-                    <a href="{{route('houses.list')}}"><span class="glyphicon glyphicon-home">Home</span></a>
+                    <div style="margin-right: 30px"><a href="#" class="d-none d-lg-block"><i class="fa fa-facebook fa-lg"
+                                                                 aria-hidden="true"></i></a></div>
+                    <div><a href="#" class="d-none d-lg-block"><i class="fa fa-google fa-lg"
+                                                                 aria-hidden="true"></i></a></div>
                 </div>
             </form>
         </div>
