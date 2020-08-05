@@ -25,7 +25,7 @@ class HouseController extends Controller
     public function index()
     {
         Carbon::setLocale('vi');
-        $houses = House::orderBy('created_at', 'DESC')->limit(5)->get();
+        $houses = House::orderBy('created_at', 'DESC')->get();
         $cities = City::all();
         return view('houses.list', compact('houses', 'cities'));
     }

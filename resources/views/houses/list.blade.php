@@ -124,13 +124,11 @@
                                                     <p><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
-
-                                                    <strong>{{number_format($house->price)}} VNĐ</strong>
-                                                    <p>{{ $house->created_at->diffForHumans() }}</p>
-
                                                     <strong><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}} VNĐ</strong>
                                                     <br>
                                                     <strong><i class='fas fa-house-user'></i> &nbsp; Tình Trạng: {{$house->status}} </strong>
+                                                    <br>
+                                                    <p><i class="fa fa-edit"></i> &nbsp;{{ $house->created_at->diffForHumans() }}.</p>
 
                                                 </div>
                                             </div>
