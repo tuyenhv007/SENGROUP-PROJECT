@@ -62,11 +62,13 @@ class LoginController extends Controller
             $user->password = md5($request->password);
             $user->phone = $request->phone;
             $user->address = $request->address;
-            $user->role = $request->role;
             $user->image = $newFileName;
+            $user->role = $request->role;
             $user->save();
+            alert('Thành công', 'Successfully', 'success')->autoClose(1500);
+            return redirect()->route('login');
         }
-        alert('Thành công', 'Successfully', 'success')->autoClose(1500);
-        return redirect()->route('login');
+        alert('Đăng kí thất bại', 'Fail', 'success')->autoClose(1500);
+        return back();
     }
 }
