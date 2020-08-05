@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Customer;
-use App\Host;
 use App\Http\Requests\ValidateLogin;
 use App\User;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ValidateRegister;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class LoginController extends Controller
@@ -66,9 +65,8 @@ class LoginController extends Controller
             $user->role = $request->role;
             $user->image = $newFileName;
             $user->save();
-            Alert()->success('Đăng ký thành công !', 'Thông báo');
         }
+        alert('Thành công', 'Successfully', 'success')->autoClose(1500);
         return redirect()->route('login');
-
     }
 }
