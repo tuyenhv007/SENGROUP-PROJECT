@@ -34,8 +34,10 @@
                                         <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->road}},
                                             {{$house->addresses[0]->district}},
                                             {{$house->addresses[0]->city}}</h5>
+
                                         <p class="mb-1"><i class='fas fa-bed'></i> &nbsp; Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
                                         <p class="mb-1"><i class='fas fa-list-alt'></i> &nbsp; {{$house->desc}}.</p>
+
                                         <div class="pt-2">
                                             <button type="button"
                                                     class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))

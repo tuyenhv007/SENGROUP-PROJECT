@@ -4,12 +4,17 @@
         <div class="card-header">
             <h2 class="text-center">Đăng nhập</h2>
             <hr>
-            @if($errors->all())
-                <div id="msg_div" class="alert alert-danger d-none" role="alert">
-                    <span id="res_message"></span>
+            @if( Session::get('mess'))
+                <div class="alert alert-danger" role="alert">
+                    Sai tên đăng nhập hoặc mật khẩu!
+                    <?php
+                    Session::put('mess',null);
+                    ?>
                 </div>
-                <div>
-                    <span style="color: red">Lỗi đăng nhập!!!</span>
+            @endif
+            @if( $errors->all())
+                <div class="alert alert-danger" role="alert">
+                    Lỗi đăng nhập!!!
                 </div>
             @endif
         </div>
@@ -31,7 +36,7 @@
                             </div>
                             <input autofocus type="text"
                                    class="form-control {{$errors->first('email') ? 'text-danger': ''}}" name="email"
-                                   placeholder="Enter your email" value="{{old('email')}}">
+                                   placeholder="Nhập Email" value="{{old('email')}}">
                         </div>
                         @if($errors->first('email'))
                             <p class="text-danger">{{ $errors->first('email') }}</p>
@@ -45,7 +50,7 @@
                                 </span>
                             </div>
                             <input type="password" class="form-control {{$errors->first('password') ? 'text-danger': ''}}" name="password"
-                                   placeholder="Enter your Password">
+                                   placeholder="Nhập mật khẩu">
                         </div>
                         @if($errors->first('password'))
                             <p class="text-danger">{{ $errors->first('password') }}</p>
