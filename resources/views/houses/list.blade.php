@@ -105,13 +105,11 @@
             </div>
         </div>
         <div class="container pt-2">
-            <div class="card">
-                <div class="card-body">
                     <div class="site-section" id="properties-section">
                         <div class="container">
                             <div class="row large-gutters">
                                 @foreach($houses as $key => $house)
-                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-5 ">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
                                         <div class="ftco-media-1">
                                             <div class="ftco-media-1-inner">
                                                 <a href="{{route('houses.show',$house->id)}}"
@@ -141,8 +139,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
