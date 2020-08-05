@@ -146,17 +146,19 @@
                                                         class="img-fluid"
                                                         style="height: 400px;width: 300px;margin: auto"></a>
                                                 <div class="ftco-media-details">
-                                                    <h3>{{$house->name}}</h3>
-                                                    <p>{{$house->addresses[0]->road}},
+                                                    <h3> <span class="glyphicon glyphicon-tags"></span> &nbsp;{{$house->name}}</h3>
+                                                    <br>
+                                                    <p><span class="glyphicon glyphicon-map-marker"></span> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
-                                                        {{$house->addresses[0]->city}}</p>
+                                                        {{$house->addresses[0]->city}}</p
+                                       
+                                                    <strong><span class="glyphicon glyphicon-usd"></span> &nbsp;{{number_format($house->price)}} VNĐ</strong>
 
-                                                    <strong>{{number_format($house->price)}} VNĐ</strong>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endforeach=======
                                 <div class="col-12 col-md-12">
                                     <div class="row">
                                         <div class="col-12 col-md-10"></div>
