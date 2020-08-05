@@ -80,9 +80,9 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close
+                                                                    data-dismiss="modal">Thoát
                                                             </button>
-                                                            <button type="submit" class="btn btn-primary">Send message
+                                                            <button type="submit" class="btn btn-primary">Đặt thuê
                                                             </button>
                                                         </div>
                                                     </div>

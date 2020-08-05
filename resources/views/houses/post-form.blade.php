@@ -122,7 +122,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê:</label>
+                                    <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê VNĐ:</label>
 
                                     <input type="text" name="price" autofocus
                                            class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}"
