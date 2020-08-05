@@ -41,8 +41,7 @@ Route::prefix('houses')->group(function () {
     Route::middleware(['user'])->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
-        Route::get('/book-house/{id}', 'HouseController@viewBookHouse')->name('houses.viewBookHouse');
-        Route::post('/book-house/{id}', 'HouseController@bookHouse')->name('houses.bookHouse');
+        Route::post('/{id}/book-house', 'HouseController@bookHouse')->name('houses.bookHouse');
     });
 });
 
