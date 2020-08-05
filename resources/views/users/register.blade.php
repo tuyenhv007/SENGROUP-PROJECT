@@ -1,13 +1,5 @@
 @extends('layout/master')
 @section('content')
-    <div class="site-blocks-cover inner-page-cover overlay"
-         style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-            </div>
-        </div>
-        <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
-    </div>
     <div class="site-section bg-light bg-image" id="contact-section">
         <div class="container">
             <div class="row mb-5">
@@ -28,9 +20,11 @@
                          text-black mb-5">Thông tin</h2>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name</label>
+                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name
+                                    <span style="color: red">(*)</span>
+                                </label>
                                 <input type="text" name="name" id="name"
-                                       class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}" autofocus>
+                                       class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}" autofocus placeholder="Ví du: Nguyễn Văn A">
                             </div>
                             @if($errors->first('name'))
                                 <p class="text-danger">{{ $errors->first('name') }}</p>
@@ -38,10 +32,12 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email</label>
+                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email
+                                <span style="color: red">(*)</span>
+                                </label>
                                 <input type="email" id="email" name="email"
                                        class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}"
-                                       value="{{old('email')}}" autofocus>
+                                       value="{{old('email')}}" autofocus placeholder="Ví du: abc@gmail.c">
                             </div>
                             @if($errors->first('email'))
                                 <p class="text-danger">{{ $errors->first('email') }}</p>
@@ -57,9 +53,11 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
+                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu
+                                <span style="color: red">(*)</span>
+                                </label>
                                 <input type="password" name="password" id="password"
-                                       class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus>
+                                       class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus placeholder="Mật khẩu gồm chữ và số">
 
                             </div>
                             @if($errors->first('password'))
@@ -68,9 +66,11 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại</label>
+                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại
+                                    <span style="color: red">(*)</span>
+                                </label>
                                 <input type="text" name="phone" id="text"
-                                       class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}" autofocus>
+                                       class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}" autofocus placeholder="Ví dụ: xxx.xxxx.xxx">
 
                             </div>
                             @if($errors->first('phone'))
@@ -79,9 +79,11 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black">Bạn muốn: </label>
-                                <input type="radio" name="role" value="1">Bán/Cho thuê
-                                <input type="radio" name="role" value="2">Thuê nhà
+                                <label class="text-black">Bạn muốn:</label>
+                                <br>
+                                <input type="radio" name="role" value="1"> Cho thuê / Bán
+                                <br>
+                                <input type="radio" name="role" value="2"> Thuê nhà
                             </div>
                         </div>
                         <div class="row form-group">
@@ -93,6 +95,9 @@
                             @if($errors->first('address'))
                                 <p class="text-danger">{{ $errors->first('address')}}</p>
                             @endif
+                        </div>
+                        <div>
+                            <p style="color: red">Ghi chú: Những mục tích dấu (*) là bắt buộc</p>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
