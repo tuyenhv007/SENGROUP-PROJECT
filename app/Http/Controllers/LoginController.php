@@ -36,7 +36,7 @@ class LoginController extends Controller
             $login = $user->count();
             if ($login > 0) {
                 Session::put('user', $user);
-                toastr()->success('Đăng nhập thành công !');
+                Alert()->success('Đăng nhập thành công !')->autoClose(1500);
                 return redirect()->route('houses.list');
             }
         } else {
@@ -66,7 +66,7 @@ class LoginController extends Controller
             $user->role = $request->role;
             $user->image = $newFileName;
             $user->save();
-            toastr()->success('Đăng ký thành công !', 'Thông báo');
+            Alert()->success('Đăng ký thành công !', 'Thông báo');
         }
         return redirect()->route('login');
 
