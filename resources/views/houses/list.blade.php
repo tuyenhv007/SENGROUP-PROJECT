@@ -125,8 +125,7 @@
                                                     <br>
                                                     <p><span class="glyphicon glyphicon-map-marker"></span> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
-                                                        {{$house->addresses[0]->city}}</p
-
+                                                        {{$house->addresses[0]->city}}</p>
                                                     <strong><span class="glyphicon glyphicon-usd"></span> &nbsp;{{number_format($house->price)}} VNĐ</strong>
 
                                                 </div>
@@ -137,7 +136,6 @@
                                 <div class="col-12 col-md-12">
                                     <div class="row">
                                         <div class="col-12 col-md-10"></div>
-{{--                                        <div class=" col-12 col-md-2">  {{$houses->appends(request()->query())}}</div>--}}
                                     </div>
                                 </div>
                             </div>
