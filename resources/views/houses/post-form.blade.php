@@ -92,8 +92,8 @@
 
                                 <div class="form-group">
                                     <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
-                                    <textarea name="sn"
-                                              class="form-control {{ $errors->first('sn') ? 'is-invalid' : '' }}"
+                                    <textarea name="sn" id="sn"
+                                              class="form-control  {{ $errors->first('sn') ? 'is-invalid' : '' }}"
                                               autofocus rows="2">{{ old('sn') }}</textarea>
                                     @if($errors->first('sn'))
                                         <p class="text-danger">{{ $errors->first('sn') }}</p>
@@ -102,7 +102,7 @@
 
                                 <div class="form-group">
                                     <label class="{{ $errors->first('desc') ? 'text-danger' : '' }}">Mô tả :</label>
-                                    <textarea name="desc" class="form-control
+                                    <textarea name="desc" id="desc" class="form-control
                                               {{ $errors->first('desc') ? 'is-invalid' : '' }}"
                                               autofocus rows="3">{{ old('desc') }}</textarea>
                                     @if($errors->first('desc'))

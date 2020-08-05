@@ -33,6 +33,7 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 @include('sweetalert::alert')
@@ -169,6 +170,11 @@
     </div>
 </footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script src="{{asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace( 'desc' );
+</script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
