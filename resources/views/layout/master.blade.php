@@ -82,7 +82,7 @@
                                     <a style="font-family: inherit" class="nav-link dropdown-toggle" href="#"
                                        id="navbarDropdown" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                                        <i class='fas fa-user'></i> &nbsp;
                                         {{Session::get('user')->name}}
                                     </a>
                                     <div style="margin-left: 30px " class="dropdown-menu"
@@ -184,7 +184,9 @@
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script src="{{asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
-<script>
+<script src="{{asset('ckeditor/styles.js')}}" type="text/javascript"></script>
+<script src="{{asset('ckeditor/config.js')}}" type="text/javascript"></script>
+<script type="text/javascript">
     CKEDITOR.replace('desc');
 </script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
