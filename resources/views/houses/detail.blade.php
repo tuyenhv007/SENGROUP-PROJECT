@@ -58,6 +58,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
+                                                                @csrf
                                                                 <div class="form-group">
                                                                     <label for="recipient-name" class="col-form-label">Ngày
                                                                         Đến:</label>

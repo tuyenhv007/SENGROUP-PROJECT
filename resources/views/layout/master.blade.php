@@ -65,7 +65,7 @@
                                 <a style="font-family: inherit" class="nav-link" href="{{route('houses.postForm')}}">Đăng bài</a>
                             </li>
                             <li class="nav-item">
-                                <a style="font-family: inherit" class="nav-link" href="#a"> Category</a>
+                                <a style="font-family: inherit" class="nav-link" href="#"> Category</a>
                             </li>
                             <li class="nav-item">
                                 <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
@@ -80,8 +80,9 @@
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
 
-                                        <a  style="text-align: center" class="dropdown-item" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
+                                        <a  style="text-align: center" class="dropdown-item" href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ của bạn
                                         </a>
+                                        <a  style="text-align: center" class="dropdown-item" href="">Tin đã đăng</a>
                                         <a  style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                                     </div>
                                 </li>

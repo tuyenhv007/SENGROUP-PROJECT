@@ -124,7 +124,7 @@
                                                     <p><span class="glyphicon glyphicon-map-marker"></span> &nbsp;{{$house->addresses[0]->road}},
                                                         {{$house->addresses[0]->district}},
                                                         {{$house->addresses[0]->city}}</p>
-                                                    <strong><span class="glyphicon glyphicon-usd"></span> &nbsp;{{number_format($house->price)}} VNĐ</strong>
+                                                    <strong><span class="glyphicon glyphicon-usd"></span> &nbsp;{{($house->price)}} VNĐ</strong>
 
                                                 </div>
                                             </div>
