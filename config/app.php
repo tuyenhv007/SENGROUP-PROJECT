@@ -20,7 +20,7 @@ return [
     | Application Environment
     |--------------------------------------------------------------------------
     |
-    | This value determines the "environment" your application is currently
+    | This value determines the "environment" your application is currently  Laravel\Socialite\SocialiteServiceProvider::class,
     | running in. This may determine how you prefer to configure various
     | services the application utilizes. Set this in your ".env" file.
     |
@@ -167,7 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Socialite\SocialiteServiceProvider::class,
+      
+
 
         /*
          * Application Service Providers...
@@ -230,7 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Alert'=>RealRashid\SweetAlert\Facades\Alert::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
     ],
 
 ];

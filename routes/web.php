@@ -20,19 +20,12 @@ Route::get('/register', 'LoginController@showFormRegister')->name('register');
 Route::post('/login', 'LoginController@login')->name('user.login');
 Route::post('/register', 'LoginController@register')->name('user.register');
 Route::get('/logout', 'LoginController@logout')->name('logout');
-
-<<<<<<< HEAD
-Route::get('/admin/redirect', 'Auth\SocialController@redirectToProvider')->name('google.redirect');
-Route::get('/admin/callback', 'Auth\SocialController@handleProviderCallback');
-=======
 Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.index');
 Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
-
 Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
 Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
-//Route::get('/user/redirect','SocialController@redirectToProvider')->name('user.redirect');
-//Route::get('/user/callback','SocialController@handleProviderCallback');
->>>>>>> c2c6b79e587b7f4f4430fc0b65b7efd34507833c
+
+
 
 Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
