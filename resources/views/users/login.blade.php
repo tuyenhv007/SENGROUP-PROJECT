@@ -70,7 +70,7 @@
                     <p class="text-center">Đăng nhập bằng:</p>
                     <div class="text-center social-btn">
                         <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
-                        <a href="{{ url('/admin/redirect/google') }}" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+                        <a href="{{route('google.redirect')}}" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
                         <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a></div>
                 </form>
                 <p class="text-center text-muted small">Chưa có tài khoản? <a href="{{route('register')}}">Đăng kí ở

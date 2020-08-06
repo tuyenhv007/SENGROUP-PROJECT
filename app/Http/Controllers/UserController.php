@@ -8,9 +8,7 @@ use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -78,24 +76,26 @@ class UserController extends Controller
         }
     }
 
-    public function historyBookHouses($id){
-        $user=User::find($id);
-        $bills=Bill::where('user_id',$id)->get();
-            return view('users.history-bookHouses',compact('user','bills'));
-
-
-    public function showHouseUser($id)
+    public function historyBookHouses($id)
     {
-        $houses = House::where('user_id', $id)->get();
-        return view('users.show-house-user', compact('houses'));
-    }
-
-    public function showBillHouse($id)
-    {
-        $bills = Bill::where('house_id', $id)->get();
-        return view('users.show-bill-house', compact('bills'));
+        $user = User::find($id);
+        $bills = Bill::where('user_id', $id)->get();
+        return view('users.history-bookHouses', compact('user', 'bills'));
 
 
+        public
+        function showHouseUser($id)
+        {
+            $houses = House::where('user_id', $id)->get();
+            return view('users.show-house-user', compact('houses'));
+        }
+
+        public
+        function showBillHouse($id)
+        {
+            $bills = Bill::where('house_id', $id)->get();
+            return view('users.show-bill-house', compact('bills'));
+        }
     }
 }
 

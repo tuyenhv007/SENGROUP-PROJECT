@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidateLogin;
 use App\User;
-use http\Env\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ValidateRegister;
-use RealRashid\SweetAlert\Facades\Alert;
 
 
 class LoginController extends Controller
@@ -70,5 +68,4 @@ class LoginController extends Controller
         alert('Đăng kí thành công', 'Success', 'success')->autoClose(1500);
         return redirect()->route('login');
     }
-
 }
