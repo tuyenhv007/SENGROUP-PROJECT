@@ -55,6 +55,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $password = md5($request->password);
+
         if ($user->password === $password) {
             if (($request->newpass) === ($request->confirmpass)) {
                 if ($user->password === md5($request->newpass)) {
