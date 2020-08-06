@@ -24,7 +24,8 @@ Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.i
 Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
 Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
 Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
-
+Route::get('login/{provider}', 'SocialController@redirect');
+Route::get('login/{provider}/callback','SocialController@Callback');
 
 
 Route::prefix('user')->group(function () {

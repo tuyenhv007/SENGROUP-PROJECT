@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
 
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
 
@@ -232,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Alert'=>RealRashid\SweetAlert\Facades\Alert::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];
