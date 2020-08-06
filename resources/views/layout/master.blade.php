@@ -128,6 +128,14 @@
         </div>
     </div>
 </header>
+<div class="site-blocks-cover inner-page-cover overlay"
+     style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+        </div>
+    </div>
+    <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
+</div>
 @yield('content')
 <footer class="site-footer">
     <div class="container">
@@ -173,20 +181,17 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-5 mt-5 text-center">
+        <div class="row pt-1 mt-1 text-center">
             <div class="col-md-12">
-                <div class="border-top pt-5">
+                <div class="border-top pt-2">
                     <p class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                         Đã đăng ký bản quyền | Thực hiện bởi <a href="{{route('houses.list')}}"
                                                                 target="_blank">SenGroup </a><i
                             class="icon-heart text-danger" aria-hidden="true"></i>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
 </footer>

@@ -1,19 +1,6 @@
 @extends('layout.master')
 @section('content')
     <div class="pb-5">
-        <div class="site-blocks-cover inner-page-cover overlay"
-             style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-5 mx-auto mt-lg-5 text-center">
-                        <h1><i class='fas fa-house-user'></i> &nbsp;{{$house->type}}</h1>
-                        <p class="mb-5"><strong class="text-white"><i class="fa fa-money"></i>
-                                &nbsp;{{number_format($house->price)}} VNĐ</strong></p>
-                    </div>
-                </div>
-            </div>
-            <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
-        </div>
         <div class="container pt-3">
             <div class="card">
                 <div class="card-body">
@@ -44,7 +31,7 @@
                                         <p class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông tin mô tả :{!! $house->desc !!}.</p>
                                         <h4 class="mb-1"><i class="fa fa-money "></i> &nbsp;Giá Tiền: {{number_format($house->price)}} VNĐ</h4>
 
-                                    
+
                                         <ul class="alert text-danger" >
                                             @foreach ($errors ->all() as $error)
                                                 <li>{{$error}}</li>
@@ -53,7 +40,7 @@
 
                                         <div class="pt-2">
                                             <button type="button"
-                                                    class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
+                                                    class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->id)===($house->user->id))
                                                         d-none
                                                         @else
                                                         d-inline
