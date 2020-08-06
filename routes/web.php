@@ -29,27 +29,29 @@ Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->na
 //Route::get('/user/redirect','SocialController@redirectToProvider')->name('user.redirect');
 //Route::get('/user/callback','SocialController@handleProviderCallback');
 
-
 Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
-    Route::get('/change-password/{id}','UserController@formChangePassword')->name('user.formChangePassword');
-    Route::post('/change-password/{id}','UserController@changePassword')->name('user.changePassword');
+
+    Route::get('/change-password/{id}', 'UserController@formChangePassword')->name('user.formChangePassword');
+    Route::post('/change-password/{id}', 'UserController@changePassword')->name('user.changePassword');
+    Route::get('/history-bookHouses/{id}', 'UserController@historyBookHouses')->name('user.historyBookHouses');
 
 });
-
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
-    Route::post('/search/', 'HouseController@search')->name('house.search');
+    Route::post('/search', 'HouseController@search')->name('house.search');
     Route::post('/post-form/{idCity}', 'DistrictController@showDistrictInCity');
     Route::post('/post-form/road/{idDistrict}', 'RoadController@showRoadInDistrict');
     Route::middleware(['user'])->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
         Route::post('/{id}/book-house', 'HouseController@bookHouse')->name('houses.bookHouse');
+        Route::get('/{id}/show-list-house', 'UserController@showHouseUser')->name('user.houseUser');
+        Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
     });
 });
 

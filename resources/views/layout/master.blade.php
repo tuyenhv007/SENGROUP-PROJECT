@@ -57,7 +57,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a style="font-size:190%;font-style: inherit; margin-top: 6px" class="navbar-brand"
+                    <a style="font-size:190%;font-style: oblique;font-family: Consolas; margin-top: 6px" class="navbar-brand"
                        href="{{route('houses.list')}}">
                         SENGROUP</a>
 
@@ -73,7 +73,7 @@
                                     bài</a>
                             </li>
                             <li class="nav-item">
-                                <a style="font-family: inherit" class="nav-link" href="#a"> Category</a>
+                                <a style="font-family: inherit" class="nav-link" href="#"> Category</a>
                             </li>
                             <li class="nav-item">
                                 <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
@@ -89,15 +89,18 @@
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
 
+                                        <a  style="text-align: center" class="dropdown-item" href="{{route('user.houseUser',\Illuminate\Support\Facades\Session::get('user')->id)}}">Nhà đã đăng</a>
                                         <a style="text-align: center" class="dropdown-item"
-                                           href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
+                                           href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ
+                                        </a>
+                                        <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.historyBookHouses',Session::get('user')->id)}}">Lịch sử thuê nhà
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.formChangePassword',Session::get('user')->id)}}">Đổi mật khẩu
                                         </a>
                                         <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng
                                             xuất</a>
-
                                     </div>
                                 </li>
                             @else
@@ -125,6 +128,14 @@
         </div>
     </div>
 </header>
+<div class="site-blocks-cover inner-page-cover overlay"
+     style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+        </div>
+    </div>
+    <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
+</div>
 @yield('content')
 <footer class="site-footer">
     <div class="container">
@@ -170,20 +181,17 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-5 mt-5 text-center">
+        <div class="row pt-1 mt-1 text-center">
             <div class="col-md-12">
-                <div class="border-top pt-5">
+                <div class="border-top pt-2">
                     <p class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                         Đã đăng ký bản quyền | Thực hiện bởi <a href="{{route('houses.list')}}"
                                                                 target="_blank">SenGroup </a><i
                             class="icon-heart text-danger" aria-hidden="true"></i>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
 </footer>
