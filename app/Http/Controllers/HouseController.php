@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Bill;
 use App\City;
+use App\Comment;
 use App\District;
 use App\House;
 use App\Http\Requests\ValidateFormBookHouse;
@@ -34,7 +35,8 @@ class HouseController extends Controller
     public function show($id)
     {
         $house = House::findOrFail($id);
-        return view('houses.detail', compact('house'));
+        $comments=Comment::where('house_id',$id)->get();
+        return view('houses.detail', compact('house','comments'));
     }
 
     public function postForm()
@@ -42,7 +44,6 @@ class HouseController extends Controller
         $cities = City::all();
         return view('houses.post-form', compact('cities'));
     }
-
     public function postHouse(ValidatePostHouse $request)
     {
         $house = new House();

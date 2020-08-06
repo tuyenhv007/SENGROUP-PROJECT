@@ -25,10 +25,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
-        view()->composer('houses.detail',function ($view){
-            $comments=Comment::all();
-            $view->with(['comments'=>$comments]);
-        });
     }
 }
