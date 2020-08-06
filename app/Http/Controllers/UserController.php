@@ -122,11 +122,5 @@ class UserController extends Controller
         }
     }
 
-    public
-    function showBillHouse($id)
-    {
-        $bills = Bill::where('house_id', $id)->get();
-        return view('users.show-bill-house', compact('bills'));
-    }
 }
 
