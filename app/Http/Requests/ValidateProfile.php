@@ -25,7 +25,7 @@ class ValidateProfile extends FormRequest
     {
         return [
             'name' => 'required',
-            'phone' => 'required|unique:users,phone|min:10|max:12',
+            'phone' => 'required|min:10|max:12|unique:users,phone,' . $this->id,
         ];
     }
 
