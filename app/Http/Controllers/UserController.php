@@ -7,9 +7,6 @@ use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -25,6 +22,7 @@ class UserController extends Controller
     public function editProfile(ValidateProfile $request, $id)
     {
         User::where('id', $id)->update([
+
             'name' => $request->name,
             'phone' => $request->phone,
             'address' => $request->address
@@ -121,6 +119,5 @@ class UserController extends Controller
             return redirect()->route('user.historyBookHouses', $bill->user_id);
         }
     }
-
 }
 

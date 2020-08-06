@@ -31,20 +31,17 @@ class HouseController extends Controller
         $cities = City::all();
         return view('houses.list', compact('houses', 'cities'));
     }
-
     public function show($id)
     {
         $house = House::findOrFail($id);
         $comments= Comment::where('house_id',$id)->get();
         return view('houses.detail', compact('house','comments'));
     }
-
     public function postForm()
     {
         $cities = City::all();
         return view('houses.post-form', compact('cities'));
     }
-
     public function postHouse(ValidatePostHouse $request)
     {
         $house = new House();
