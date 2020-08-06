@@ -6,7 +6,6 @@ use App\Bill;
 use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
-
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

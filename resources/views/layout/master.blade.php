@@ -37,7 +37,6 @@
     <script src="{{asset('js/image-ajax.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/ajax-avatar.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">--}}
 </head>
@@ -198,6 +197,7 @@
 </footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
 {{--<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>--}}
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="{{asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
 <script src="{{asset('ckeditor/styles.js')}}" type="text/javascript"></script>
 <script src="{{asset('ckeditor/config.js')}}" type="text/javascript"></script>
