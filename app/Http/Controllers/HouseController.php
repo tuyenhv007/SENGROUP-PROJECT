@@ -24,6 +24,7 @@ class HouseController extends Controller
 {
     public function index()
     {
+//        dd(date("Y-m-d",time()));
         Carbon::setLocale('vi');
         $houses = House::orderBy('created_at', 'DESC')->get();
         $cities = City::all();
