@@ -26,6 +26,7 @@ Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('r
 Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
 
 
+
 Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
