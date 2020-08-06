@@ -29,11 +29,11 @@ Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
-    Route::get('/change-password/{id}', 'UserController@formChangePassword')->name('user.formChangePassword');
-    Route::post('/change-password/{id}', 'UserController@changePassword')->name('user.changePassword');
+    Route::get('/change-password/{id}','UserController@formChangePassword')->name('user.formChangePassword');
+    Route::post('/change-password/{id}','UserController@changePassword')->name('user.changePassword');
+    Route::get('/history-bookHouses/{id}','UserController@historyBookHouses')->name('user.historyBookHouses');
 
 });
-
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');

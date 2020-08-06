@@ -94,6 +94,9 @@
                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.historyBookHouses',Session::get('user')->id)}}">Lịch sử thuê nhà
+                                        </a>
+                                        <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.formChangePassword',Session::get('user')->id)}}">Đổi mật khẩu
                                         </a>
                                         <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng
