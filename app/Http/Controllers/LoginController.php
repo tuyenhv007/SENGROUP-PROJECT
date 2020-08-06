@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 
-use App\Customer;
-use App\Host;
 use App\Http\Requests\ValidateLogin;
 use App\User;
 use Illuminate\Support\Facades\Session;
@@ -36,6 +34,7 @@ class LoginController extends Controller
             $login = $user->count();
             if ($login > 0) {
                 Session::put('user', $user);
+                Alert()->success('Đăng nhập thành công !')->autoClose(1500);
                 return redirect()->route('houses.list');
             }
         } else {
@@ -47,32 +46,29 @@ class LoginController extends Controller
     public function logout()
     {
         Session::put('user', null);
-        return back();
+        return redirect()->route('houses.list');
     }
 
     public function register(ValidateRegister $request)
     {
-        $name = $request->name;
-        $email = $request->email;
-        $password = md5($request->password);
-        $phone = $request->phone;
-        $role = $request->role;
-        $address = $request->address;
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = md5($request->password);
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->role = $request->role;
         if ($request->hasFile('avatar')) {
             $cover = $request->file('avatar');
             $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
             $cover->storeAs('public/images', $newFileName);
-            $user = new User();
-            $user->name = $name;
-            $user->email = $email;
-            $user->password = $password;
-            $user->phone = $phone;
-            $user->address = $address;
-            $user->role = $role;
             $user->image = $newFileName;
-            $user->save();
-        }
-        return redirect()->route('login');
+//            $user->code = null;
+//            $user->time_code = null;
 
+        }
+        $user->save();
+        alert('Đăng kí thành công', 'Success', 'success')->autoClose(1500);
+        return redirect()->route('login');
     }
 }

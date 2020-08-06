@@ -1,90 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.ico')}}"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate/animate.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/css-hamburgers/hamburgers.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/animsition/css/animsition.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/select2/select2.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/daterangepicker/daterangepicker.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/util-login.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/main-login.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="limiter">
-    <div class="container-login100" style="background-image: url({{asset('images/bg-01.jpg')}});">
-        <div class="wrap-login100 p-t-30 p-b-50">
-				<span class="login100-form-title p-b-41">
-					Account Login
-				</span>
-            <form action="{{ route('user.login') }}" method="POST" class="login100-form validate-form p-b-33 p-t-5">
-                @csrf
-                @if($errors->all() || Session::get('mess'))
-                    <div class="alert alert-danger" role="alert">
-                        Sai tên đăng nhập hoặc mật khẩu!
-                        <?php
-                        Session::put('mess',null);
-                        ?>
+@extends('layout.master')
+@section('content')
+    <div class="card" style="width: 400px;margin-left: 460px;margin-top: 50px">
+        <div class="card-header">
+            <h2 class="text-center">Đăng nhập</h2>
+            <hr>
+            @if( Session::get('mess'))
+                <div class="alert alert-danger" role="alert">
+                    Sai tên đăng nhập hoặc mật khẩu!
+                    <?php
+                    Session::put('mess',null);
+                    ?>
+                </div>
+            @endif
+            @if( $errors->all())
+                <div class="alert alert-danger" role="alert">
+                    Lỗi đăng nhập!!!
+                </div>
+            @endif
+        </div>
+        <div class="card-body">
+            <div class="login-form">
+                <form action="{{route('user.login')}}" method="post">
+                    @csrf
+                    @if($errors->all())
+                        <div id="msg_div" class="alert alert-danger d-none" role="alert">
+                            <span id="res_message"></span>
+                        </div>
+                    @endif
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <span class="fa fa-user"></span>
+                                </span>
+                            </div>
+                            <input autofocus type="text"
+                                   class="form-control {{$errors->first('email') ? 'text-danger': ''}}" name="email"
+                                   placeholder="Nhập Email" value="{{old('email')}}">
+                            <span class="{{$errors->first('email') ? 'is-invalid' : ''}}"></span>
+                        </div>
+                        @if($errors->first('email'))
+                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                        @endif
                     </div>
-                @endif
-{{--                <div class="ml-3 mt-3"><h6>Nhập email:</h6></div>--}}
-                <div class="wrap-input100 validate-input" data-validate = "Enter email">
-                    <input class="input100" type="text" name="email" placeholder="Email">
-                    <span class="{{$errors->first('email') ? 'text-danger': ''}}"></span>
-                </div>
-{{--                <div class="ml-3 mt-3"><h6>Nhập mật khẩu:</h6></div>--}}
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
-                    <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
-                </div>
-                <div class="container-login100-form-btn m-t-32">
-                    <input value="Login" class="login100-form-btn mr-1" type="submit">
-                    <a class="login100-form-btn ml-1" href="{{route('register')}}">Register</a>
-                </div>
-                <div class="container-login100-form-btn m-t-32" >
-                    <a href="{{route('houses.list')}}"><span class="glyphicon glyphicon-home">Home</span></a>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" class="form-control {{$errors->first('password') ? 'text-danger': ''}}" name="password"
+                                   placeholder="Nhập mật khẩu">
+                            <span class="{{$errors->first('password') ? 'is-invalid' : ''}}"></span>
+                        </div>
+                        @if($errors->first('password'))
+                            <p class="text-danger">{{ $errors->first('password') }}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary login-btn btn-block">Đăng nhập</button>
+
+                    </div>
+                    <div class="clearfix">
+                        <label class="float-left form-check-label"><input type="checkbox"> Nhớ mật khẩu?</label>
+                        <a href="{{ route('forgot.index') }}" class="float-right">Quên mật khẩu?</a>
+                    </div>
+                    <div class="or-seperator" style="margin-left: 170px"><i>hoặc</i></div>
+                    <p class="text-center">Đăng nhập bằng:</p>
+                    <div class="text-center social-btn">
+                        <a href="#" class="btn btn-secondary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                        <a href="{{route('google.redirect')}}" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+                        <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a></div>
+                </form>
+                <p class="text-center text-muted small">Chưa có tài khoản? <a href="{{route('register')}}">Đăng kí ở
+                        đây!</a></p>
+            </div>
         </div>
     </div>
-</div>
-<div id="dropDownSelect1"></div>
-<!--===============================================================================================-->
-<script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-<!--===============================================================================================-->
-<script src="{{asset('vendor/animsition/js/animsition.min.js')}}"></script>
-<!--===============================================================================================-->
-<script src="{{asset('vendor/bootstrap/js/popper.js')}}"></script>
-<script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
-<script src="{{asset('v')}}"></script>
-<!--===============================================================================================-->
-<script src="{{asset('vendor/daterangepicker/moment.min.js')}}"></script>
-<script src="{{asset('vendor/daterangepicker/daterangepicker.js')}}"></script>
-<!--===============================================================================================-->
-<script src="{{asset('vendor/countdowntime/countdowntime.js')}}"></script>
-<!--===============================================================================================-->
-<script src="{{asset('js/main.js')}}"></script>
-</body>
-</html>
-
+@endsection

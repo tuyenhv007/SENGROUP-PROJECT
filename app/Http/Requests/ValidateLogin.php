@@ -25,7 +25,7 @@ class ValidateLogin extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required|min:6|max:32'
+            'password' => 'required|min:6|max:32|regex:[^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$]'
         ];
     }
 
@@ -33,10 +33,11 @@ class ValidateLogin extends FormRequest
     {
         return [
             'email.required' => 'Email không được để trống!',
-            'email.email' => 'Email không đúng định dạng!',
-            'password.required' => 'Password không được để trống!',
-            'password.min' => 'Mật khẩu phải hơn 6 ký tự.',
-            'password.max' => 'Mật khẩu phải không được vượt quá 32ký tự.'
+            'email.email' => 'Email sai định dạng! Ví dụ: abc@gmail.com',
+            'password.required' => 'Mật khẩu không được để trống!',
+            'password.min' => 'Mật khẩu phải dài hơn 6 ký tự.',
+            'password.max' => 'Mật khẩu phải không được vượt quá 32 ký tự.',
+            'password.regex' => 'Mật khẩu là có chữ và số (Không có ký tự đặc biệt!)',
         ];
     }
 }

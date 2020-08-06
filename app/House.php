@@ -21,9 +21,13 @@ class House extends Model
     {
         return $this->hasMany('App\Bill', 'house_id', 'id');
     }
+    public function comments(){
+        return $this->belongsTo('App\Comments')->withTimestamps();
+    }
 
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
+    protected $dates = ['created_at', 'updated_at', 'disabled_at','mydate'];
 }

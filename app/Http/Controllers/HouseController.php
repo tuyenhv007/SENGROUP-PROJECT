@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Bill;
 use App\City;
+use App\Comment;
 use App\District;
 use App\House;
 use App\Http\Requests\ValidateFormBookHouse;
@@ -13,20 +14,29 @@ use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class HouseController extends Controller
 {
     public function index()
     {
-        $houses = House::all();
-        return view('houses.list', compact('houses'));
+//        dd(date("Y-m-d",time()));
+        Carbon::setLocale('vi');
+        $houses = House::orderBy('created_at', 'DESC')->get();
+        $cities = City::all();
+        return view('houses.list', compact('houses', 'cities'));
     }
 
     public function show($id)
     {
         $house = House::findOrFail($id);
-        return view('houses.detail', compact('house'));
+        $comments= Comment::where('house_id',$id)->get();
+        return view('houses.detail', compact('house','comments'));
     }
 
     public function postForm()
@@ -77,32 +87,75 @@ class HouseController extends Controller
                     $image->house_id = $house->id;
                     $image->save();
                 }
-                toastr()->success('Đăng bài thành công !', 'Thông báo');
+                alert('Đăng bài thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
             } else {
-                toastr()->error('Đăng bài thất bại, bạn vui lòng kiểm tra lạ i!');
+                alert('Đăng bài thất bại', 'Successfully', 'success')->autoClose(1500);
+                return back();
             }
         }
     }
 
-    public function viewBookHouse($id)
+    public function bookHouse(Request $request, $id)
     {
-        $house = House::findOrFail($id);
-        return view('houses.book-house', compact('house'));
-    }
-
-    public function bookHouse(ValidateFormBookHouse $request, $id)
-    {
+        $request->validate([
+            'dateIn' => 'required|date|after:yesterday',
+            'dateOut' => 'required|date|after:dateIn'
+        ],
+            [
+                'dateIn.required' => 'Ngày đến không được để trống !',
+                'dateOut.required' => 'Ngày đi không được để trống !',
+                'dateIn.after' => 'Ngày đến phải sau ngày hôm nay !',
+                'dateOut.after' => 'Ngày đi phải sau ngày đến !'
+            ]);
+        $dateIn = $request->dateIn;
+        $dateOut = $request->dateOut;
+        $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
         $house = House::findOrFail($id);
         $bill = new Bill();
         $bill->checkIn = $request->dateIn;
         $bill->checkOut = $request->dateOut;
-        $bill->status = 0;
-        $bill->total = $house->price;
+        $bill->status = BillStatus::ORDER;
+        $bill->note = $request->note;
+        $bill->total = ($house->price) * $days;
         $bill->house_id = $house->id;
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
         $bill->save();
+        Alert()->success('Thuê nhà thành công !');
         return back();
+    }
+
+    public function search(Request $request)
+    {
+        if (!$request->city && !$request->search) {
+            return redirect()->route('houses.list');
+        } elseif ($request->city && !$request->search) {
+            $city_id = $request->city;
+            $city = City::find($city_id);
+            $district_id = $request->district;
+            $district = District::find($district_id);
+            $road_id = $request->road;
+            $road = Road::find($road_id);
+            if ($city_id && !$district_id && !$road_id) {
+                $addresses = Address::where('city', $city->name)->get();
+            } elseif ($city_id && $district_id && !$road_id) {
+                $addresses = Address::where('district', $district->name)->get();
+            } else {
+                $addresses = Address::where('road', $road->name)->get();
+            }
+            $houses = [];
+            foreach ($addresses as $address) {
+                $house = House::find($address->house_id);
+                array_push($houses, $house);
+            }
+            $cities = City::all();
+            return view('houses.list', compact('houses', 'cities'));
+        } else {
+            $search = $request->search;
+            $houses = House::where('name', 'LIKE', '%' . $search . '%')->get();
+            $cities = City::all();
+            return view('houses.list', compact('houses', 'cities'));
+        }
     }
 
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnImageUsersTable extends Migration
+class AddColumnCodeAndTimeCodeToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddColumnImageUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('image');
+            $table->string('code')->nullable()->index();
+            $table->timestamp('time_code')->nullable();
         });
     }
 
@@ -26,8 +27,7 @@ class AddColumnImageUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
-
+            $table->dropColumn('code', 'time_code');
         });
     }
 }

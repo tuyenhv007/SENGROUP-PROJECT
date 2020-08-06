@@ -1,11 +1,10 @@
-
 @extends('layout/master')
 @section('content')
     <div class="site-section bg-light bg-image" id="contact-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="section-title mb-3">Đăng Ký thành viên</h2>
+                    <h2>Đăng Ký thành viên</h2>
                 </div>
             </div>
             <div style="margin-left: 125px; width: 1500px" class="row">
@@ -21,9 +20,10 @@
                          text-black mb-5">Thông tin</h2>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name</label>
+                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name (*)
+                                </label>
                                 <input type="text" name="name" id="name"
-                                       class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}" autofocus>
+                                       class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}" autofocus placeholder="Ví du: Nguyễn Văn A">
                             </div>
                             @if($errors->first('name'))
                                 <p class="text-danger">{{ $errors->first('name') }}</p>
@@ -31,10 +31,11 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email</label>
+                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email (*)
+                                </label>
                                 <input type="email" id="email" name="email"
                                        class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}"
-                                       value="{{old('email')}}" autofocus>
+                                       value="{{old('email')}}" autofocus placeholder="Ví du: abc@gmail.c">
                             </div>
                             @if($errors->first('email'))
                                 <p class="text-danger">{{ $errors->first('email') }}</p>
@@ -47,12 +48,17 @@
                                        class="form-control"
                                        value="">
                             </div>
+                            <div id="result">
+
+                            </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu</label>
+                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu (*)
+                                </label>
                                 <input type="password" name="password" id="password"
-                                       class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus>
+                                       class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus placeholder="Mật khẩu gồm chữ và số">
+
                             </div>
                             @if($errors->first('password'))
                                 <p class="text-danger">{{ $errors->first('password') }}</p>
@@ -60,9 +66,10 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại</label>
+                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại (*)
+                                </label>
                                 <input type="text" name="phone" id="text"
-                                       class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}" autofocus>
+                                       class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}" autofocus placeholder="Ví dụ: xxx.xxxx.xxx">
 
                             </div>
                             @if($errors->first('phone'))
@@ -71,9 +78,11 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="text-black">Bạn muốn: </label>
-                                <input type="radio" name="role" value="1">Bán/Cho thuê
-                                <input type="radio" name="role" value="2">Thuê nhà
+                                <label class="text-black">Bạn muốn:</label>
+                                <br>
+                                <input type="radio" name="role" value="1"> Cho thuê / Bán
+                                <br>
+                                <input type="radio" name="role" value="2"> Thuê nhà
                             </div>
                         </div>
                         <div class="row form-group">
@@ -86,11 +95,13 @@
                                 <p class="text-danger">{{ $errors->first('address')}}</p>
                             @endif
                         </div>
+                        <div>
+                            <p>Ghi chú: Những mục tích dấu (*) là bắt buộc</p>
+                        </div>
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <input type="submit" value="Đăng ký" class="btn btn-primary btn-md text-white">
                                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false">Cancel</button>
-
                             </div>
                         </div>
                     </form>
