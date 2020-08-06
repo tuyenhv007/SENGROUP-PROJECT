@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Comment;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,5 +25,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
+        view()->composer('houses.detail',function ($view){
+            $comments=Comment::all();
+            $view->with(['comments'=>$comments]);
+        });
     }
 }

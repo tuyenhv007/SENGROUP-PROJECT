@@ -33,6 +33,9 @@ Route::prefix('user')->group(function () {
     Route::post('/change-password/{id}','UserController@changePassword')->name('user.changePassword');
 });
 
+Route::post('comment/{id}','CommentController@postComment')->name('post.comment');
+Route::post('check','CommentController@checkComment')->name('check.comment');
+
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
