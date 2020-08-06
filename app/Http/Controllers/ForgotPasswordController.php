@@ -57,7 +57,7 @@ class ForgotPasswordController extends Controller
         ]);
         if (!$checkUser) {
             alert()->error('Có lỗi xảy ra!', 'Đường dẫn lấy lại mật khẩu không hợp lệ, vui lòng thử lại sau!!');
-            return redirect('forgot-password.check-email');
+            return redirect()->route('forgot.index');
         }
 
         return view('forgot-password.reset-password');
@@ -77,7 +77,7 @@ class ForgotPasswordController extends Controller
 
             if (!$checkUser) {
                 alert()->error('Có lỗi xảy ra!', 'Đường dẫn lấy lại mật khẩu không hợp lệ, vui lòng thử lại sau!!');
-                return redirect('forgot-password.check-email');
+                return redirect()->route('forgot.index');
             }
 
             $checkUser->password = md5($requestResetPassword->password);

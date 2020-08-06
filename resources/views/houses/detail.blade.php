@@ -77,21 +77,11 @@
                                             @endforeach
                                         </ul>
 
-                                        <div class="pt-2">
-                                            <button type="button"
-                                                    class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->id)===($house->user->id))
-                                                        d-none
-                                                        @else
-                                                        d-inline
-                                                        @endif" data-toggle="modal"
-                                                    data-target="#exampleModal" data-whatever="@mdo">Đặt Thuê
-                                            </button>
 
-
-                                            <div class="pt-2">
-                                                <button type="button"
-                                                        class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
-                                                            d-none
+                                    <div class="pt-2">
+                                        <button type="button"
+                                                class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
+                                                    d-none
 @else
                                                             d-inline
 @endif" data-toggle="modal"
