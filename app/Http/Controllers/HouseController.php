@@ -157,7 +157,7 @@ class HouseController extends Controller
             $search = $request->search;
             $houses = House::where('name', 'LIKE', '%' . $search . '%')->get();
             $cities = City::all();
-            return view('houses.list', compact('houses', 'cities'));
+            return response()->json($houses);
         }
     }
 }
