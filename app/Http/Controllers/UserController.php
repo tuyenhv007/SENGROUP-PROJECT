@@ -88,13 +88,13 @@ class UserController extends Controller
 
     public function showHouseUser($id)
     {
-        $houses = House::where('user_id', $id)->get();
+        $houses = House::where('user_id', $id)->orderBy('created_at', 'DESC')->get();
         return view('users.show-house-user', compact('houses'));
     }
 
     public function showBillHouse($id)
     {
-        $bills = Bill::where('house_id', $id)->get();
+        $bills = Bill::where('house_id', $id)->orderBy('created_at', 'DESC')->get();
         return view('users.show-bill-house', compact('bills'));
 
     }
