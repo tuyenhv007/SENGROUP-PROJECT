@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Bill;
+use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
@@ -74,6 +76,11 @@ class UserController extends Controller
             alert()->error('Error', 'Mật khẩu hiện tại không chính xác');
             return redirect()->back();
         }
+    }
+    public function historyBookHouses($id){
+        $user=User::find($id);
+        $bills=Bill::where('user_id',$id)->get();
+            return view('users.history-bookHouses',compact('user','bills'));
     }
 }
 

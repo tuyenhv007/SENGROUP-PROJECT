@@ -31,6 +31,7 @@ Route::prefix('user')->group(function () {
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
     Route::get('/change-password/{id}','UserController@formChangePassword')->name('user.formChangePassword');
     Route::post('/change-password/{id}','UserController@changePassword')->name('user.changePassword');
+    Route::get('/history-bookHouses/{id}','UserController@historyBookHouses')->name('user.historyBookHouses');
 });
 
 
