@@ -28,7 +28,8 @@ Route::prefix('user')->group(function () {
     Route::get('/change-password/{id}', 'UserController@formChangePassword')->name('user.formChangePassword');
     Route::post('/change-password/{id}', 'UserController@changePassword')->name('user.changePassword');
     Route::get('/history-bookHouses/{id}', 'UserController@historyBookHouses')->name('user.historyBookHouses');
-
+    Route::get('/cancle-bookHouse/{id}', 'UserController@formCancleBookHouse')->name('user.formCancleBookHouse');
+    Route::post('/cancle-bookHouse/{id}','UserController@cancleBookHouse')->name('user.cancleBookHouse');
 });
 
 Route::prefix('houses')->group(function () {
