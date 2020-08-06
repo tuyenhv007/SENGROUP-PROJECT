@@ -21,6 +21,9 @@ class House extends Model
     {
         return $this->hasMany('App\Bill', 'house_id', 'id');
     }
+    public function comments(){
+        return $this->belongsTo('App\Comments')->withTimestamps();
+    }
 
     public function user()
     {

@@ -34,11 +34,16 @@ Route::prefix('user')->group(function () {
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
 
+Route::post('comment/{id}','CommentController@postComment')->name('post.comment');
+Route::post('check','CommentController@checkComment')->name('check.comment');
+
+
     Route::get('/change-password/{id}', 'UserController@formChangePassword')->name('user.formChangePassword');
     Route::post('/change-password/{id}', 'UserController@changePassword')->name('user.changePassword');
     Route::get('/history-bookHouses/{id}', 'UserController@historyBookHouses')->name('user.historyBookHouses');
 
 });
+
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
