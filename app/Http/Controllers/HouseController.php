@@ -34,7 +34,7 @@ class HouseController extends Controller
     public function show($id)
     {
         $house = House::findOrFail($id);
-        $comments=Comment::where('house_id',$id)->get();
+        $comments= Comment::where('house_id',$id)->get();
         return view('houses.detail', compact('house','comments'));
     }
     public function postForm()
