@@ -35,6 +35,7 @@
                             <div class="form-group row mb-10">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                    <button class="btn btn-secondary" onclick="window.history.go(-1); return false">Hủy bỏ</button>
                                 </div>
                             </div>
                         </form>
