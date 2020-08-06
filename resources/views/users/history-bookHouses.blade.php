@@ -6,8 +6,8 @@
                     Lịch sử thuê nhà của {{$user->name}}:
                 </div>
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
+                    <table class="table text-center">
+                        <thead class="table-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Danh sách nhà </th>

@@ -7,7 +7,7 @@
                     Danh sách nhà của {{\Illuminate\Support\Facades\Session::get('user')->name }}
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table text-center">
                         <thead class="table-dark">
                         <tr>
                             <th>#</th>
