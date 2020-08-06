@@ -9,9 +9,7 @@ use App\Http\Requests\ValidateProfile;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -81,6 +79,7 @@ class UserController extends Controller
 
     public function historyBookHouses($id)
     {
+
         $user = User::find($id);
         $bills = Bill::where('user_id', $id)->orderBy('created_at', 'DESC')->get();
         return view('users.history-bookHouses', compact('user', 'bills'));
@@ -121,7 +120,13 @@ class UserController extends Controller
             alert()->error('Error', 'Không được hủy trước 1 ngày');
             return redirect()->route('user.historyBookHouses', $bill->user_id);
         }
+    }
 
+    public
+    function showBillHouse($id)
+    {
+        $bills = Bill::where('house_id', $id)->get();
+        return view('users.show-bill-house', compact('bills'));
     }
 }
 
