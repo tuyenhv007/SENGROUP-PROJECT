@@ -57,7 +57,8 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a style="font-size:190%;font-style: oblique;font-family: Consolas; margin-top: 6px" class="navbar-brand"
+                    <a style="font-size:190%;font-style: oblique;font-family: Consolas; margin-top: 6px"
+                       class="navbar-brand"
                        href="{{route('houses.list')}}">
                         SENGROUP</a>
 
@@ -89,15 +90,19 @@
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
 
-                                        <a  style="text-align: center" class="dropdown-item" href="{{route('user.houseUser',\Illuminate\Support\Facades\Session::get('user')->id)}}">Nhà đã đăng</a>
+                                        <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.houseUser',\Illuminate\Support\Facades\Session::get('user')->id)}}">Nhà
+                                            đã đăng</a>
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
-                                           href="{{route('user.historyBookHouses',Session::get('user')->id)}}">Lịch sử thuê nhà
+                                           href="{{route('user.historyBookHouses',Session::get('user')->id)}}">Lịch sử
+                                            thuê nhà
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
-                                           href="{{route('user.formChangePassword',Session::get('user')->id)}}">Đổi mật khẩu
+                                           href="{{route('user.formChangePassword',Session::get('user')->id)}}">Đổi mật
+                                            khẩu
                                         </a>
                                         <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng
                                             xuất</a>
