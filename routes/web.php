@@ -21,20 +21,28 @@ Route::post('/login', 'LoginController@login')->name('user.login');
 Route::post('/register', 'LoginController@register')->name('user.register');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
+Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.index');
+Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
+
+Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
+Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
 //Route::get('/user/redirect','SocialController@redirectToProvider')->name('user.redirect');
 //Route::get('/user/callback','SocialController@handleProviderCallback');
-
 
 Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
-    Route::get('/change-password/{id}','UserController@formChangePassword')->name('user.formChangePassword');
-    Route::post('/change-password/{id}','UserController@changePassword')->name('user.changePassword');
-});
 
 Route::post('comment/{id}','CommentController@postComment')->name('post.comment');
 Route::post('check','CommentController@checkComment')->name('check.comment');
+
+
+    Route::get('/change-password/{id}', 'UserController@formChangePassword')->name('user.formChangePassword');
+    Route::post('/change-password/{id}', 'UserController@changePassword')->name('user.changePassword');
+    Route::get('/history-bookHouses/{id}', 'UserController@historyBookHouses')->name('user.historyBookHouses');
+
+});
 
 
 Route::prefix('houses')->group(function () {
@@ -47,6 +55,8 @@ Route::prefix('houses')->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
         Route::post('/{id}/book-house', 'HouseController@bookHouse')->name('houses.bookHouse');
+        Route::get('/{id}/show-list-house', 'UserController@showHouseUser')->name('user.houseUser');
+        Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
     });
 });
 

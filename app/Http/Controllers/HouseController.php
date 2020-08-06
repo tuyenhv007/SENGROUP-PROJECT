@@ -93,24 +93,18 @@ class HouseController extends Controller
         }
     }
 
-//    public function viewBookHouse($id)
-//    {
-//        $house = House::findOrFail($id);
-//        return view('houses.book-house', compact('house'));
-//    }
-
     public function bookHouse(Request $request, $id)
     {
         $request->validate([
-                'dateIn' => 'required|date|after:yesterday',
-                'dateOut' => 'required|date|after:dateIn'
-            ],
-                [
-                    'dateIn.required' => 'Ngày đến không được để trống !',
-                    'dateOut.required' => 'Ngày đi không được để trống !',
-                    'dateIn.after' => 'Ngày đến phải sau ngày hôm nay !',
-                    'dateOut.after' => 'Ngày đi phải sau ngày đến !'
-                ]);
+            'dateIn' => 'required|date|after:yesterday',
+            'dateOut' => 'required|date|after:dateIn'
+        ],
+            [
+                'dateIn.required' => 'Ngày đến không được để trống !',
+                'dateOut.required' => 'Ngày đi không được để trống !',
+                'dateIn.after' => 'Ngày đến phải sau ngày hôm nay !',
+                'dateOut.after' => 'Ngày đi phải sau ngày đến !'
+            ]);
         $dateIn = $request->dateIn;
         $dateOut = $request->dateOut;
         $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
@@ -157,7 +151,8 @@ class HouseController extends Controller
             $search = $request->search;
             $houses = House::where('name', 'LIKE', '%' . $search . '%')->get();
             $cities = City::all();
-            return response()->json($houses);
+            return view('houses.list', compact('houses', 'cities'));
         }
     }
+
 }

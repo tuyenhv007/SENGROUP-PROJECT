@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Bill;
+use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +21,7 @@ class UserController extends Controller
     {
         $id = Session::get('user')->id;
         $user = User::find($id);
-        return view('users.profile', compact(['user']));
+        return view('users.profile', compact('user'));
     }
 
     public function editProfile(ValidateProfile $request, $id)
@@ -50,11 +53,18 @@ class UserController extends Controller
     {
         return view('users.change-password');
     }
-    public function changePassword(ValidateFormChangePassword $request, $id){
+
+    public function changePassword(ValidateFormChangePassword $request, $id)
+    {
         $user = User::find($id);
         $password = md5($request->password);
-        if ($user->password == $password) {
-            if ($request->newpass == $request->confirmpass) {
+
+        if ($user->password === $password) {
+            if (($request->newpass) === ($request->confirmpass)) {
+                if ($user->password === md5($request->newpass)) {
+                    alert()->error('Error', 'Mật khẩu mới trùng với mật khẩu cũ');
+                    return redirect()->back();
+                }
                 $user->password = md5($request->newpass);
                 $user->save();
                 alert('Đổi mật khẩu thành công', 'Successfully', 'success')->autoClose(1500);
@@ -67,6 +77,26 @@ class UserController extends Controller
             alert()->error('Error', 'Mật khẩu hiện tại không chính xác');
             return redirect()->back();
         }
+    }
+
+    public function historyBookHouses($id)
+    {
+        $user = User::find($id);
+        $bills = Bill::where('user_id', $id)->get();
+        return view('users.history-bookHouses', compact('user', 'bills'));
+    }
+
+    public function showHouseUser($id)
+    {
+        $houses = House::where('user_id', $id)->get();
+        return view('users.show-house-user', compact('houses'));
+    }
+
+    public function showBillHouse($id)
+    {
+        $bills = Bill::where('house_id', $id)->get();
+        return view('users.show-bill-house', compact('bills'));
+
     }
 }
 
