@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $id = Session::get('user')->id;
         $user = User::find($id);
-        return view('users.profile', compact(['user']));
+        return view('users.profile', compact('user'));
     }
 
     public function editProfile(ValidateProfile $request, $id)
@@ -50,11 +50,18 @@ class UserController extends Controller
     {
         return view('users.change-password');
     }
-    public function changePassword(ValidateFormChangePassword $request, $id){
+
+    public function changePassword(ValidateFormChangePassword $request, $id)
+    {
         $user = User::find($id);
         $password = md5($request->password);
-        if ($user->password == $password) {
-            if ($request->newpass == $request->confirmpass) {
+
+        if ($user->password === $password) {
+            if (($request->newpass) === ($request->confirmpass)) {
+                if ($user->password === md5($request->newpass)) {
+                    alert()->error('Error', 'Mật khẩu mới trùng với mật khẩu cũ');
+                    return redirect()->back();
+                }
                 $user->password = md5($request->newpass);
                 $user->save();
                 alert('Đổi mật khẩu thành công', 'Successfully', 'success')->autoClose(1500);
