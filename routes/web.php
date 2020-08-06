@@ -32,8 +32,8 @@ Route::prefix('user')->group(function () {
     Route::get('/change-password/{id}','UserController@formChangePassword')->name('user.formChangePassword');
     Route::post('/change-password/{id}','UserController@changePassword')->name('user.changePassword');
     Route::get('/history-bookHouses/{id}','UserController@historyBookHouses')->name('user.historyBookHouses');
-});
 
+});
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
@@ -45,6 +45,8 @@ Route::prefix('houses')->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
         Route::post('/{id}/book-house', 'HouseController@bookHouse')->name('houses.bookHouse');
+        Route::get('/{id}/show-list-house', 'UserController@showHouseUser')->name('user.houseUser');
+        Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
     });
 });
 

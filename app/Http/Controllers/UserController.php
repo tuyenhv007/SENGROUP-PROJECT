@@ -77,10 +77,25 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
+
     public function historyBookHouses($id){
         $user=User::find($id);
         $bills=Bill::where('user_id',$id)->get();
             return view('users.history-bookHouses',compact('user','bills'));
+
+
+    public function showHouseUser($id)
+    {
+        $houses = House::where('user_id', $id)->get();
+        return view('users.show-house-user', compact('houses'));
+    }
+
+    public function showBillHouse($id)
+    {
+        $bills = Bill::where('house_id', $id)->get();
+        return view('users.show-bill-house', compact('bills'));
+
+
     }
 }
 
