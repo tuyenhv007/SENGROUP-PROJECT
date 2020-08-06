@@ -20,8 +20,7 @@
                          text-black mb-5">Thông tin</h2>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name
-                                    <span style="color: red">(*)</span>
+                                <label class="{{$errors->first('name') ? 'text-danger': ''}}">Full Name (*)
                                 </label>
                                 <input type="text" name="name" id="name"
                                        class="form-control {{$errors->first('name') ? 'is-invalid' : ''}}" autofocus placeholder="Ví du: Nguyễn Văn A">
@@ -32,8 +31,7 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email
-                                <span style="color: red">(*)</span>
+                                <label class="{{$errors->first('email') ? 'text-danger': ''}}">Email (*)
                                 </label>
                                 <input type="email" id="email" name="email"
                                        class="form-control {{$errors->first('email') ? 'is-invalid' : ''}}"
@@ -50,11 +48,13 @@
                                        class="form-control"
                                        value="">
                             </div>
+                            <div id="result">
+
+                            </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu
-                                <span style="color: red">(*)</span>
+                                <label class="{{$errors->first('password') ? 'text-danger': ''}}">Mật Khẩu (*)
                                 </label>
                                 <input type="password" name="password" id="password"
                                        class="form-control {{$errors->first('password') ? 'is-invalid' : ''}}" autofocus placeholder="Mật khẩu gồm chữ và số">
@@ -66,8 +66,7 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại
-                                    <span style="color: red">(*)</span>
+                                <label class="{{$errors->first('phone') ? 'text-danger': ''}}">Số Điện Thoại (*)
                                 </label>
                                 <input type="text" name="phone" id="text"
                                        class="form-control {{$errors->first('phone') ? 'is-invalid' : ''}}" autofocus placeholder="Ví dụ: xxx.xxxx.xxx">
@@ -97,7 +96,7 @@
                             @endif
                         </div>
                         <div>
-                            <p style="color: red">Ghi chú: Những mục tích dấu (*) là bắt buộc</p>
+                            <p>Ghi chú: Những mục tích dấu (*) là bắt buộc</p>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">

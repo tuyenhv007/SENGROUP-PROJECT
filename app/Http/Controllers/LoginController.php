@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidateLogin;
 use App\User;
+use http\Env\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ValidateRegister;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -59,16 +60,15 @@ class LoginController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->role = $request->role;
-        $user->save();
         if ($request->hasFile('avatar')) {
             $cover = $request->file('avatar');
             $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
             $cover->storeAs('public/images', $newFileName);
-            $user = new User();
             $user->image = $newFileName;
             $user->save();
         }
         alert('Đăng kí thành công', 'Success', 'success')->autoClose(1500);
         return redirect()->route('login');
     }
+
 }

@@ -6,8 +6,9 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-5 mx-auto mt-lg-5 text-center">
-                        <h1>{{$house->type}}</h1>
-                        <p class="mb-5"><strong class="text-white">{{$house->price}}</strong></p>
+                        <h1><i class='fas fa-house-user'></i> &nbsp;{{$house->type}}</h1>
+                        <p class="mb-5"><strong class="text-white"><i class="fa fa-money"></i>
+                                &nbsp;{{number_format($house->price)}} VNĐ</strong></p>
                     </div>
                 </div>
             </div>
@@ -30,12 +31,26 @@
                                 </div>
                                 <div class="col-lg-5 pl-lg-5 ml-auto">
                                     <div class="mb-5">
-                                        <h3 class="text-black mb-4">{{$house->name}}.</h3>
-                                        <h5>{{$house->addresses[0]->road}},
+                                        <h3 class="text-black mb-4"><i class='fas fa-tags'></i> &nbsp;{{$house->name}}.
+                                        </h3>
+                                        <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->road}},
                                             {{$house->addresses[0]->district}},
                                             {{$house->addresses[0]->city}}</h5>
-                                        <p class="mb-1">Số phòng ngủ: {{$house->rooms}} phòng.</p><br>
-                                        <p class="mb-1" >{{$house->desc}}.</p>
+
+                                        <h5 class="mb-2"><i class='fas fa-bed'></i> &nbsp; Số phòng
+                                            ngủ: {{$house->rooms}} phòng.</h5><br>
+
+
+                                        <p class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông tin mô tả :{!! $house->desc !!}.</p>
+                                        <h4 class="mb-1"><i class="fa fa-money "></i> &nbsp;Giá Tiền: {{number_format($house->price)}} VNĐ</h4>
+
+                                    
+                                        <ul class="alert text-danger" >
+                                            @foreach ($errors ->all() as $error)
+                                                <li>{{$error}}</li>
+                                            @endforeach
+                                        </ul>
+
                                         <div class="pt-2">
                                             <button type="button"
                                                     class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->name)===($house->user->name))
@@ -45,21 +60,24 @@
                                                         @endif" data-toggle="modal"
                                                     data-target="#exampleModal" data-whatever="@mdo">Đặt Thuê
                                             </button>
+
                                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Đặt nhà:</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
-                                                                @csrf
+                                                <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
+                                                    @csrf
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Đặt
+                                                                    nhà:</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
                                                                 <div class="form-group">
+
                                                                     <label for="recipient-name" class="col-form-label">Ngày
                                                                         Đến:</label>
                                                                     <input type="date" class="form-control"
@@ -77,27 +95,31 @@
                                                                     <textarea class="form-control" name="note"
                                                                               id="desc"></textarea>
                                                                 </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Thoát
-                                                            </button>
-                                                            <button type="submit" class="btn btn-primary">Đặt thuê
-                                                            </button>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Thoát
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary">Đặt thuê
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
+
                                             <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                                         </div>
                                     </div>
                                     <div class="mb-5">
                                         <div class="mt-5">
                                             <img src="{{asset('storage/images/'.$house->user->image)}}" alt="Image"
-                                                 class="w-25 mb-3 rounded-circle">
-                                            <h5 class="text-black">Người Đăng: {{$house->user->name}}</h5>
-                                            <p class="text-black"> Phone: {{$house->user->phone}}</p>
+                                                 class="w-25 mb-3 " style="width: 100px;height: 100px">
+                                            <h5 class="text-black"><i class='fas fa-user-edit'></i> &nbsp; Người
+                                                Đăng: {{$house->user->name}}</h5>
+                                            <p class="text-black"><i class='fas fa-phone-square-alt'></i> &nbsp;
+                                                Phone: {{$house->user->phone}}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -13,14 +13,19 @@ use App\Http\Requests\ValidatePostHouse;
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class HouseController extends Controller
 {
     public function index()
     {
-        $houses = House::orderBy('id', 'DESC')->get();
+        Carbon::setLocale('vi');
+        $houses = House::orderBy('created_at', 'DESC')->get();
         $cities = City::all();
         return view('houses.list', compact('houses', 'cities'));
     }
@@ -88,14 +93,24 @@ class HouseController extends Controller
         }
     }
 
-    public function viewBookHouse($id)
-    {
-        $house = House::findOrFail($id);
-        return view('houses.book-house', compact('house'));
-    }
+//    public function viewBookHouse($id)
+//    {
+//        $house = House::findOrFail($id);
+//        return view('houses.book-house', compact('house'));
+//    }
 
-    public function bookHouse(ValidateFormBookHouse $request, $id)
+    public function bookHouse(Request $request, $id)
     {
+        $request->validate([
+                'dateIn' => 'required|date|after:yesterday',
+                'dateOut' => 'required|date|after:dateIn'
+            ],
+                [
+                    'dateIn.required' => 'Ngày đến không được để trống !',
+                    'dateOut.required' => 'Ngày đi không được để trống !',
+                    'dateIn.after' => 'Ngày đến phải sau ngày hôm nay !',
+                    'dateOut.after' => 'Ngày đi phải sau ngày đến !'
+                ]);
         $dateIn = $request->dateIn;
         $dateOut = $request->dateOut;
         $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
@@ -103,7 +118,8 @@ class HouseController extends Controller
         $bill = new Bill();
         $bill->checkIn = $request->dateIn;
         $bill->checkOut = $request->dateOut;
-        $bill->status = 0;
+        $bill->status = BillStatus::ORDER;
+        $bill->note = $request->note;
         $bill->total = ($house->price) * $days;
         $bill->house_id = $house->id;
         $bill->user_id = \Illuminate\Support\Facades\Session::get('user')->id;
@@ -141,7 +157,7 @@ class HouseController extends Controller
             $search = $request->search;
             $houses = House::where('name', 'LIKE', '%' . $search . '%')->get();
             $cities = City::all();
-            return view('houses.list', compact('houses', 'cities'));
+            return response()->json($houses);
         }
     }
 }

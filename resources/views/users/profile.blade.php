@@ -99,27 +99,36 @@
                                          aria-labelledby="ConnectedServices-tab">
                                         <form method="post" action="{{route('user.edit',$user->id)}}">
                                             @csrf
+                                            @if($errors->all())
+                                                <div id="msg_div" class="alert alert-danger d-none" role="alert">
+                                                    <span id="res_message"></span>
+                                                </div>
+                                            @endif
                                             <div class="tab-pane fade show active" id="basicInfo" role="tabpanel"
                                                  aria-labelledby="basicInfo-tab">
-
-
                                                 <div class="row">
                                                     <div class="col-sm-3 col-md-2 col-5">
-                                                        <label style=" font-family: inherit">Tên</label>
+                                                        <label style=" font-family: inherit" class="{{$errors->first('name') ? 'text-danger': ''}}">Tên (*)</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input class="form-control" type="text" name="name"
+                                                        <input class="form-control {{$errors->first('name') ? 'is-invalid': ''}}" type="text" name="name"
                                                                value="{{$user->name}}"/>
+                                                        @if($errors->first('name'))
+                                                            <p class="text-danger">{{ $errors->first('name') }}</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <hr/>
                                                 <div class="row">
                                                     <div class="col-sm-3 col-md-2 col-5">
-                                                        <label style="font-family: inherit">Số điện thoại</label>
+                                                        <label style="font-family: inherit" class="{{$errors->first('phone') ? 'text-danger': ''}}">Số điện thoại (*)</label>
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <input class="form-control" type="text" name="phone"
+                                                        <input class="form-control {{$errors->first('phone') ? 'is-invalid': ''}}" type="text" name="phone"
                                                                value="{{$user->phone}}"/>
+                                                        @if($errors->first('phone'))
+                                                            <p class="text-danger">{{ $errors->first('phone') }}</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <hr/>
@@ -135,9 +144,11 @@
                                                 <hr/>
                                                 <div class="row mt-2">
                                                     <div class="col-sm-3 col-md-2 col-5">
-
                                                     </div>
                                                     <div class="col-md-8 col-6">
+                                                        <div>
+                                                            <p class">Ghi chú: Mục tích dấu (*) là bắt buộc!!!</p>
+                                                        </div>
                                                         <input class="btn btn-primary" type="submit" value="Cập nhập"/>
                                                         <a class="btn btn-secondary"
                                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Trở
