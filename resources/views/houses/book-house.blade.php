@@ -2,16 +2,6 @@
 @section('content')
     <div class="pb-5">
         <div>
-            <div class="site-blocks-cover inner-page-cover overlay"
-                 style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-5 mx-auto mt-lg-5 text-center">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="site-section" id="property-details">
                 <div class="container">
                     <div class="row">

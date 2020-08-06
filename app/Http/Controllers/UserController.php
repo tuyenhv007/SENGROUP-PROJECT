@@ -7,6 +7,7 @@ use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -78,24 +79,54 @@ class UserController extends Controller
 
     public function historyBookHouses($id)
     {
+
         $user = User::find($id);
-        $bills = Bill::where('user_id', $id)->get();
+        $bills = Bill::where('user_id', $id)->orderBy('created_at', 'DESC')->get();
         return view('users.history-bookHouses', compact('user', 'bills'));
+    }
+
+    public function showHouseUser($id)
+    {
+        $houses = House::where('user_id', $id)->orderBy('created_at', 'DESC')->get();
+        return view('users.show-house-user', compact('houses'));
+    }
+
+    public function showBillHouse($id)
+    {
+        $bills = Bill::where('house_id', $id)->orderBy('created_at', 'DESC')->get();
+        return view('users.show-bill-house', compact('bills'));
+    }
 
 
-        public
-        function showHouseUser($id)
-        {
-            $houses = House::where('user_id', $id)->get();
-            return view('users.show-house-user', compact('houses'));
+    public function formCancleBookHouse($id)
+    {
+        $bill = Bill::find($id);
+        $house = House::find($bill->house_id);
+        return view('users.cancle-bookHouse', compact('bill', 'house'));
+    }
+
+    public function cancleBookHouse($id)
+    {
+        $bill = Bill::find($id);
+        $dateIn = $bill->checkIn;
+        $now = date("Y-m-d", time());
+        $checkDate = (strtotime($dateIn) - strtotime($now)) / (60 * 60 * 24);
+        if ($checkDate > 1) {
+            $bill->status = BillStatus::CANCLE;
+            $bill->save();
+            Alert()->success('Hủy thành công !');
+            return redirect()->route('user.historyBookHouses', $bill->user_id);
+        } else {
+            alert()->error('Error', 'Không được hủy trước 1 ngày');
+            return redirect()->route('user.historyBookHouses', $bill->user_id);
         }
+    }
 
-        public
-        function showBillHouse($id)
-        {
-            $bills = Bill::where('house_id', $id)->get();
-            return view('users.show-bill-house', compact('bills'));
-        }
+    public
+    function showBillHouse($id)
+    {
+        $bills = Bill::where('house_id', $id)->get();
+        return view('users.show-bill-house', compact('bills'));
     }
 }
 

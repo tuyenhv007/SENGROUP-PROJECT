@@ -1,29 +1,13 @@
 @extends('layout.master')
 @section('content')
     <div>
-        <div class="site-mobile-menu site-navbar-target">
-            <div class="site-mobile-menu-header">
-                <div class="site-mobile-menu-close mt-3">
-                    <span class="icon-close2 js-menu-toggle"></span>
-                </div>
-            </div>
-            <div class="site-mobile-menu-body"></div>
-        </div>
-        <div class="site-blocks-cover inner-page-cover overlay"
-             style="background-image: url({{asset('images/icons/anh7.jpg')}});" data-aos="fade">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-
-                </div>
-            </div>
-        </div>
         <div class="pt-3 pb-3">
             <div class="card container pt-3">
                 <div class="card-header">
-                    Danh sách nhà của bạn
+                    Danh sách nhà của: {{\Illuminate\Support\Facades\Session::get('user')->name }}
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table text-center">
                         <thead class="table-dark">
                         <tr>
                             <th>#</th>
