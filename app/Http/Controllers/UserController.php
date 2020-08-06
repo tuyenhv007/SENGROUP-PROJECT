@@ -7,6 +7,7 @@ use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -95,7 +96,6 @@ class UserController extends Controller
     {
         $bills = Bill::where('house_id', $id)->get();
         return view('users.show-bill-house', compact('bills'));
-
 
     }
 }
