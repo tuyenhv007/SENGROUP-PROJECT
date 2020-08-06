@@ -55,7 +55,7 @@ class UserController extends Controller
         $password = md5($request->password);
         if ($user->password == $password) {
             if ($request->newpass == $request->confirmpass) {
-                $user->password = md5($request->newpassword);
+                $user->password = md5($request->newpass);
                 $user->save();
                 alert('Đổi mật khẩu thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
