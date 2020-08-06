@@ -73,7 +73,7 @@
                                     bài</a>
                             </li>
                             <li class="nav-item">
-                                <a style="font-family: inherit" class="nav-link" href="#a"> Category</a>
+                                <a style="font-family: inherit" class="nav-link" href="#"> Category</a>
                             </li>
                             <li class="nav-item">
                                 <a style="font-family: inherit" class="nav-link" href="#">Contact</a>
@@ -89,14 +89,16 @@
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
 
+                                        <a  style="text-align: center" class="dropdown-item" href="">Tin đã đăng</a>                     
                                         <a style="text-align: center" class="dropdown-item"
-                                           href="{{route('user.show',['id'=>Session::get('user')->id])}}">Thông tin
+                                           href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.formChangePassword',Session::get('user')->id)}}">Đổi mật khẩu
                                         </a>
                                         <a style="text-align: center" class="dropdown-item" href="{{route('logout')}}">Đăng
                                             xuất</a>
+
 
                                     </div>
                                 </li>
