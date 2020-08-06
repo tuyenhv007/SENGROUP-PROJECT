@@ -24,13 +24,16 @@
                         <tr>
                             <th scope="row">{{++$key}}</th>
                             <td>{{$bill->house['name']}}</td>
-                            <td>{{$bill->house->addresses[0]->city}} ,{{$bill->house->addresses[0]->district}}
+                            <td>{{$bill->house->addresses[0]->sn}}
+                                ,{{$bill->house->addresses[0]->city}}
+                                ,{{$bill->house->addresses[0]->district}}
                                 , {{$bill->house->addresses[0]->road}}</td>
                             <td>{{$bill->checkIn}}</td>
                             <td>{{$bill->checkOut}}</td>
                             <td>{{number_format($bill->total)}}&nbsp;VND</td>
                             <td>{{$bill->status}}</td>
-                            <td><a href="{{route('user.formCancleBookHouse',$bill->id)}}" class="{{($bill->status=="Hủy bỏ")?"d-none":"d-inline"}}">Hủy</a></td>
+                            <td><a href="{{route('user.formCancleBookHouse',$bill->id)}}"
+                                   class="{{($bill->status=="Hủy bỏ")?"d-none":"d-inline"}}">Hủy</a></td>
                         </tr>
                     @endforeach
                     </tbody>

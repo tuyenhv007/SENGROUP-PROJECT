@@ -19,6 +19,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "readmore-js": "^2.2.1",
         "sweetalert2": "^9.17.1"
     }
 }

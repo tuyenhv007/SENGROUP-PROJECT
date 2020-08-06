@@ -68,6 +68,7 @@
                                             <h3><i class='fas fa-tags'></i> &nbsp;{{$house->name}}</h3>
                                             <br>
                                             <strong><i class='fas fa-map-marker-alt'></i>
+                                                &nbsp;{{$house->addresses[0]->sn}},
                                                 &nbsp;{{$house->addresses[0]->road}},
                                                 {{$house->addresses[0]->district}},
                                                 {{$house->addresses[0]->city}}</strong>

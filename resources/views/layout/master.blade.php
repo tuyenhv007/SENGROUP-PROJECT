@@ -197,7 +197,6 @@
     </div>
 </footer>
 <a href="#top" class="gototop"><span class="icon-angle-double-up"></span></a>
-{{--<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>--}}
 <script src="{{asset('ckeditor/ckeditor.js')}}" type="text/javascript"></script>
 <script src="{{asset('ckeditor/styles.js')}}" type="text/javascript"></script>
 <script src="{{asset('ckeditor/config.js')}}" type="text/javascript"></script>
@@ -215,8 +214,6 @@
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
 <script src="{{asset('js/jquery.sticky.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-{{--<script src="{{asset('js/ajax-city.js')}}"></script>--}}
-
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>

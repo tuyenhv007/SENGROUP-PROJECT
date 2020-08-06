@@ -49,10 +49,11 @@
                                             <img class="d-flex mr-3 rounded-circle" style="width: 30px;height: 30px"
                                                  src="{{asset('storage/images/'.$comment->user->image)}}" alt="">
                                             <div class="media-body">
-                                                <h5 class="mt-0">
+                                                <h6 class="mt-0">
                                                     {{$comment->user->name}}
-                                                </h5>
-                                                {{$comment->content}}
+                                                </h6>
+                                                {{$comment->content}}<br>
+                                                {{$comment->created_at->diffForHumans()}}.
                                             </div>
                                         </div>
                                 @endforeach
@@ -62,34 +63,29 @@
                                     <div class="mb-5">
                                         <h3 class="text-black mb-4"><i class='fas fa-tags'></i> &nbsp;{{$house->name}}.
                                         </h3>
-                                        <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->road}},
+                                        <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->sn}},
+                                            {{$house->addresses[0]->road}},
                                             {{$house->addresses[0]->district}},
                                             {{$house->addresses[0]->city}}</h5>
 
                                         <h5 class="mb-2"><i class='fas fa-bed'></i> &nbsp; Số phòng
                                             ngủ: {{$house->rooms}} phòng.</h5><br>
-
-
-                                        <p class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông tin mô
-                                            tả :{!! $house->desc !!}.</p>
+                                        <article class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông tin mô
+                                            tả :{!! $house->desc !!}</article>
                                         <h4 class="mb-1"><i class="fa fa-money "></i> &nbsp;Giá
                                             Tiền: {{number_format($house->price)}} VNĐ</h4>
-
-
                                         <ul class="alert text-danger">
                                             @foreach ($errors ->all() as $error)
                                                 <li>{{$error}}</li>
                                             @endforeach
                                         </ul>
-
-
                                         <div class="pt-2">
                                             <button type="button"
                                                     class="btn btn-primary @if((\Illuminate\Support\Facades\Session::get('user')) && (\Illuminate\Support\Facades\Session::get('user')->id)===($house->user->id))
                                                         d-none
-@else
+                                                        @else
                                                         d-inline
-@endif" data-toggle="modal"
+                                                        @endif" data-toggle="modal"
                                                     data-target="#exampleModal" data-whatever="@mdo">Đặt Thuê
                                             </button>
 
@@ -156,7 +152,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Comment with nested comments -->
                         </div>
                     </div>
                 </div>
