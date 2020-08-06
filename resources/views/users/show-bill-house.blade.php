@@ -4,7 +4,7 @@
         <div class="pt-3 pb-3">
             <div class="card container pt-3">
                 <div class="card-header">
-                    Danh sách nhà của {{\Illuminate\Support\Facades\Session::get('user')->name }}
+                    Lịch sử đặt nhà
                 </div>
                 <div class="card-body">
                     <table class="table text-center">
@@ -42,4 +42,5 @@
             </div>
         </div>
     </div>
+
 @endsection

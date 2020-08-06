@@ -64,7 +64,7 @@
                     </div>
                     <div class="clearfix">
                         <label class="float-left form-check-label"><input type="checkbox"> Nhớ mật khẩu?</label>
-                        <a href="#" class="float-right">Quên mật khẩu?</a>
+                        <a href="{{ route('forgot.index') }}" class="float-right">Quên mật khẩu?</a>
                     </div>
                     <div class="or-seperator" style="margin-left: 170px"><i>hoặc</i></div>
                     <p class="text-center">Đăng nhập bằng:</p>

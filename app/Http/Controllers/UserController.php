@@ -7,6 +7,7 @@ use App\House;
 use App\Http\Requests\ValidateFormChangePassword;
 use App\Http\Requests\ValidateProfile;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -97,6 +98,7 @@ class UserController extends Controller
         return view('users.show-bill-house', compact('bills'));
     }
 
+
     public function formCancleBookHouse($id)
     {
         $bill = Bill::find($id);
@@ -119,6 +121,7 @@ class UserController extends Controller
             alert()->error('Error', 'Không được hủy trước 1 ngày');
             return redirect()->route('user.historyBookHouses', $bill->user_id);
         }
+
     }
 }
 

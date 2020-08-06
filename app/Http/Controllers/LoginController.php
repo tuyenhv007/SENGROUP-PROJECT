@@ -65,8 +65,11 @@ class LoginController extends Controller
             $newFileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $cover->getClientOriginalExtension();
             $cover->storeAs('public/images', $newFileName);
             $user->image = $newFileName;
-            $user->save();
+//            $user->code = null;
+//            $user->time_code = null;
+
         }
+        $user->save();
         alert('Đăng kí thành công', 'Success', 'success')->autoClose(1500);
         return redirect()->route('login');
     }

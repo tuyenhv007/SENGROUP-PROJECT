@@ -94,12 +94,6 @@ class HouseController extends Controller
         }
     }
 
-//    public function viewBookHouse($id)
-//    {
-//        $house = House::findOrFail($id);
-//        return view('houses.book-house', compact('house'));
-//    }
-
     public function bookHouse(Request $request, $id)
     {
         $request->validate([
