@@ -134,7 +134,7 @@
                                                 {{$house->addresses[0]->district}},
                                                 {{$house->addresses[0]->city}}</strong>
                                             <strong>
-                                                <br><i class="fa fa-money"></i> &nbsp;{{($house->price)}}
+                                                <br><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}}
                                                 VNĐ</strong>
                                             <br>
                                             <strong><i class='fas fa-house-user'></i> &nbsp; Tình
