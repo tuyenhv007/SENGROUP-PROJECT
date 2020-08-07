@@ -55,18 +55,14 @@ class HouseController extends Controller
         $house->price = $request->price;
         $house->user_id = Session::get('user')->id;
         $house->status = HouseStatus::EMPTY;
-        $house->save();
         $city = City::where('id', $request->city)->get();
         $district = District::where('id', $request->district)->get();
         $road = Road::where('id', $request->road)->get();
-        $sn = $request->sn;
-        $address = new Address();
-        $address->city = $city[0]['name'];
-        $address->district = $district[0]['name'];
-        $address->road = $road[0]['name'];
-        $address->sn = $sn;
-        $address->house_id = $house->id;
-        $address->save();
+        $house->city = $city[0]['name'];
+        $house->district = $district[0]['name'];
+        $house->road = $road[0]['name'];
+        $house->address = $request->sn;
+        $house->save();
         if ($request->hasFile('photos')) {
             $allowedfileExtension = ['jpg', 'png', 'jpeg'];
             $files = $request->file('photos');
