@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\SocialUser;
 use App\User;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -32,6 +33,11 @@ class SocialController extends Controller
 
             return redirect()->route('houses.list');
         }
+    }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('houses.list');
     }
 }

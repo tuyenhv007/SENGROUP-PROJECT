@@ -108,6 +108,35 @@
                                             xuất</a>
                                     </div>
                                 </li>
+                            @elseif(Auth::user())
+                                <li class="nav-item dropdown">
+                                    <a style="font-family: inherit" class="nav-link dropdown-toggle" href="#"
+                                       id="navbarDropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class='fas fa-user'></i> &nbsp;
+                                        {{Auth::user()->name}}
+                                    </a>
+                                    <div style="margin-left: 30px " class="dropdown-menu"
+                                         aria-labelledby="navbarDropdown">
+
+{{--                                        <a style="text-align: center" class="dropdown-item"--}}
+{{--                                           href="{{route('user.houseUser',Auth::user()->id)}}">Nhà--}}
+{{--                                            đã đăng</a>--}}
+{{--                                        <a style="text-align: center" class="dropdown-item"--}}
+{{--                                           href="{{route('user.show',['id'=>Auth::user()->id])}}">Hồ sơ--}}
+{{--                                        </a>--}}
+{{--                                        <a style="text-align: center" class="dropdown-item"--}}
+{{--                                           href="{{route('user.historyBookHouses',Auth::user()->id)}}">Lịch sử--}}
+{{--                                            thuê nhà--}}
+{{--                                        </a>--}}
+{{--                                        <a style="text-align: center" class="dropdown-item"--}}
+{{--                                           href="{{route('user.formChangePassword',Auth::user()->id)}}">Đổi mật--}}
+{{--                                            khẩu--}}
+{{--                                        </a>--}}
+                                        <a style="text-align: center" class="dropdown-item" href="{{route('logout.social')}}">Đăng
+                                            xuất</a>
+                                    </div>
+                                </li>
                             @else
                                 <li class="nav-item">
                                     <a style="font-family: inherit" class="nav-link" href="{{route('login')}}">Đăng
