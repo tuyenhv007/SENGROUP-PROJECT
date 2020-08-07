@@ -58,6 +58,7 @@ Route::prefix('houses')->group(function () {
         Route::post('/{id}/book-house', 'HouseController@bookHouse')->name('houses.bookHouse');
         Route::get('/{id}/show-list-house', 'UserController@showHouseUser')->name('user.houseUser');
         Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
+        Route::post('{id}/show-bill-house', 'UserController@updateStatusHouse')->name('user.updateStatusHouse');
     });
 });
 
