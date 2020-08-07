@@ -23,23 +23,26 @@
                     @foreach($bills as $key=>$bill)
                         <tr>
                             <th scope="row">{{++$key}}</th>
-                            <td>{{$bill->house['name']}}</td>
-                            <td>{{$bill->house->address}}
+
+                    
+                            <td>{{$bill->house->name}}</td>
+                            <td>{{$bill->house->address}},
                                 ,{{$bill->house->city}}
-                                ,{{$bill->house->district}}
+                                ,{{$bill->house->adistrict}}
+
                                 , {{$bill->house->road}}</td>
                             <td>{{$bill->checkIn}}</td>
                             <td>{{$bill->checkOut}}</td>
                             <td>{{number_format($bill->total)}}&nbsp;VND</td>
                             <td>{{$bill->status}}</td>
                             <td><a href="{{route('user.formCancleBookHouse',$bill->id)}}"
-                                   class="{{($bill->status=="Hủy bỏ")?"d-none":"d-inline"}}">Hủy</a></td>
+                                   class="{{($bill->status==\App\Http\Controllers\BillStatus::CANCLE)?"d-none":"d-inline"}}">Hủy</a></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
                 <div>
-                    <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
+                    <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Quay lại</button>
                 </div>
             </div>
         </div>

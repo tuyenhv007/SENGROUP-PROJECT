@@ -76,7 +76,14 @@
                                                 <br><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}}
                                                 VNĐ</strong>
                                             <br>
-                                            <strong><i class='fas fa-house-user'></i> &nbsp; Tình
+                                            <strong class="@if(($house->status)===\App\Http\Controllers\HouseStatus::EMPTY)
+                                                text-success
+                                                @elseif(($house->status)===\App\Http\Controllers\HouseStatus::INHABITED)
+                                                text-danger
+                                                @else
+                                                text-warning
+                                                @endif">
+                                                    <i class='fas fa-house-user'></i> &nbsp; Tình
                                                 Trạng: {{$house->status}} </strong>
                                             <br>
                                             <strong><i class="fa fa-edit"></i>
@@ -91,7 +98,7 @@
                             <div class="row">
                                 <div class="col-12 col-md-10"></div>
 
-                                {{--                                <div class=" col-12 col-md-2">  {{$houses->appends(request()->query())}}</div>--}}
+                                <div class=" col-12 col-md-2">  {{$houses->appends(request()->query())}}</div>
                             </div>
                         </div>
                     </div>

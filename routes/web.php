@@ -28,7 +28,6 @@ Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/{provider}/callback', 'SocialController@Callback');
 Route::get('/logout/social', 'SocialController@logout')->name('logout.social');
 
-
 Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
@@ -58,6 +57,7 @@ Route::prefix('houses')->group(function () {
         Route::post('/{id}/book-house', 'HouseController@bookHouse')->name('houses.bookHouse');
         Route::get('/{id}/show-list-house', 'UserController@showHouseUser')->name('user.houseUser');
         Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
+        Route::post('{id}/show-bill-house', 'UserController@updateStatusHouse')->name('user.updateStatusHouse');
     });
 });
 
