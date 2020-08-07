@@ -26,7 +26,7 @@ Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('r
 Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
 Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/{provider}/callback','SocialController@Callback');
-Route::get('logout','SocialController@logout')->name('logout.social');
+Route::get('/logout/social','SocialController@logout')->name('logout.social');
 
 
 Route::prefix('user')->group(function () {
