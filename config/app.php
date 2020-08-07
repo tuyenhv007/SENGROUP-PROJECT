@@ -169,6 +169,7 @@ return [
          */
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        willvincent\Rateable\RateableServiceProvider::class,
 
 
 

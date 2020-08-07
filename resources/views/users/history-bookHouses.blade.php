@@ -24,10 +24,10 @@
                         <tr>
                             <th scope="row">{{++$key}}</th>
                             <td>{{$bill->house['name']}}</td>
-                            <td>{{$bill->house->addresses[0]->sn}}
-                                ,{{$bill->house->addresses[0]->city}}
-                                ,{{$bill->house->addresses[0]->district}}
-                                , {{$bill->house->addresses[0]->road}}</td>
+                            <td>{{$bill->house->address}}
+                                ,{{$bill->house->city}}
+                                ,{{$bill->house->district}}
+                                , {{$bill->house->road}}</td>
                             <td>{{$bill->checkIn}}</td>
                             <td>{{$bill->checkOut}}</td>
                             <td>{{number_format($bill->total)}}&nbsp;VND</td>

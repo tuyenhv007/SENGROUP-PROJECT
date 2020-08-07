@@ -45,9 +45,7 @@ class SocialController extends Controller
 
     public function showProfileSocial()
     {
-        $id = Auth::user()->getAuthIdentifier();
-        $user = Auth::user()->getAuthIdentifierName();
-        return view('users.profile', compact('user'));
+
     }
 
 }

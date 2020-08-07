@@ -25,9 +25,8 @@ Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword'
 Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
 Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
 Route::get('login/{provider}', 'SocialController@redirect');
-Route::get('login/{provider}/callback','SocialController@Callback');
-Route::get('/logout/social','SocialController@logout')->name('logout.social');
-
+Route::get('login/{provider}/callback', 'SocialController@Callback');
+Route::get('/logout/social', 'SocialController@logout')->name('logout.social');
 
 
 Route::prefix('user')->group(function () {
@@ -35,15 +34,15 @@ Route::prefix('user')->group(function () {
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
 
-Route::post('comment/{id}','CommentController@postComment')->name('post.comment');
-Route::post('check','CommentController@checkComment')->name('check.comment');
+    Route::post('comment/{id}', 'CommentController@postComment')->name('post.comment');
+    Route::post('check', 'CommentController@checkComment')->name('check.comment');
 
 
     Route::get('/change-password/{id}', 'UserController@formChangePassword')->name('user.formChangePassword');
     Route::post('/change-password/{id}', 'UserController@changePassword')->name('user.changePassword');
     Route::get('/history-bookHouses/{id}', 'UserController@historyBookHouses')->name('user.historyBookHouses');
     Route::get('/cancle-bookHouse/{id}', 'UserController@formCancleBookHouse')->name('user.formCancleBookHouse');
-    Route::post('/cancle-bookHouse/{id}','UserController@cancleBookHouse')->name('user.cancleBookHouse');
+    Route::post('/cancle-bookHouse/{id}', 'UserController@cancleBookHouse')->name('user.cancleBookHouse');
 });
 
 
@@ -61,6 +60,7 @@ Route::prefix('houses')->group(function () {
         Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
     });
 });
+
 
 
 
