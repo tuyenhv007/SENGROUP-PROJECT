@@ -23,7 +23,7 @@
                     @foreach($bills as $key=>$bill)
                         <tr>
                             <th scope="row">{{++$key}}</th>
-                            <td>{{$bill->house['name']}}</td>
+                            <td>{{$bill->house->name}}</td>
                             <td>{{$bill->house->address}},
                                 ,{{$bill->house->city}}
                                 ,{{$bill->house->adistrict}}
@@ -33,7 +33,7 @@
                             <td>{{number_format($bill->total)}}&nbsp;VND</td>
                             <td>{{$bill->status}}</td>
                             <td><a href="{{route('user.formCancleBookHouse',$bill->id)}}"
-                                   class="{{($bill->status=="Hủy bỏ")?"d-none":"d-inline"}}">Hủy</a></td>
+                                   class="{{($bill->status==\App\Http\Controllers\BillStatus::CANCLE)?"d-none":"d-inline"}}">Hủy</a></td>
                         </tr>
                     @endforeach
                     </tbody>
