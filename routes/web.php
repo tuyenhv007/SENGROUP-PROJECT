@@ -29,7 +29,6 @@ Route::get('login/{provider}/callback','SocialController@Callback');
 Route::get('/logout/social','SocialController@logout')->name('logout.social');
 
 
-
 Route::prefix('user')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
