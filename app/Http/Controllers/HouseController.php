@@ -13,6 +13,10 @@ use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use willvincent\Rateable\Rateable;
 use willvincent\Rateable\Rating;
