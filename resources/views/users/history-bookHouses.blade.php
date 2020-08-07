@@ -24,10 +24,10 @@
                         <tr>
                             <th scope="row">{{++$key}}</th>
                             <td>{{$bill->house['name']}}</td>
-                            <td>{{$bill->house->addresses[0]->sn}}
-                                ,{{$bill->house->addresses[0]->city}}
-                                ,{{$bill->house->addresses[0]->district}}
-                                , {{$bill->house->addresses[0]->road}}</td>
+                            <td>{{$bill->house->address}},
+                                ,{{$bill->house->city}}
+                                ,{{$bill->house->adistrict}}
+                                , {{$bill->house->road}}</td>
                             <td>{{$bill->checkIn}}</td>
                             <td>{{$bill->checkOut}}</td>
                             <td>{{number_format($bill->total)}}&nbsp;VND</td>
@@ -39,7 +39,7 @@
                     </tbody>
                 </table>
                 <div>
-                    <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
+                    <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Quay lại</button>
                 </div>
             </div>
         </div>

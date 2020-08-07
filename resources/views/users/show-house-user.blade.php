@@ -30,7 +30,7 @@
                         @endempty
                     </table>
                     <div>
-                        <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
+                        <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Quay Lại</button>
                     </div>
                 </div>
             </div>
