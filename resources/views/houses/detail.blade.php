@@ -15,17 +15,49 @@
                                                                  style="width: 100%;height: 700px"></span>
                                         @endforeach
                                     </div>
+
                                     <div class="card my-4">
-                                        <h5 class="card-header">Nhận xét:</h5>
+                                        <h5 class="card-header">Nhận xét và đánh giá:</h5>
+                                        <div style="padding-left: 145px" class="card my-4 pt-3">
+                                            <div class="form-group" id="rating-ability-wrapper">
+                                                <label class="control-label" for="rating">
+                                                    <input type="hidden" id="selected_rating" name="selected_rating"
+                                                           value="" required="required">
+                                                </label>
+                                                <button type="button" class="btnrating btn btn-default btn-lg"
+                                                        data-attr="1" id="rating-star-1">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </button>
+                                                <button type="button" class="btnrating btn btn-default btn-lg"
+                                                        data-attr="2" id="rating-star-2">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </button>
+                                                <button type="button" class="btnrating btn btn-default btn-lg"
+                                                        data-attr="3" id="rating-star-3">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </button>
+                                                <button type="button" class="btnrating btn btn-default btn-lg"
+                                                        data-attr="4" id="rating-star-4">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </button>
+                                                <button type="button" class="btnrating btn btn-default btn-lg"
+                                                        data-attr="5" id="rating-star-5">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+
+                                        </div>
                                         @if(Session::get('user'))
                                             <div class="card-body">
                                                 <form action="{{route('post.comment',$house->id)}}" method="post">
                                                     @csrf
+                                                    <div><h6>Viết bình luận</h6></div>
                                                     <div class="form-group">
                                                         <textarea name="comment" class="form-control"
                                                                   rows="3"></textarea>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary">Bình luận</button>
+
+                                                    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
                                                 </form>
                                             </div>
                                         @else
