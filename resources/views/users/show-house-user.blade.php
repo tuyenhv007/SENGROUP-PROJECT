@@ -7,6 +7,9 @@
                     Danh sách nhà của: {{\Illuminate\Support\Facades\Session::get('user')->name }}
                 </div>
                 <div class="card-body">
+                    @empty($houses[0])
+                        Không có dữ liệu
+                    @else
                     <table class="table text-center">
                         <thead class="table-dark">
                         <tr>
@@ -17,9 +20,8 @@
                             <th>Trạng Thái</th>
                         </tr>
                         </thead>
-                        @empty($houses)
-                            Không có dữ liệu
-                        @else
+
+
                             @foreach($houses as $key => $house)
                                 <tr>
                                     <td>{{++$key}}</td>
@@ -29,8 +31,9 @@
                                     <td>{{$house->status}}</td>
                                 </tr>
                             @endforeach
-                        @endempty
+
                     </table>
+                    @endempty
                     <div>
                         <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Quay Lại</button>
                     </div>
