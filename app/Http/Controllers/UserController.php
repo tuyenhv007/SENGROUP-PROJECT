@@ -111,7 +111,7 @@ class UserController extends Controller
         $dateIn = $bill->checkIn;
         $now = date("Y-m-d", time());
         $checkDate = (strtotime($dateIn) - strtotime($now)) / (60 * 60 * 24);
-        if ($checkDate > 1) {
+        if ($checkDate > HouseStatus::ONEDAY) {
             $bill->status = BillStatus::CANCLE;
             $bill->save();
             Alert()->success('Hủy thành công !');
@@ -120,6 +120,21 @@ class UserController extends Controller
             alert()->error('Error', 'Không được hủy trước 1 ngày');
             return redirect()->route('user.historyBookHouses', $bill->user_id);
         }
+    }
+
+    public function updateStatusHouse(Request $request, $id)
+    {
+        $house = House::find($id);
+        $house->status = $request->statusHouse;
+        $house->save();
+        $bills= Bill::where('house_id',$id)->get();
+        foreach ($bills as $bill){
+            $bill_id= $bill->id;
+            $bill->status = $request-> $bill_id;
+            $bill->save();
+        }
+        Alert()->success('Cập nhật thành công !');
+        return redirect()->route('user.billHouse', $id);
     }
 }
 

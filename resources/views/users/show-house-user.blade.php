@@ -14,6 +14,7 @@
                             <th>Tiêu đề</th>
                             <th>Kiểu nhà</th>
                             <th>Giá thuê</th>
+                            <th>Trạng Thái</th>
                         </tr>
                         </thead>
                         @empty($houses)
@@ -25,6 +26,7 @@
                                     <td><a href="{{route('user.billHouse',$house->id)}}">{{$house->name}}</a></td>
                                     <td>{{$house->type}}</td>
                                     <td>{{number_format($house->price)}}</td>
+                                    <td>{{$house->status}}</td>
                                 </tr>
                             @endforeach
                         @endempty
