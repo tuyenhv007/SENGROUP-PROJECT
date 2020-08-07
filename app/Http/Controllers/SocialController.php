@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidateProfile;
 use App\SocialUser;
 use App\User;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialController extends Controller
@@ -40,4 +42,12 @@ class SocialController extends Controller
         Auth::logout();
         return redirect()->route('houses.list');
     }
+
+    public function showProfileSocial()
+    {
+        $id = Auth::user()->getAuthIdentifier();
+        $user = Auth::user()->getAuthIdentifierName();
+        return view('users.profile', compact('user'));
+    }
+
 }
