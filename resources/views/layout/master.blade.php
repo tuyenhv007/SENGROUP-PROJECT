@@ -100,6 +100,9 @@
                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.showIncome',Session::get('user')->id)}}">Thống kê doanh thu
+                                        </a>
+                                        <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.historyBookHouses',Session::get('user')->id)}}">Lịch sử
                                             thuê nhà
                                         </a>
