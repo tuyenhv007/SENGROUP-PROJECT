@@ -23,10 +23,13 @@
                     @foreach($bills as $key=>$bill)
                         <tr>
                             <th scope="row">{{++$key}}</th>
+
+                    
                             <td>{{$bill->house->name}}</td>
                             <td>{{$bill->house->address}},
                                 ,{{$bill->house->city}}
                                 ,{{$bill->house->adistrict}}
+
                                 , {{$bill->house->road}}</td>
                             <td>{{$bill->checkIn}}</td>
                             <td>{{$bill->checkOut}}</td>

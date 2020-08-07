@@ -8,19 +8,18 @@ use App\City;
 use App\Comment;
 use App\District;
 use App\House;
-use App\Http\Requests\ValidateFormBookHouse;
 use App\Http\Requests\ValidatePostHouse;
-
 use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
-use Symfony\Component\Console\Input\Input;
+use willvincent\Rateable\Rateable;
+use willvincent\Rateable\Rating;
 
 class HouseController extends Controller
 {
@@ -90,6 +89,7 @@ class HouseController extends Controller
                 alert('Đăng bài thất bại', 'Successfully', 'success')->autoClose(1500);
                 return back();
             }
+
         }
     }
 
@@ -150,5 +150,6 @@ class HouseController extends Controller
             return view('houses.list', compact('houses', 'cities'));
         }
     }
+
 
 }
