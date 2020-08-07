@@ -63,14 +63,15 @@
                                     <div class="mb-5">
                                         <h3 class="text-black mb-4"><i class='fas fa-tags'></i> &nbsp;{{$house->name}}.
                                         </h3>
-                                        <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->addresses[0]->sn}},
-                                            {{$house->addresses[0]->road}},
-                                            {{$house->addresses[0]->district}},
-                                            {{$house->addresses[0]->city}}</h5>
+                                        <h5><i class='fas fa-map-marker-alt'></i> &nbsp;{{$house->address}},
+                                            {{$house->road}},
+                                            {{$house->district}},
+                                            {{$house->city}}</h5>
 
                                         <h5 class="mb-2"><i class='fas fa-bed'></i> &nbsp; Số phòng
                                             ngủ: {{$house->rooms}} phòng.</h5><br>
-                                        <article class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông tin mô
+                                        <article class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông
+                                            tin mô
                                             tả :{!! $house->desc !!}</article>
                                         <h4 class="mb-1"><i class="fa fa-money "></i> &nbsp;Giá
                                             Tiền: {{number_format($house->price)}} VNĐ</h4>
