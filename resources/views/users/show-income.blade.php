@@ -24,6 +24,14 @@
                                 <th>Tháng 12</th>
                             </tr>
                             </thead>
+                            <tbody>
+                            <tr>
+                                @foreach($income as $month)
+                                <td>{{number_format($month)}}</td>
+                                @endforeach
+                            </tr>
+
+                            </tbody>
                         </table>
                 </div>
             </div>
