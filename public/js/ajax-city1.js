@@ -1,66 +1,76 @@
 $(document).ready(function () {
-    $("select[name='city']").change(function () {
+    let origin = window.location.origin
 
-        let city_id = $(this).val();
-        let origin = location.origin;
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
+    function getAllCity() {
         $.ajax({
-            url: origin + '/houses/post-form/' + city_id,
-            method: 'POST',
-            data: {},
-
+            url: origin + '/houses/cities',
+            type: 'GET',
             dataType: 'json',
             success: function (result) {
-                console.log(this.url)
-                $("select[name='district']").children().remove();
-                $("select[name='district']").focus();
-                $("select[name='district']").append(
-                    "<option value=''>" + "Quận/Huyện:" + "</option>"
-                );
-                $.each(result, function (key, value) {
-                    $("select[name='district']").append(
-                        "<option value=" + value.id + ">" + value.name + "</option>"
-                    );
-                })
-            },
-
-        })
-    })
-    $("select[name='district']").change(function () {
-
-        let district_id = $(this).val();
-        let origin = location.origin;
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                $.each(result, function (k, v) {
+                    $('#citySearch').append($('<option>', {value: v.id, text: v.name}));
+                });
             }
-        });
+        })
+    }
 
+    getAllCity();
+
+    $('#citySearch').change(function () {
+        $("#districtSearch option").remove();
+        let idCity = $(this).val();
         $.ajax({
-            url: origin + '/houses/post-form/road/' + district_id,
-            method: 'POST',
-            data: {},
-
+            url: origin + '/houses/cities/' + idCity + '/district',
+            type: 'GET',
             dataType: 'json',
             success: function (result) {
-                console.log(this.url)
-                $("select[name='road']").children().remove();
-                $("select[name='road']").focus();
-                $("select[name='road']").append(
-                    "<option value=''>" + "Xã/Phường:" + "</option>"
-                );
-                $.each(result, function (key, value) {
-                    $("select[name='road']").append(
-                        "<option value=" + value.id + ">" + value.name + "</option>"
-                    );
-                })
+                $('#districtSearch').append($('<option>', {value: '', text: "Quận/Huyện:"}));
+                $.each(result, function (k, v) {
+                    $('#districtSearch').append($('<option>', {value: v.id, text: v.name}));
+                });
             },
+            error: function () {
+                alert('error...');
+            }
+        });
+    });
 
-        })
-    })
+    $('#districtSearch').change(function () {
+        $("#roadSearch option").remove();
+        let idRoad = $(this).val();
+        console.log(idRoad)
+        $.ajax({
+            url: origin + '/houses/district/' + idRoad + '/ward',
+            type: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                $('#roadSearch').append($('<option>', {value: '', text: "Xã/Phường:"}));
+                $.each(result, function (k, v) {
+                    $('#roadSearch').append($('<option>', {value: v.name, text: v.name}));
+                });
+            },
+            error: function () {
+                alert('error...');
+            }
+        });
+    });
+
+    $('#roadSearch').change(function () {
+        let road = $(this).val();
+        // $('#result').children().remove();
+        $.ajax({
+            url: origin + "/houses/search/" + road,
+            type: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                console.log(result[0].data)
+                $.each(result[0].data, function (k,v){
+                   $('#search').append($('#result').append(v))
+                });
+            },
+            error: function () {
+                alert('error...');
+            }
+        });
+    });
 })

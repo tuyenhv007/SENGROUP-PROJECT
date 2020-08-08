@@ -39,6 +39,7 @@
     <script src="{{asset('js/ajax-avatar.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <script src="{{asset('js/rating.js')}}" type="text/javascript"></script>
+    <script src="{{asset('js/ajax-city1.js')}}" type="text/javascript"></script>
 
 
     {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">--}}
