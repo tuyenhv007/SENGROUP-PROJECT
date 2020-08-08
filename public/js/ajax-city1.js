@@ -40,7 +40,7 @@ $(document).ready(function () {
         let idRoad = $(this).val();
         console.log(idRoad)
         $.ajax({
-            url: origin + '/houses/district/' + idRoad + '/ward',
+            url: origin + '/houses/district/' + idRoad + '/road',
             type: 'GET',
             dataType: 'json',
             success: function (result) {
@@ -57,16 +57,16 @@ $(document).ready(function () {
 
     $('#roadSearch').change(function () {
         let road = $(this).val();
-        // $('#result').children().remove();
+        console.log(road)
         $.ajax({
             url: origin + "/houses/search/" + road,
             type: 'GET',
             dataType: 'json',
             success: function (result) {
                 console.log(result[0].data)
-                $.each(result[0].data, function (k,v){
-                   $('#search').append($('#result').append(v))
-                });
+                // $.each(result[0].data, function (k, v) {
+                //     $('#search').append($('#result').append(v))
+                // });
             },
             error: function () {
                 alert('error...');
