@@ -49,9 +49,9 @@ Route::prefix('houses')->group(function () {
     Route::post('/post-form', 'CityController@showCity');
     Route::post('/post-form/{idCity}', 'DistrictController@showDistrictInCity');
     Route::post('/post-form/road/{idDistrict}', 'RoadController@showRoadInDistrict');
-    Route::get('/cities','CityController@getAllCity');
-    Route::get('cities/{id}/district','CityController@getDistrictByCity');
-    Route::get('district/{id}/ward','CityController@getWardByDistrict');
+    Route::get('/cities', 'CityController@getAllCity');
+    Route::get('/cities/{id}/district', 'CityController@getDistrictByCity');
+    Route::get('/district/{id}/road', 'CityController@getWardByDistrict');
     Route::middleware(['user'])->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
@@ -59,7 +59,7 @@ Route::prefix('houses')->group(function () {
         Route::get('/{id}/show-list-house', 'UserController@showHouseUser')->name('user.houseUser');
         Route::get('{id}/show-bill-house', 'UserController@showBillHouse')->name('user.billHouse');
         Route::post('{id}/show-bill-house', 'UserController@updateStatusHouse')->name('user.updateStatusHouse');
-        Route::get('{id}/show-income','UserController@showIncome')->name('user.showIncome');
+        Route::get('{id}/show-income', 'UserController@showIncome')->name('user.showIncome');
     });
 });
 

@@ -3,7 +3,6 @@
     <div class="container pt-3">
         <div class="card">
             <div class="card-body">
-
                 <div class="col ml-3">
                     <form action="" method="get" novalidate="novalidate">
                         @csrf
@@ -25,19 +24,19 @@
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
-                                    <select class="form-control search-slt" id="citySearch" name="city">
+                                    <select class="form-control search-slt" id="citySearch" name="citySearch">
                                         <option value="">Tỉnh/Thành Phố:</option>
 
                                     </select>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                    <select class="form-control" name="district" id="districtSearch">
+                                    <select class="form-control" name="districtSearch" id="districtSearch">
                                         <option value="">Quận/Huyện:</option>
 
                                     </select>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                    <select class="form-control" name="road" id="roadSearch">
+                                    <select class="form-control" name="roadSearch" id="roadSearch">
                                         <option value="">Xã/Phường:</option>
 
                                     </select>
