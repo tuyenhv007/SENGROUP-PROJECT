@@ -127,22 +127,29 @@ class UserController extends Controller
         $house = House::find($id);
         $house->status = $request->statusHouse;
         $house->save();
-        foreach ($house->bills as $bill){
-            $bill_id= $bill->id;
-            $bill->status = $request-> $bill_id;
+        foreach ($house->bills as $bill) {
+            $bill_id = $bill->id;
+            $bill->status = $request->$bill_id;
             $bill->save();
         }
         Alert()->success('Cập nhật thành công !');
         return redirect()->route('user.billHouse', $id);
     }
-    public function showIncome($id){
+
+    public function showIncome($id)
+    {
         $user = User::find($id);
-        foreach ($user->houses as $house){
-            foreach ($house->bills as $bill){
-                dd($bill->checkOut);
+        $income = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0, 10 => 0, 11 => 0, 12 => 0];
+        for ($i = 1; $i < 13; $i++) {
+            foreach ($user->billss as $bill) {
+
+                if (substr($bill->checkOut, 0, 4) == 2020 && substr($bill->checkOut, 5, 2) == $i && $bill->status == BillStatus::COMPLETE)
+                    $income[$i] += $bill->total;
             }
         }
-        return view('users.show-income');
+
+        return view('users.show-income',compact('income'));
     }
+
 }
 
