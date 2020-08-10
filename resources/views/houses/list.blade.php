@@ -9,11 +9,15 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 p-0 ml-4">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 p-0 ml-4">
                                         <input type="text" class="form-control search-slt"
-                                               placeholder="Tìm kiếm trên SENGROUP" name="search" id="mySearch">
+                                               placeholder="Tìm kiếm trên SENGROUP" name="search" {{old('search')}}>
                                     </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 p-0 ml-4">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 p-0 ml-4">
+                                        <input type="number" class="form-control search-slt"
+                                               placeholder="Nhập giá tiền" name="price" {{old('price')}}>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 p-0 ml-4">
                                         <button type="submit" class="btn btn-danger wrn-btn">Search</button>
                                     </div>
                                 </div>
@@ -23,19 +27,19 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
-                                        <select class="form-control search-slt" id="citySearch" name="citySearch">
+                                        <select class="form-control search-slt" id="citySearch" name="citySearch" {{old('citySearch')}}>
                                             <option value="">Tỉnh/Thành Phố:</option>
 
                                         </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <select class="form-control" name="districtSearch" id="districtSearch">
+                                        <select class="form-control" name="districtSearch" id="districtSearch" {{old('districtSearch')}}>
                                             <option value="">Quận/Huyện:</option>
 
                                         </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <select class="form-control" name="roadSearch" id="roadSearch">
+                                        <select class="form-control" name="roadSearch" id="roadSearch" {{old('roadSearch')}}>
                                             <option value="">Xã/Phường:</option>
 
                                         </select>
@@ -110,8 +114,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--                    {{dd($houses)}}--}}
-                    {{--                    {{dd($houses->image)}}--}}
                 @endempty
             </div>
         </div>
