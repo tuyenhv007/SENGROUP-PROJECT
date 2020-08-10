@@ -14,18 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('users/action')->group(function () {
-    Route::get('/login', 'LoginController@showFormLogin')->name('login');
-    Route::get('/register', 'LoginController@showFormRegister')->name('register');
-    Route::post('/login', 'LoginController@login')->name('user.login');
-    Route::post('/register', 'LoginController@register')->name('user.register');
-    Route::get('/logout', 'LoginController@logout')->name('logout');
-    Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.index');
-    Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
-    Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
-    Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
-});
 
+Route::get('/login', 'LoginController@showFormLogin')->name('login');
+Route::get('/register', 'LoginController@showFormRegister')->name('register');
+Route::post('/login', 'LoginController@login')->name('user.login');
+Route::post('/register', 'LoginController@register')->name('user.register');
+Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.index');
+Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
+Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
+Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
 Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/{provider}/callback', 'SocialController@Callback');
 Route::get('/logout/social', 'SocialController@logout')->name('logout.social');
