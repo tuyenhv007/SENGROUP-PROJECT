@@ -1,5 +1,50 @@
 @extends('layout.master')
 @section('content')
+
+    <style>
+        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+        fieldset, label { margin: 0; padding: 0; }
+        body{ margin: 20px; }
+        h1 { font-size: 1.5em; margin: 10px; }
+
+        /****** Style Star Rating Widget *****/
+
+        .rating {
+            border: none;
+            float: left;
+        }
+
+        .rating > input { display: none; }
+        .rating > label:before {
+            margin: 5px;
+            font-size: 1.25em;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005";
+        }
+
+        .rating > .half:before {
+            content: "\f089";
+            position: absolute;
+        }
+
+        .rating > label {
+            color: #ddd;
+            float: right;
+        }
+
+        /***** CSS Magic to Highlight Stars on Hover *****/
+
+        .rating > input:checked ~ label, /* show gold star when clicked */
+        .rating:not(:checked) > label:hover, /* hover current star */
+        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+        .rating > input:checked + label:hover, /* hover current star when changing rating */
+        .rating > input:checked ~ label:hover,
+        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+        .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+    </style>
     <div class="pb-5">
         <div class="container pt-3">
             <div class="card">
@@ -64,7 +109,11 @@
                                             <div class="col-sm-4" style="width: 20%; position: relative">
                                                 <span class="fa fa-star mt-2"
                                                       style="font-size: 100px; display: block; color: yellow; margin: 0 auto; text-align: center"></span>
-                                                <b style="font-size: 30px; display: block; color: red; margin: 0 auto; text-align: center">2,5</b>
+
+                                                <b style="font-size: 30px; display: block; color: red; margin: 0 auto; text-align: center">
+                                                   {{  $avg  }}
+                                                </b>
+
                                             </div>
                                             <div class="col-sm-5">
                                                 <div class="list-rating">
@@ -85,39 +134,42 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                @for ($i = 1; $i <= 5; $i ++)
                                                     <div class="mt-3">
-                                                        <a href="">1000 đánh giá</a>
+                                                        <a href="">{{$count1star}} đánh giá</a>
                                                     </div>
-                                                @endfor
+                                                <div class="mt-3">
+                                                    <a href="">{{$count2star}} đánh giá</a>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <a href="">{{$count3star}} đánh giá</a>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <a href="">{{$count4star}} đánh giá</a>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <a href="">{{$count5star}} đánh giá</a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <?php
-                                        $listRatingText = [
-                                            1 => 'Không thích',
-                                            2 => 'Tạm được',
-                                            3 => 'Bình thường',
-                                            4 => 'Tốt',
-                                            5 => 'Tuyệt vời',
-                                        ];
-                                        ?>
                                         <div class="mt-3">
-                                            <a href="#" onclick="displayFormRating()"
-                                               style="width: 200px; background: #288ad6; padding: 5px; color: white; border-radius: 5px; margin-left: 230px">Đánh
-                                                giá ở đây</a>
+                                            <button onclick="displayFormRating()"
+                                                    style="width: 200px; background: #288ad6; padding: 5px; color: white; border-radius: 5px; margin-left: 200px">
+                                                Gửi đánh giá của bạn
+                                            </button>
                                         </div>
                                         <hr>
 
                                         <div id="form-rating" style="display: none">
                                             <div
                                                 style="display: flex; margin-top: 15px; margin-left: 150px; font-size: 15px">
-                                                <p>Chọn đánh giá của bạn: </p>
-                                                <span style="margin: 0 15px; padding-top: 2px" class="list_star rating_active">
-                                                    @for ($i = 1; $i <= 5; $i++ )
-                                                        <i class="fa fa-star" data-key="{{$i}}"></i>
-                                                    @endfor
-                                                </span>
-{{--                                                <span class="list-text">Tot</span>--}}
+                                                <p style="margin-top: 15px;">Chọn đánh giá của bạn: </p>
+                                                <fieldset class="rating mt-2 pt-1">
+                                                    <input class="star" type="radio" id="star5" name="rating" value="5" data-key="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                                    <input class="star" type="radio" id="star4" name="rating" value="4" data-key="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                                    <input class="star" type="radio" id="star3" name="rating" value="3" data-key="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                                    <input class="star" type="radio" id="star2" name="rating" value="2" data-key="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                    <input class="star" type="radio" id="star1" name="rating" value="1" data-key="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                                </fieldset>
                                             </div>
                                             <div>
                                                 @if(Session::get('user'))
@@ -127,7 +179,8 @@
                                                             @csrf
                                                             <div><h6>Viết bình luận</h6></div>
                                                             <div class="form-group">
-                                                        <textarea name="comment" class="form-control"
+                                                                <input type="hidden" id="rating-input" name="rating">
+                                                        <textarea required name="comment" class="form-control"
                                                                   rows="3"></textarea>
                                                             </div>
                                                             <button type="submit" class="btn btn-primary">Gửi đánh giá
@@ -139,7 +192,7 @@
                                                         <form action="{{route('check.comment')}}" method="post">
                                                             @csrf
                                                             <div class="form-group">
-                                                                <textarea class="form-control" rows="3"></textarea>
+                                                                <textarea required class="form-control" rows="3"></textarea>
                                                             </div>
                                                             <button
                                                                 onclick="return confirm('Đăng nhập để sử dụng chức năng này?')"
@@ -266,4 +319,14 @@
             </div>
         </div>
     </div>
+    <script>
+        $(function () {
+            let listStar = $(".rating .star");
+            listStar.click(function (e) {
+                let $this = $(this);
+                document.getElementById('rating-input').value=$this.attr('data-key');
+                console.log($this.attr('data-key'));
+            })
+        });
+    </script>
 @endsection

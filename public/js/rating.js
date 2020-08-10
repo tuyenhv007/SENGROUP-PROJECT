@@ -12,7 +12,7 @@ function displayFormRating() {
 //         5 : 'Tuyệt vời',
 //     };
 //
-//     listStar.mouseover(function () {
+//     listStar.mouseover(function (e) {
 //         let $this = $(this);
 //         let number = $this.attr('data-key');
 //         listStar.removeClass('rating_active')
