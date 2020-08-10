@@ -61,7 +61,7 @@
                         <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                     </div>
                 @else
-                    <div class="row large-gutters" id="search" >
+                    <div class="row large-gutters" id="searchAjax" >
                         @foreach($houses as $key => $house)
                             <div class="col-md-6 col-lg-4 mb-5 mb-lg-5" id="result">
                                 <div class="ftco-media-1">
@@ -73,7 +73,7 @@
                                                 class="img-fluid"
                                                 style="height: 400px;width: 300px;margin: auto"></a>
                                         <div class="ftco-media-details">
-                                            <h3><i class='fas fa-tags'></i> &nbsp;{{$house->name}}</h3>
+                                            <h3 id="nameHouse"><i class='fas fa-tags'></i> &nbsp;{{$house->name}}</h3>
                                             <br>
                                             <strong><i class='fas fa-map-marker-alt'></i>
                                                 &nbsp;{{$house->address}},
@@ -111,6 +111,8 @@
                             </div>
                         </div>
                     </div>
+                    {{dd($houses)}}
+                    {{dd($houses->image)}}
                 @endempty
             </div>
         </div>
