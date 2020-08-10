@@ -55,37 +55,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="container">
 
+                                    </div>
                                     <div class="card my-4">
-                                        <h5 class="card-header">Nhận xét và đánh giá:</h5>
-                                        <div style="padding-left: 145px" class="card my-4 pt-3">
-                                            <div class="form-group" id="rating-ability-wrapper">
-                                                <label class="control-label" for="rating">
-                                                    <input type="hidden" id="selected_rating" name="selected_rating"
-                                                           value="" required="required">
-                                                </label>
-                                                <button type="button" class="btnrating btn btn-default btn-lg"
-                                                        data-attr="1" id="rating-star-1">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btnrating btn btn-default btn-lg"
-                                                        data-attr="2" id="rating-star-2">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btnrating btn btn-default btn-lg"
-                                                        data-attr="3" id="rating-star-3">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btnrating btn btn-default btn-lg"
-                                                        data-attr="4" id="rating-star-4">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btnrating btn btn-default btn-lg"
-                                                        data-attr="5" id="rating-star-5">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </button>
+                                        <h3 class="card-header">Nhận xét và đánh giá</h3>
+                                        <div  class="card my-4 pt-3">
+                                            <h5 class="card-header">Chọn đánh giá và viết bình luận:</h5>
+                                               <div id="star-rating" class="star-rating mt-3 mb-3">
+                                                <div class="stars" style="font-size: 2rem; text-align: center">
+                                                    <a id="star-1" class="star"><span class="fa fa-star"></span></a>
+                                                    <a id="star-2" class="star"><span class="fa fa-star"></span></a>
+                                                    <a id="star-3" class="star"><span class="fa fa-star"></span></a>
+                                                    <a id="star-4" class="star"><span class="fa fa-star"></span></a>
+                                                    <a id="star-5" class="star"><span class="fa fa-star"></span></a>
+                                                </div>
+                                                <div class="clearfix"></div>
                                             </div>
-
                                         </div>
                                         @if(Session::get('user'))
                                             <div class="card-body">
