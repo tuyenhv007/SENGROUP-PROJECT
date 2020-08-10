@@ -43,12 +43,19 @@ class HouseController extends Controller
         $count5star = count($star5);
         $countRating = count($rating);
         $sum = $rating->sum('rating');
+        $percent=[];
         if ($countRating != 0) {
+            $percent1=($count1star/$countRating)*100;
+            $percent2=($count2star/$countRating)*100;
+            $percent3=($count3star/$countRating)*100;
+            $percent4=($count4star/$countRating)*100;
+            $percent5=($count5star/$countRating)*100;
+            array_push($percent,$percent1,$percent2,$percent3,$percent4,$percent5);
             $avg = $sum / $countRating;
         }else{
             $avg=0;
         }
-        return view('houses.detail', compact('house', 'comments', 'countRating', 'sum', 'avg', 'count1star', 'count2star', 'count3star', 'count4star', 'count5star'));
+        return view('houses.detail', compact('house', 'comments', 'countRating', 'sum', 'avg', 'count1star', 'count2star', 'count3star', 'count4star', 'count5star','percent'));
     }
 
     public function postForm()
