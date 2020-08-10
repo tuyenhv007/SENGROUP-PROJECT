@@ -70,10 +70,9 @@
                         <div class="or-seperator" style="margin-left: 170px"><i>hoặc</i></div>
                         <p class="text-center">Đăng nhập bằng:</p>
                         <div class="text-center social-btn">
-
-                            <a href="{{ url('/login/facebook') }}" class="btn btn-secondary"><i class="icon-facebook"></i>&nbsp; Facebook</a>
+{{--                            <a href="{{ url('/login/facebook') }}" class="btn btn-secondary"><i class="icon-facebook"></i>&nbsp; Facebook</a>--}}
                             <a href="{{url('/login/google')}}" class="btn btn-danger"><i class="icon-google"></i>&nbsp; Google</a>
-                            <a href="#" class="btn btn-info"><i class="icon-twitter"></i>&nbsp; Twitter</a></div>
+                        </div>
 
                     </form>
                     <p class="text-center text-muted small">Chưa có tài khoản? <a href="{{route('register')}}">Đăng kí ở

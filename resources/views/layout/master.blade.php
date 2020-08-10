@@ -142,14 +142,14 @@
                                 </li>
                         </ul>
                     </div>
-                    <div style="margin-top: 17px" class="header_social_icon d-none d-lg-block">
-                        <ul>
-                            <li><a href="#" class=" d-lg-block"><span class="icon-facebook"></span></a></li>
-                            <li><a href="#" class=" d-lg-block"><span class="icon-google"></span></a></li>
-                            <li><a href="#" class="d-lg-block"><span class="icon-instagram"></span></a></li>
-                            <li><a href="#" class=" d-lg-block"><span class="icon-skype"></span></a></li>
-                        </ul>
-                    </div>
+{{--                    <div style="margin-top: 17px" class="header_social_icon d-none d-lg-block">--}}
+{{--                        <ul>--}}
+{{--                            <li><a href="#" class=" d-lg-block"><span class="icon-facebook"></span></a></li>--}}
+{{--                            <li><a href="#" class=" d-lg-block"><span class="icon-google"></span></a></li>--}}
+{{--                            <li><a href="#" class="d-lg-block"><span class="icon-instagram"></span></a></li>--}}
+{{--                            <li><a href="#" class=" d-lg-block"><span class="icon-skype"></span></a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
                     @endif
                 </nav>
             </div>
