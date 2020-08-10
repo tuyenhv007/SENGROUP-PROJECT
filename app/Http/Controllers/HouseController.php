@@ -125,6 +125,7 @@ class HouseController extends Controller
                 'dateIn.after' => 'Ngày đến phải sau ngày hôm nay !',
                 'dateOut.after' => 'Ngày đi phải sau ngày đến !'
             ]);
+
         $dateIn = $request->dateIn;
         $dateOut = $request->dateOut;
         $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
@@ -140,10 +141,12 @@ class HouseController extends Controller
         $bill->save();
         Alert()->success('Thuê nhà thành công !');
         return back();
+
     }
 
     public function search(Request $request)
     {
+
         $search = $request->search;
         $price = $request->price;
         $city = City::find($request->citySearch);
@@ -218,6 +221,7 @@ class HouseController extends Controller
         $sort = $request->sort;
         $houses = House::orderBy('created_at', "$sort")->paginate(6);
         return view('houses.list', compact('houses'));
+
     }
 
 
