@@ -62,6 +62,7 @@ class HouseController extends Controller
         $house->district = $district->name;
         $house->road = $road->name;
         $house->address = $request->sn;
+        $house->location = $request->location;
         $house->save();
         if ($request->hasFile('photos')) {
             $allowedfileExtension = ['jpg', 'png', 'jpeg'];
