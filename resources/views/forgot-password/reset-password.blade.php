@@ -11,11 +11,7 @@
                     <div class="card-body">
                         <form method="POST" action="" >
                             @csrf
-                            @if($errors->all())
-                                <div class="alert alert-danger" role="alert">
-                                    Có vấn đề khi đăng nhà cho thuê!
-                                </div>
-                            @endif
+
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Mật khẩu mới (*)</label>
 
