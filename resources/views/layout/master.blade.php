@@ -40,6 +40,9 @@
     <script src="{{asset('js/ajax-avatar.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
+    <script src="{{asset('js/rating.js')}}" type="text/javascript"></script>
+    <script src="{{asset('js/ajax-city1.js')}}" type="text/javascript"></script>
+
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -97,6 +100,9 @@
                                             đã đăng</a>
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Hồ sơ
+                                        </a>
+                                        <a style="text-align: center" class="dropdown-item"
+                                           href="{{route('user.showIncome',Session::get('user')->id)}}">Thống kê doanh thu
                                         </a>
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.historyBookHouses',Session::get('user')->id)}}">Lịch sử

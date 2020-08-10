@@ -7,6 +7,9 @@
                     Lịch sử đặt nhà
                 </div>
                 <div class="card-body">
+                    @empty($bills[0])
+                        Không có dữ liệu
+                    @else
                     <form action="{{route('user.updateStatusHouse',$bills[0]->house->id)}}" method="post">
                         @csrf
                         <table class="table text-center">
@@ -21,9 +24,7 @@
                                 <th>Tình trạng</th>
                             </tr>
                             </thead>
-                            @empty($bills)
-                                Không có dữ liệu
-                            @else
+
                                 @foreach($bills as $key => $bill)
                                     <tr>
                                         <td>{{++$key}}</td>
@@ -81,9 +82,10 @@
                                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                                     </th>
                                 </tr>
-                            @endempty
+
                         </table>
                     </form>
+                    @endempty
                     <div>
                         <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Quay Lại
                         </button>

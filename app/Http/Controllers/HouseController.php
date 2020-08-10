@@ -13,6 +13,10 @@ use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use willvincent\Rateable\Rateable;
 use willvincent\Rateable\Rating;
@@ -58,6 +62,7 @@ class HouseController extends Controller
         $house->district = $district->name;
         $house->road = $road->name;
         $house->address = $request->sn;
+        $house->location = $request->location;
         $house->save();
         if ($request->hasFile('photos')) {
             $allowedfileExtension = ['jpg', 'png', 'jpeg'];
@@ -118,33 +123,40 @@ class HouseController extends Controller
         return back();
     }
 
-    public function search(Request $request)
+    public function search(Request $request, $road)
     {
-        if (!$request->city && !$request->search) {
-            return redirect()->route('houses.list');
-        } elseif ($request->city && !$request->search) {
-            $city = City::find($request->city);
-            $nameCity = $city->name;
-
-            if (!$request->district && !$request->road) {
-                $houses = House::where('city', $nameCity)->paginate(6);
-            } elseif ($request->district && !$request->road) {
-                $district = District::find($request->district);
-                $nameDistrict = $district->name;
-                $houses = House::where('district', $nameDistrict)->paginate(6);
-            } else {
-                $road = Road::find($request->road);
-                $nameRoad = $road->name;
-                $houses = House::where('road', $nameRoad)->paginate(6);
-            }
-            $cities = City::all();
-            return view('houses.list', compact('houses', 'cities'));
-        } else {
-            $search = $request->search;
-            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);
-            $cities = City::all();
-            return view('houses.list', compact('houses', 'cities'));
-        }
+//        if (!$request->city && !$request->search) {
+//            return redirect()->route('houses.list');
+//        } elseif ($request->city && !$request->search) {
+//            if (!$request->district && !$request->road) {
+//                $city = City::find($request->city);
+//                $nameCity = $city->name;
+//                $houses = House::where('city', $nameCity)->paginate(6);
+//            } elseif ($request->district && !$request->road) {
+//                $district = District::find($request->district);
+//                $nameDistrict = $district->name;
+//                $houses = House::where('district', $nameDistrict)->paginate(6);
+//            } else {
+//                $road = Road::find($request->road);
+//                $nameRoad = $road->name;
+                $houses = House::where('road',$road)->paginate(6);
+                $images=[];
+                foreach ($houses as $house){
+                    array_push($images,$house->images);
+                }
+                $result=[];
+                array_push($result,$houses);
+                array_push($result,$images);
+//            }
+//            $cities = City::all();
+//            return view('houses.list', compact('houses', 'cities'));
+            return response()->json($result);
+//        } else {
+//            $search = $request->search;
+//            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+//            $cities = City::all();
+//            return view('houses.list', compact('houses', 'cities'));
+//        }
     }
 
 

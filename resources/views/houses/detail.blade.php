@@ -8,12 +8,52 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <div class="owl-carousel slide-one-item with-dots">
-                                        @foreach($house->images as $image)
-                                            <span id="zoom"><img src="{{asset('storage/'.$image->image)}}"
-                                                                 class="img-fluid"
-                                                                 style="width: 100%;height: 700px"></span>
-                                        @endforeach
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab"
+                                                       href="#basicInfo" role="tab" aria-controls="basicInfo"
+                                                       aria-selected="true">Xem ảnh</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab"
+                                                       href="#connectedServices" role="tab"
+                                                       aria-controls="connectedServices"
+                                                       aria-selected="false">Xem bản đồ</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content ml-1" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel"
+                                                     aria-labelledby="basicInfo-tab">
+                                                    <div class="row">
+                                                        <div class="owl-carousel slide-one-item with-dots">
+                                                            @foreach($house->images as $image)
+                                                                <span id="zoom"><img
+                                                                        src="{{asset('storage/'.$image->image)}}"
+                                                                        class="img-fluid"
+                                                                        style="width: 100%;height: 700px"></span>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade" id="connectedServices" role="tabpanel"
+                                                     aria-labelledby="ConnectedServices-tab">
+                                                    <div class="tab-pane fade show active" id="basicInfo"
+                                                         role="tabpanel"
+                                                         aria-labelledby="basicInfo-tab">
+                                                        <div class="row">
+                                                            <iframe src="{{ $house->location }}" width="600"
+                                                                    height="450" frameborder="0" style="border:0;"
+                                                                    allowfullscreen="" aria-hidden="false"
+                                                                    tabindex="0">
+                                                            </iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="container">
 
@@ -42,7 +82,6 @@
                                                         <textarea name="comment" class="form-control"
                                                                   rows="3"></textarea>
                                                     </div>
-
                                                     <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
                                                 </form>
                                             </div>
@@ -85,7 +124,6 @@
                                             {{$house->road}},
                                             {{$house->district}},
                                             {{$house->city}}</h5>
-
                                         <h5 class="mb-2"><i class='fas fa-bed'></i> &nbsp; Số phòng
                                             ngủ: {{$house->rooms}} phòng.</h5><br>
                                         <article class="mb-1" id="editor"><i class='fas fa-list-alt'></i> &nbsp; Thông
@@ -107,7 +145,6 @@
                                                         @endif" data-toggle="modal"
                                                     data-target="#exampleModal" data-whatever="@mdo">Đặt Thuê
                                             </button>
-
                                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <form method="post" action="{{route('houses.bookHouse',$house->id)}}">

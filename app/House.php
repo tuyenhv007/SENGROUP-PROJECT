@@ -30,4 +30,5 @@ class House extends Model
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
     protected $dates = ['created_at', 'updated_at', 'disabled_at','mydate'];
+
 }

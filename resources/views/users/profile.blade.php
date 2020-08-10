@@ -147,7 +147,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-6">
                                                         <div>
-                                                            <p class">Ghi chú: Mục tích dấu (*) là bắt buộc!!!</p>
+                                                            <p>Ghi chú: Mục tích dấu (*) là bắt buộc!!!</p>
                                                         </div>
                                                         <input class="btn btn-primary" type="submit" value="Cập nhập"/>
                                                         <a class="btn btn-secondary"

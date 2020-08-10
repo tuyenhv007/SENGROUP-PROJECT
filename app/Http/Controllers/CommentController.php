@@ -19,11 +19,13 @@ class CommentController extends Controller
     public function postComment($id,Request $request){
 
         $id_house=$id;
-        $comment=new Comment();
-        $comment->content=$request->comment;
-        $comment->house_id=$id_house;
-        $comment->user_id=Session::get('user')->id;
-        $comment->save();
+        if($request->comment){
+            $comment=new Comment();
+            $comment->content=$request->comment;
+            $comment->house_id=$id_house;
+            $comment->user_id=Session::get('user')->id;
+            $comment->save();
+        }
         return back();
     }
     public function checkComment(){

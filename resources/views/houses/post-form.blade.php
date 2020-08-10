@@ -93,6 +93,55 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="{{ $errors->first('location') ? 'text-danger' : '' }}">Link liên kết
+                                        bản đồ
+                                        :</label>
+                                    <textarea name="location" id="location"
+                                              class="form-control  {{ $errors->first('location') ? 'is-invalid' : '' }}"
+                                              autofocus rows="3">{{ old('location') }}</textarea>
+                                    @if($errors->first('location'))
+                                        <p class="text-danger">{{ $errors->first('location') }}</p>
+                                    @endif
+                                    <div class="pt-2">
+                                        <button type="button"
+                                                class="btn btn-primary d-inline" data-toggle="modal"
+                                                data-target="#exampleModal" data-whatever="@mdo">Hướng dẫn
+                                        </button>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Hướng dẫn lấy
+                                                            Link Liên kết với bản đồ Google map
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Truy cập '<a href="https://www.google.com/maps/"
+                                                                        target="_blank">Google map</a>' >> Nhập địa chỉ
+                                                            nhà cần hiển thị trên bản đò >> Chọn "Share" >> Chọn Embed a
+                                                            map >> Copy link: "http://..."
+                                                        </p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Quay lại
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
                                     <label class="{{ $errors->first('desc') ? 'text-danger' : '' }}">Mô tả :</label>
                                     <textarea name="desc" id="desc" class="form-control
                                               {{ $errors->first('desc') ? 'is-invalid' : '' }}"
@@ -114,7 +163,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê VNĐ:</label>
+                                    <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê
+                                        VNĐ:</label>
 
                                     <input type="text" name="price" autofocus
                                            class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}"
