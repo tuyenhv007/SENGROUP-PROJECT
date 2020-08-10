@@ -52,6 +52,7 @@ Route::prefix('houses')->group(function () {
     Route::get('/cities', 'CityController@getAllCity');
     Route::get('/cities/{id}/district', 'CityController@getDistrictByCity');
     Route::get('/district/{id}/road', 'CityController@getWardByDistrict');
+    Route::post('/sort', 'HouseController@sortListHouse')->name('houses.sortHouse');
     Route::middleware(['user'])->group(function () {
         Route::get('/post-form', 'HouseController@postForm')->name('houses.postForm');
         Route::post('/post-form/', 'HouseController@postHouse')->name('houses.postHouse');
