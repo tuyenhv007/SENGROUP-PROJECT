@@ -52,7 +52,7 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany('App\Comment');
     }
-    public function billss(){
+    public function billsOfUser(){
         return $this->hasManyThrough('App\Bill','App\House');
     }
 }
