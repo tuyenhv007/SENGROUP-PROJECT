@@ -83,10 +83,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Địa chỉ :</label>
-                                    <textarea name="sn" id="sn"
+                                    <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Số nhà/Tên đường,ngõ :</label>
+                                    <input name="sn" id="sn" type="text"
                                               class="form-control  {{ $errors->first('sn') ? 'is-invalid' : '' }}"
-                                              autofocus rows="2">{{ old('sn') }}</textarea>
+                                              autofocus rows="2" value="{{ old('sn') }}" placeholder="nhập số nhà/tên đường,ngõ ">
                                     @if($errors->first('sn'))
                                         <p class="text-danger">{{ $errors->first('sn') }}</p>
                                     @endif
@@ -154,7 +154,7 @@
                                 <div class="form-group">
                                     <label class="{{ $errors->first('rooms') ? 'text-danger' : '' }}">Số phòng:</label>
 
-                                    <input type="text" name="rooms" autofocus
+                                    <input type="number" name="rooms" autofocus
                                            class="form-control {{ $errors->first('rooms') ? 'is-invalid' : '' }}"
                                            value="{{ old('rooms') }}">
                                     @if($errors->first('rooms'))
@@ -164,9 +164,9 @@
 
                                 <div class="form-group">
                                     <label class="{{ $errors->first('price') ? 'text-danger' : '' }}">Giá thuê
-                                        VNĐ:</label>
+                                        VNĐ/Ngày:</label>
 
-                                    <input type="text" name="price" autofocus
+                                    <input type="number" name="price" autofocus
                                            class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}"
                                            value="{{ old('price') }}">
                                     @if($errors->first('price'))
