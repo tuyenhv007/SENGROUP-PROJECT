@@ -14,21 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('users/action')->group(function () {
+    Route::get('/login', 'LoginController@showFormLogin')->name('login');
+    Route::get('/register', 'LoginController@showFormRegister')->name('register');
+    Route::post('/login', 'LoginController@login')->name('user.login');
+    Route::post('/register', 'LoginController@register')->name('user.register');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.index');
+    Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
+    Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
+    Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
+    Route::get('login/{provider}', 'SocialController@redirect');
+    Route::get('login/{provider}/callback', 'SocialController@Callback');
+    Route::get('/logout/social', 'SocialController@logout')->name('logout.social');
+});
 
-Route::get('/login', 'LoginController@showFormLogin')->name('login');
-Route::get('/register', 'LoginController@showFormRegister')->name('register');
-Route::post('/login', 'LoginController@login')->name('user.login');
-Route::post('/register', 'LoginController@register')->name('user.register');
-Route::get('/logout', 'LoginController@logout')->name('logout');
-Route::get('/forgot-password', 'ForgotPasswordController@index')->name('forgot.index');
-Route::post('/forgot-password', 'ForgotPasswordController@sendCodeResetPassword')->name('forgot.sendCode');
-Route::get('/reset-password', 'ForgotPasswordController@resetPassword')->name('reset.password');
-Route::post('/reset-password', 'ForgotPasswordController@saveResetPassword')->name('save.reset.password');
-Route::get('login/{provider}', 'SocialController@redirect');
-Route::get('login/{provider}/callback', 'SocialController@Callback');
-Route::get('/logout/social', 'SocialController@logout')->name('logout.social');
-
-Route::prefix('user')->group(function () {
+Route::prefix('users')->group(function () {
     Route::get('/profile', 'UserController@showProfile')->name('user.show');
     Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.edit');
     Route::post('/profile/update/avatar/{id}', 'UserController@updateAvatar')->name('user.edit.avatar');
@@ -40,7 +41,6 @@ Route::prefix('user')->group(function () {
     Route::get('/cancle-bookHouse/{id}', 'UserController@formCancleBookHouse')->name('user.formCancleBookHouse');
     Route::post('/cancle-bookHouse/{id}', 'UserController@cancleBookHouse')->name('user.cancleBookHouse');
 });
-
 
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
