@@ -24,11 +24,11 @@
                         <tr>
                             <th scope="row">{{++$key}}</th>
 
-                    
+
                             <td>{{$bill->house->name}}</td>
                             <td>{{$bill->house->address}},
                                 ,{{$bill->house->city}}
-                                ,{{$bill->house->adistrict}}
+                                ,{{$bill->house->district}}
 
                                 , {{$bill->house->road}}</td>
                             <td>{{$bill->checkIn}}</td>
