@@ -22,8 +22,7 @@ class HouseController extends Controller
     {
         Carbon::setLocale('vi');
         $houses = House::orderBy('created_at', 'DESC')->paginate(6);
-        $cities = City::all();
-        return view('houses.list', compact('houses', 'cities'));
+        return view('houses.list', compact('houses'));
     }
 
     public function show($id)
@@ -187,6 +186,13 @@ class HouseController extends Controller
             }
             return view('houses.list', compact('houses'));
         }
+    }
+
+    public function sortListHouse(Request $request)
+    {
+        $sort = $request->sort;
+        $houses = House::orderBy('created_at', "$sort")->paginate(6);
+        return view('houses.list', compact('houses'));
     }
 
 

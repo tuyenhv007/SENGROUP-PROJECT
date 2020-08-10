@@ -11,11 +11,11 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-5 col-sm-5 p-0 ml-4">
                                         <input type="text" class="form-control search-slt"
-                                               placeholder="Tìm kiếm trên SENGROUP" name="search" {{old('search')}}>
+                                               placeholder="Tìm kiếm trên SENGROUP" name="search">
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 p-0 ml-4">
                                         <input type="number" class="form-control search-slt"
-                                               placeholder="Nhập giá tiền" name="price" {{old('price')}}>
+                                               placeholder="Nhập giá tiền" name="price">
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 p-0 ml-4">
                                         <button type="submit" class="btn btn-danger wrn-btn">Search</button>
@@ -27,19 +27,19 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
-                                        <select class="form-control search-slt" id="citySearch" name="citySearch" {{old('citySearch')}}>
+                                        <select class="form-control search-slt" id="citySearch" name="citySearch">
                                             <option value="">Tỉnh/Thành Phố:</option>
 
                                         </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <select class="form-control" name="districtSearch" id="districtSearch" {{old('districtSearch')}}>
+                                        <select class="form-control" name="districtSearch" id="districtSearch">
                                             <option value="">Quận/Huyện:</option>
 
                                         </select>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                        <select class="form-control" name="roadSearch" id="roadSearch" {{old('roadSearch')}}>
+                                        <select class="form-control" name="roadSearch" id="roadSearch">
                                             <option value="">Xã/Phường:</option>
 
                                         </select>
@@ -53,7 +53,28 @@
             </div>
         </div>
     </div>
-    <div class="container pt-2">
+    <div class="container pt-3">
+        <form class="form-group" method="post" action="{{route('houses.sortHouse')}}" >
+            @csrf
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-10 ">
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 ">
+                                <select class="form-control" name="sort" onchange="this.form.submit()">
+                                    <option value="">Sắp xếp:</option>
+                                    <option value="DESC">Mới nhất</option>
+                                    <option value="ASC">Cũ nhất</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="site-section" id="properties-section">
             <div class="container">
                 @empty($houses[0])
