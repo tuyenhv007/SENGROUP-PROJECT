@@ -118,6 +118,7 @@
                                             <div class="col-sm-5">
                                                 <div class="list-rating">
                                                     <div class="item-rating mt-1">
+                                                        @if($percent)
                                                         @foreach($percent as $key =>$value)
                                                             <div>
                                                                 {{ $key +1 }} <span class="fa fa-star"
@@ -130,7 +131,20 @@
                                                                 </span>
                                                             </div>
                                                         @endforeach
-
+                                                        @else
+                                                            @for($i=1;$i<=5;$i++)
+                                                            <div>
+                                                                {{ $i }} <span class="fa fa-star"
+                                                                                    style="color: yellow"></span>
+                                                            </div>
+                                                            <div>
+                                                                <span
+                                                                    style="width: 100%; height: 13px; display: block; border: 1px solid #dedede">
+                                                                    <b style="width: 0%; background-color: #cc192a; display: block; height: 100%; border-radius: 3px"></b>
+                                                                </span>
+                                                            </div>
+                                                            @endfor
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
