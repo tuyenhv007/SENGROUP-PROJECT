@@ -60,45 +60,97 @@
                                     </div>
                                     <div class="card my-4">
                                         <h3 class="card-header">Nhận xét và đánh giá</h3>
-                                        <div  class="card my-4 pt-3">
-                                            <h5 class="card-header">Chọn đánh giá và viết bình luận:</h5>
-                                               <div id="star-rating" class="star-rating mt-3 mb-3">
-                                                <div class="stars" style="font-size: 2rem; text-align: center">
-                                                    <a id="star-1" class="star"><span class="fa fa-star"></span></a>
-                                                    <a id="star-2" class="star"><span class="fa fa-star"></span></a>
-                                                    <a id="star-3" class="star"><span class="fa fa-star"></span></a>
-                                                    <a id="star-4" class="star"><span class="fa fa-star"></span></a>
-                                                    <a id="star-5" class="star"><span class="fa fa-star"></span></a>
+                                        <div class="row" style="display: flex; align-items: center">
+                                            <div class="col-sm-4" style="width: 20%; position: relative">
+                                                <span class="fa fa-star mt-2"
+                                                      style="font-size: 100px; display: block; color: yellow; margin: 0 auto; text-align: center"></span>
+                                                <b style="font-size: 30px; display: block; color: red; margin: 0 auto; text-align: center">2,5</b>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="list-rating">
+                                                    <div class="item-rating mt-1">
+                                                        @for($i = 1; $i <=5; $i++)
+                                                            <div>
+                                                                {{ $i }} <span class="fa fa-star"
+                                                                               style="color: yellow"></span>
+                                                            </div>
+                                                            <div>
+                                                                <span
+                                                                    style="width: 100%; height: 13px; display: block; border: 1px solid #dedede">
+                                                                    <b style="width: 45%; background-color: #cc192a; display: block; height: 100%; border-radius: 3px"></b>
+                                                                </span>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
                                                 </div>
-                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div>
+                                                @for ($i = 1; $i <= 5; $i ++)
+                                                    <div class="mt-3">
+                                                        <a href="">1000 đánh giá</a>
+                                                    </div>
+                                                @endfor
                                             </div>
                                         </div>
-                                        @if(Session::get('user'))
-                                            <div class="card-body">
-                                                <form action="{{route('post.comment',$house->id)}}" method="post">
-                                                    @csrf
-                                                    <div><h6>Viết bình luận</h6></div>
-                                                    <div class="form-group">
+                                        <?php
+                                        $listRatingText = [
+                                            1 => 'Không thích',
+                                            2 => 'Tạm được',
+                                            3 => 'Bình thường',
+                                            4 => 'Tốt',
+                                            5 => 'Tuyệt vời',
+                                        ];
+                                        ?>
+                                        <div class="mt-3">
+                                            <a href="#" onclick="displayFormRating()"
+                                               style="width: 200px; background: #288ad6; padding: 5px; color: white; border-radius: 5px; margin-left: 230px">Đánh
+                                                giá ở đây</a>
+                                        </div>
+                                        <hr>
+
+                                        <div id="form-rating" style="display: none">
+                                            <div
+                                                style="display: flex; margin-top: 15px; margin-left: 150px; font-size: 15px">
+                                                <p>Chọn đánh giá của bạn: </p>
+                                                <span style="margin: 0 15px; padding-top: 2px" class="list_star rating_active">
+                                                    @for ($i = 1; $i <= 5; $i++ )
+                                                        <i class="fa fa-star" data-key="{{$i}}"></i>
+                                                    @endfor
+                                                </span>
+{{--                                                <span class="list-text">Tot</span>--}}
+                                            </div>
+                                            <div>
+                                                @if(Session::get('user'))
+                                                    <div class="card-body">
+                                                        <form action="{{route('post.comment',$house->id)}}"
+                                                              method="post">
+                                                            @csrf
+                                                            <div><h6>Viết bình luận</h6></div>
+                                                            <div class="form-group">
                                                         <textarea name="comment" class="form-control"
                                                                   rows="3"></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Gửi đánh giá
+                                                            </button>
+                                                        </form>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
-                                                </form>
-                                            </div>
-                                        @else
-                                            <div class="card-body">
-                                                <form action="{{route('check.comment')}}" method="post">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" rows="3"></textarea>
+                                                @else
+                                                    <div class="card-body">
+                                                        <form action="{{route('check.comment')}}" method="post">
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" rows="3"></textarea>
+                                                            </div>
+                                                            <button
+                                                                onclick="return confirm('Đăng nhập để sử dụng chức năng này?')"
+                                                                class="btn btn-primary">Bình luận
+                                                            </button>
+                                                        </form>
                                                     </div>
-                                                    <button
-                                                        onclick="return confirm('Đăng nhập để sử dụng chức năng này?')"
-                                                        class="btn btn-primary">Bình luận
-                                                    </button>
-                                                </form>
+                                                @endif
                                             </div>
-                                        @endif
+                                        </div>
+
                                     </div>
                                     <!-- Single Comment -->
                                     @foreach($comments as $comment)
