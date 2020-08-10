@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col ml-3">
-                    <form action="{{route('houses.search')}}" method="post" novalidate="novalidate">
+                    <form action="{{route('houses.search')}}" method="get" novalidate="novalidate">
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">

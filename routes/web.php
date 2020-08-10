@@ -44,7 +44,7 @@ Route::prefix('users')->group(function () {
 Route::prefix('houses')->group(function () {
     Route::get('/', 'HouseController@index')->name('houses.list');
     Route::get('/{id}/show', 'HouseController@show')->name('houses.show');
-    Route::post('/search', 'HouseController@search')->name('houses.search');
+    Route::get('/search', 'HouseController@search')->name('houses.search');
     Route::post('/post-form', 'CityController@showCity');
     Route::post('/post-form/{idCity}', 'DistrictController@showDistrictInCity');
     Route::post('/post-form/road/{idDistrict}', 'RoadController@showRoadInDistrict');
