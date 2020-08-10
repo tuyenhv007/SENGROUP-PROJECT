@@ -16,9 +16,11 @@
                         <div class="col-lg-5 pl-lg-5 ml-auto">
                             <form method="post" action="{{route('houses.bookHouse',$house->id)}}">
                                 @csrf
+
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
+
                                 <div>
                                     <h3><label>Đặt thuê:</label></h3>
                                 </div>

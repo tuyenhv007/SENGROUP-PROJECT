@@ -106,6 +106,7 @@ class HouseController extends Controller
                 'dateIn.after' => 'Ngày đến phải sau ngày hôm nay !',
                 'dateOut.after' => 'Ngày đi phải sau ngày đến !'
             ]);
+
         $dateIn = $request->dateIn;
         $dateOut = $request->dateOut;
         $days = (strtotime($dateOut) - strtotime($dateIn)) / (60 * 60 * 24);
@@ -121,6 +122,7 @@ class HouseController extends Controller
         $bill->save();
         Alert()->success('Thuê nhà thành công !');
         return back();
+
     }
 
     public function search(Request $request, $road)
@@ -139,18 +141,18 @@ class HouseController extends Controller
 //            } else {
 //                $road = Road::find($request->road);
 //                $nameRoad = $road->name;
-                $houses = House::where('road',$road)->paginate(6);
-                $images=[];
-                foreach ($houses as $house){
-                    array_push($images,$house->images);
-                }
-                $result=[];
-                array_push($result,$houses);
-                array_push($result,$images);
+        $houses = House::where('road', $road)->paginate(6);
+        $images = [];
+        foreach ($houses as $house) {
+            array_push($images, $house->images);
+        }
+        $result = [];
+        array_push($result, $houses);
+        array_push($result, $images);
 //            }
 //            $cities = City::all();
 //            return view('houses.list', compact('houses', 'cities'));
-            return response()->json($result);
+        return response()->json($result);
 //        } else {
 //            $search = $request->search;
 //            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);

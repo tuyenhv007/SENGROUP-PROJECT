@@ -146,6 +146,9 @@
                                         <h4 class="mb-1"><i class="fa fa-money "></i> &nbsp;Giá
                                             Tiền: {{number_format($house->price)}} VNĐ</h4>
                                         <ul class="alert text-danger">
+{{--                                            @empty(!$errors->all())--}}
+{{--                                                {{Alert()->success('dfdsfsd','faifafiaflaiflafiafaifl !')}}--}}
+{{--                                            @endempty--}}
                                             @foreach ($errors ->all() as $error)
                                                 <li>{{$error}}</li>
                                             @endforeach
