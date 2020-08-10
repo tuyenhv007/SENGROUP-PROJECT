@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Address;
+
 use App\Bill;
 use App\City;
 use App\Comment;
@@ -13,13 +13,8 @@ use App\Image;
 use App\Road;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-use willvincent\Rateable\Rateable;
-use willvincent\Rateable\Rating;
+
 
 class HouseController extends Controller
 {
@@ -27,8 +22,7 @@ class HouseController extends Controller
     {
         Carbon::setLocale('vi');
         $houses = House::orderBy('created_at', 'DESC')->paginate(6);
-        $cities = City::all();
-        return view('houses.list', compact('houses', 'cities'));
+        return view('houses.list', compact('houses'));
     }
 
     public function show($id)
@@ -36,7 +30,32 @@ class HouseController extends Controller
         Carbon::setLocale('vi');
         $house = House::findOrFail($id);
         $comments = Comment::where('house_id', $id)->orderBy('created_at', 'DESC')->get();
-        return view('houses.detail', compact('house', 'comments'));
+        $rating = Comment::where('house_id', $id)->where('rating', '>', '0')->get();
+        $star1 = Comment::where('house_id', $id)->where('rating', '=', '1')->get();
+        $star2 = Comment::where('house_id', $id)->where('rating', '=', '2')->get();
+        $star3 = Comment::where('house_id', $id)->where('rating', '=', '3')->get();
+        $star4 = Comment::where('house_id', $id)->where('rating', '=', '4')->get();
+        $star5 = Comment::where('house_id', $id)->where('rating', '=', '5')->get();
+        $count1star = count($star1);
+        $count2star = count($star2);
+        $count3star = count($star3);
+        $count4star = count($star4);
+        $count5star = count($star5);
+        $countRating = count($rating);
+        $sum = $rating->sum('rating');
+        $percent=[];
+        if ($countRating != 0) {
+            $percent1=($count1star/$countRating)*100;
+            $percent2=($count2star/$countRating)*100;
+            $percent3=($count3star/$countRating)*100;
+            $percent4=($count4star/$countRating)*100;
+            $percent5=($count5star/$countRating)*100;
+            array_push($percent,$percent1,$percent2,$percent3,$percent4,$percent5);
+            $avg = $sum / $countRating;
+        }else{
+            $avg=0;
+        }
+        return view('houses.detail', compact('house', 'comments', 'countRating', 'sum', 'avg', 'count1star', 'count2star', 'count3star', 'count4star', 'count5star','percent'));
     }
 
     public function postForm()
@@ -125,40 +144,84 @@ class HouseController extends Controller
 
     }
 
-    public function search(Request $request, $road)
+    public function search(Request $request)
     {
-//        if (!$request->city && !$request->search) {
-//            return redirect()->route('houses.list');
-//        } elseif ($request->city && !$request->search) {
-//            if (!$request->district && !$request->road) {
-//                $city = City::find($request->city);
-//                $nameCity = $city->name;
-//                $houses = House::where('city', $nameCity)->paginate(6);
-//            } elseif ($request->district && !$request->road) {
-//                $district = District::find($request->district);
-//                $nameDistrict = $district->name;
-//                $houses = House::where('district', $nameDistrict)->paginate(6);
-//            } else {
-//                $road = Road::find($request->road);
-//                $nameRoad = $road->name;
-        $houses = House::where('road', $road)->paginate(6);
-        $images = [];
-        foreach ($houses as $house) {
-            array_push($images, $house->images);
+
+        $search = $request->search;
+        $price = $request->price;
+        $city = City::find($request->citySearch);
+        $district = District::find($request->districtSearch);
+        $road = Road::find($request->roadSearch);
+
+        if (!$request->citySearch && !$request->search && !$request->price) {
+            return redirect()->route('houses.list');
+        } elseif ($request->citySearch && !$request->search && !$request->price) {
+            if (!$request->districtSearch && !$request->roadSearch) {
+                $nameCity = $city->name;
+                $houses = House::where('city', $nameCity)->paginate(6);
+            } elseif ($request->districtSearch && !$request->roadSearch) {
+                $nameDistrict = $district->name;
+                $houses = House::where('district', $nameDistrict)->paginate(6);
+            } else {
+                $nameRoad = $road->name;
+                $houses = House::where('road', $nameRoad)->paginate(6);
+            }
+            return view('houses.list', compact('houses'));
+        } elseif (!$request->citySearch && $request->search && !$request->price) {
+            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            return view('houses.list', compact('houses'));
+        } elseif ($request->citySearch && $request->search && !$request->price) {
+            if (!$request->districtSearch && !$request->roadSearch) {
+                $nameCity = $city->name;
+                $houses = House::where('city', $nameCity)->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            } elseif ($request->districtSearch && !$request->roadSearch) {
+                $nameDistrict = $district->name;
+                $houses = House::where('district', $nameDistrict)->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            } else {
+                $nameRoad = $road->name;
+                $houses = House::where('road', $nameRoad)->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            }
+            return view('houses.list', compact('houses'));
+        } elseif ($request->citySearch && !$request->search && $request->price) {
+
+            if (!$request->districtSearch && !$request->roadSearch) {
+                $nameCity = $city->name;
+                $houses = House::where('city', $nameCity)->where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            } elseif ($request->districtSearch && !$request->roadSearch) {
+                $nameDistrict = $district->name;
+                $houses = House::where('district', $nameDistrict)->where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            } else {
+                $nameRoad = $road->name;
+                $houses = House::where('road', $nameRoad)->where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            }
+            return view('houses.list', compact('houses'));
+        } elseif (!$request->citySearch && !$request->search && $request->price) {
+            $houses = House::where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            return view('houses.list', compact('houses'));
+        } elseif (!$request->citySearch && $request->search && $request->price) {
+            $houses = House::where('price', 'LIKE', '%' . $price . '%')->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            return view('houses.list', compact('houses'));
+        } else {
+            if (!$request->districtSearch && !$request->roadSearch) {
+                $nameCity = $city->name;
+                $houses = House::where('city', $nameCity)->where('name', 'LIKE', '%' . $search . '%')->where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            } elseif ($request->districtSearch && !$request->roadSearch) {
+                $nameDistrict = $district->name;
+                $houses = House::where('district', $nameDistrict)->where('name', 'LIKE', '%' . $search . '%')->where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            } else {
+                $nameRoad = $road->name;
+                $houses = House::where('road', $nameRoad)->where('name', 'LIKE', '%' . $search . '%')->where('price', 'LIKE', '%' . $price . '%')->paginate(6);
+            }
+            return view('houses.list', compact('houses'));
         }
-        $result = [];
-        array_push($result, $houses);
-        array_push($result, $images);
-//            }
-//            $cities = City::all();
-//            return view('houses.list', compact('houses', 'cities'));
-        return response()->json($result);
-//        } else {
-//            $search = $request->search;
-//            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);
-//            $cities = City::all();
-//            return view('houses.list', compact('houses', 'cities'));
-//        }
+    }
+
+    public function sortListHouse(Request $request)
+    {
+        $sort = $request->sort;
+        $houses = House::orderBy('created_at', "$sort")->paginate(6);
+        return view('houses.list', compact('houses'));
+
     }
 
 

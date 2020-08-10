@@ -7,8 +7,8 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (result) {
-                $.each(result, function (k, v) {
-                    $('#citySearch').append($('<option>', {value: v.id, text: v.name}));
+                $.each(result, function (key, value) {
+                    $('#citySearch').append($('<option>', {value: value.id, text: value.name}));
                 });
             }
         })
@@ -19,18 +19,19 @@ $(document).ready(function () {
     $('#citySearch').change(function () {
         $("#districtSearch option").remove();
         let idCity = $(this).val();
+        console.log(idCity)
         $.ajax({
             url: origin + '/houses/cities/' + idCity + '/district',
             type: 'GET',
             dataType: 'json',
             success: function (result) {
                 $('#districtSearch').append($('<option>', {value: '', text: "Quận/Huyện:"}));
-                $.each(result, function (k, v) {
-                    $('#districtSearch').append($('<option>', {value: v.id, text: v.name}));
+                $.each(result, function (key, value) {
+                    $('#districtSearch').append($('<option>', {value: value.id, text: value.name}));
                 });
             },
             error: function () {
-                alert('error...');
+                alert('Có lỗi xảy ra!!!');
             }
         });
     });
@@ -45,32 +46,14 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (result) {
                 $('#roadSearch').append($('<option>', {value: '', text: "Xã/Phường:"}));
-                $.each(result, function (k, v) {
-                    $('#roadSearch').append($('<option>', {value: v.name, text: v.name}));
+                $.each(result, function (key, value) {
+                    $('#roadSearch').append($('<option>', {value: value.id, text: value.name}));
                 });
             },
             error: function () {
-                alert('error...');
+                alert('Có lỗi xảy ra!!!');
             }
         });
     });
 
-    $('#roadSearch').change(function () {
-        let road = $(this).val();
-        console.log(road)
-        $.ajax({
-            url: origin + "/houses/search/" + road,
-            type: 'GET',
-            dataType: 'json',
-            success: function (result) {
-                console.log(result[0].data)
-                // $.each(result[0].data, function (k, v) {
-                //     $('#search').append($('#result').append(v))
-                // });
-            },
-            error: function () {
-                alert('error...');
-            }
-        });
-    });
 })

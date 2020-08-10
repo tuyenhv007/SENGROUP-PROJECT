@@ -1,26 +1,33 @@
-jQuery(document).ready(function($){
+function displayFormRating() {
+    document.getElementById('form-rating').style.display = 'block';
+}
 
-    $(".btnrating").on('click',(function(e) {
+// $(function (){
+//     let listStar =  $(".list_star .fa");
+//     listRatingText = {
+//         1 : 'Không thích',
+//         2 : 'Tạm được',
+//         3 : 'Bình thường',
+//         4 : 'Tốt',
+//         5 : 'Tuyệt vời',
+//     };
+//
+//     listStar.mouseover(function (e) {
+//         let $this = $(this);
+//         let number = $this.attr('data-key');
+//         listStar.removeClass('rating_active')
+//
+//         $.each(listStar, function (key, value){
+//             if (key + 1 <= number)
+//             {
+//                 $(this).addClass("rating_active")
+//             }
+//         })
+//
+//         $(".list_text").text("").text(listRatingText[number]).show();
+//     })
+// });
 
-        var previous_value = $("#selected_rating").val();
-
-        var selected_value = $(this).attr("data-attr");
-        $("#selected_rating").val(selected_value);
-
-        $(".selected-rating").empty();
-        $(".selected-rating").html(selected_value);
-
-        for (i = 1; i <= selected_value; ++i) {
-            $("#rating-star-"+i).toggleClass('btn-warning');
-            $("#rating-star-"+i).toggleClass('btn-default');
-        }
-
-        for (ix = 1; ix <= previous_value; ++ix) {
-            $("#rating-star-"+ix).toggleClass('btn-warning');
-            $("#rating-star-"+ix).toggleClass('btn-default');
-        }
-
-    }));
 
 
-});
+

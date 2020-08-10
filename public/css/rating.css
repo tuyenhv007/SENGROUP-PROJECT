@@ -1,4 +1,22 @@
-.rating-header {
-    margin-top: -10px;
-    margin-bottom: 10px;
+.list_star .rating_active {
+    color: yellow;
+}
+.list_star .i:hover {
+    cursor: pointer;
+}
+
+.list-text {
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    background:#52b585;
+    color: #fff;
+    padding: 2px 8px;
+    box-sizing: border-box;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.list-text:after
+{
 }
