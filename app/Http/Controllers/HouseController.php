@@ -36,12 +36,14 @@ class HouseController extends Controller
         $star3 = Comment::where('house_id', $id)->where('rating', '=', '3')->get();
         $star4 = Comment::where('house_id', $id)->where('rating', '=', '4')->get();
         $star5 = Comment::where('house_id', $id)->where('rating', '=', '5')->get();
+        $countStar=[];
         $count1star = count($star1);
         $count2star = count($star2);
         $count3star = count($star3);
         $count4star = count($star4);
         $count5star = count($star5);
         $countRating = count($rating);
+        array_push($countStar,$count1star,$count2star,$count3star,$count4star,$count5star);
         $sum = $rating->sum('rating');
         $percent=[];
         if ($countRating != 0) {
@@ -55,7 +57,7 @@ class HouseController extends Controller
         }else{
             $avg=0;
         }
-        return view('houses.detail', compact('house', 'comments', 'countRating', 'sum', 'avg', 'count1star', 'count2star', 'count3star', 'count4star', 'count5star','percent'));
+        return view('houses.detail', compact('house', 'comments', 'countRating', 'sum', 'avg','countStar','percent'));
     }
 
     public function postForm()

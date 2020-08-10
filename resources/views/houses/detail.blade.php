@@ -4,9 +4,19 @@
     <style>
         @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-        fieldset, label { margin: 0; padding: 0; }
-        body{ margin: 20px; }
-        h1 { font-size: 1.5em; margin: 10px; }
+        fieldset, label {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin: 10px;
+        }
 
         /****** Style Star Rating Widget *****/
 
@@ -15,7 +25,10 @@
             float: left;
         }
 
-        .rating > input { display: none; }
+        .rating > input {
+            display: none;
+        }
+
         .rating > label:before {
             margin: 5px;
             font-size: 1.25em;
@@ -38,12 +51,18 @@
 
         .rating > input:checked ~ label, /* show gold star when clicked */
         .rating:not(:checked) > label:hover, /* hover current star */
-        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+        .rating:not(:checked) > label:hover ~ label {
+            color: #FFD700;
+        }
+
+        /* hover previous stars in list */
 
         .rating > input:checked + label:hover, /* hover current star when changing rating */
         .rating > input:checked ~ label:hover,
         .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-        .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+        .rating > input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }
     </style>
     <div class="pb-5">
         <div class="container pt-3">
@@ -111,7 +130,7 @@
                                                       style="font-size: 100px; display: block; color: yellow; margin: 0 auto; text-align: center"></span>
 
                                                 <b style="font-size: 30px; display: block; color: red; margin: 0 auto; text-align: center">
-                                                   {{  $avg  }}
+                                                    {{  $avg  }}
                                                 </b>
 
                                             </div>
@@ -119,51 +138,41 @@
                                                 <div class="list-rating">
                                                     <div class="item-rating mt-1">
                                                         @if($percent)
-                                                        @foreach($percent as $key =>$value)
-                                                            <div>
-                                                                {{ $key +1 }} <span class="fa fa-star"
-                                                                               style="color: yellow"></span>
-                                                            </div>
-                                                            <div>
+                                                            @foreach($percent as $key =>$value)
+                                                                <div>
+                                                                    {{ $key +1 }} <span class="fa fa-star"
+                                                                                        style="color: yellow"></span>
+                                                                </div>
+                                                                <div>
                                                                 <span
                                                                     style="width: 100%; height: 13px; display: block; border: 1px solid #dedede">
                                                                     <b style="width: {{$value}}%; background-color: #cc192a; display: block; height: 100%; border-radius: 3px"></b>
                                                                 </span>
-                                                            </div>
-                                                        @endforeach
+                                                                </div>
+                                                            @endforeach
                                                         @else
                                                             @for($i=1;$i<=5;$i++)
-                                                            <div>
-                                                                {{ $i }} <span class="fa fa-star"
-                                                                                    style="color: yellow"></span>
-                                                            </div>
-                                                            <div>
+                                                                <div>
+                                                                    {{ $i }} <span class="fa fa-star"
+                                                                                   style="color: yellow"></span>
+                                                                </div>
+                                                                <div>
                                                                 <span
                                                                     style="width: 100%; height: 13px; display: block; border: 1px solid #dedede">
                                                                     <b style="width: 0%; background-color: #cc192a; display: block; height: 100%; border-radius: 3px"></b>
                                                                 </span>
-                                                            </div>
+                                                                </div>
                                                             @endfor
                                                         @endif
                                                     </div>
                                                 </div>
                                             </div>
                                             <div>
-                                                    <div class="mt-3">
-                                                        <a href="">{{$count1star}} đánh giá</a>
-                                                    </div>
+                                                @foreach($countStar as $value)
                                                 <div class="mt-3">
-                                                    <a href="">{{$count2star}} đánh giá</a>
+                                                    <a href="">{{$value}} đánh giá</a>
                                                 </div>
-                                                <div class="mt-3">
-                                                    <a href="">{{$count3star}} đánh giá</a>
-                                                </div>
-                                                <div class="mt-3">
-                                                    <a href="">{{$count4star}} đánh giá</a>
-                                                </div>
-                                                <div class="mt-3">
-                                                    <a href="">{{$count5star}} đánh giá</a>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <div class="mt-3">
@@ -179,11 +188,21 @@
                                                 style="display: flex; margin-top: 15px; margin-left: 150px; font-size: 15px">
                                                 <p style="margin-top: 15px;">Chọn đánh giá của bạn: </p>
                                                 <fieldset class="rating mt-2 pt-1">
-                                                    <input class="star" type="radio" id="star5" name="rating" value="5" data-key="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                                    <input class="star" type="radio" id="star4" name="rating" value="4" data-key="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                                    <input class="star" type="radio" id="star3" name="rating" value="3" data-key="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                                    <input class="star" type="radio" id="star2" name="rating" value="2" data-key="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                                                    <input class="star" type="radio" id="star1" name="rating" value="1" data-key="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                                    <input class="star" type="radio" id="star5" name="rating" value="5"
+                                                           data-key="5"/><label class="full" for="star5"
+                                                                                title="Awesome - 5 stars"></label>
+                                                    <input class="star" type="radio" id="star4" name="rating" value="4"
+                                                           data-key="4"/><label class="full" for="star4"
+                                                                                title="Pretty good - 4 stars"></label>
+                                                    <input class="star" type="radio" id="star3" name="rating" value="3"
+                                                           data-key="3"/><label class="full" for="star3"
+                                                                                title="Meh - 3 stars"></label>
+                                                    <input class="star" type="radio" id="star2" name="rating" value="2"
+                                                           data-key="2"/><label class="full" for="star2"
+                                                                                title="Kinda bad - 2 stars"></label>
+                                                    <input class="star" type="radio" id="star1" name="rating" value="1"
+                                                           data-key="1"/><label class="full" for="star1"
+                                                                                title="Sucks big time - 1 star"></label>
                                                 </fieldset>
                                             </div>
                                             <div>
@@ -195,8 +214,8 @@
                                                             <div><h6>Viết bình luận</h6></div>
                                                             <div class="form-group">
                                                                 <input type="hidden" id="rating-input" name="rating">
-                                                        <textarea required name="comment" class="form-control"
-                                                                  rows="3"></textarea>
+                                                                <textarea required name="comment" class="form-control"
+                                                                          rows="3"></textarea>
                                                             </div>
                                                             <button type="submit" class="btn btn-primary">Gửi đánh giá
                                                             </button>
@@ -207,7 +226,8 @@
                                                         <form action="{{route('check.comment')}}" method="post">
                                                             @csrf
                                                             <div class="form-group">
-                                                                <textarea required class="form-control" rows="3"></textarea>
+                                                                <textarea required class="form-control"
+                                                                          rows="3"></textarea>
                                                             </div>
                                                             <button
                                                                 onclick="return confirm('Đăng nhập để sử dụng chức năng này?')"
@@ -339,7 +359,7 @@
             let listStar = $(".rating .star");
             listStar.click(function (e) {
                 let $this = $(this);
-                document.getElementById('rating-input').value=$this.attr('data-key');
+                document.getElementById('rating-input').value = $this.attr('data-key');
                 console.log($this.attr('data-key'));
             })
         });
