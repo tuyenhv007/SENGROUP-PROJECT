@@ -30,7 +30,25 @@ class HouseController extends Controller
         Carbon::setLocale('vi');
         $house = House::findOrFail($id);
         $comments = Comment::where('house_id', $id)->orderBy('created_at', 'DESC')->get();
-        return view('houses.detail', compact('house', 'comments'));
+        $rating = Comment::where('house_id', $id)->where('rating', '>', '0')->get();
+        $star1 = Comment::where('house_id', $id)->where('rating', '=', '1')->get();
+        $star2 = Comment::where('house_id', $id)->where('rating', '=', '2')->get();
+        $star3 = Comment::where('house_id', $id)->where('rating', '=', '3')->get();
+        $star4 = Comment::where('house_id', $id)->where('rating', '=', '4')->get();
+        $star5 = Comment::where('house_id', $id)->where('rating', '=', '5')->get();
+        $count1star = count($star1);
+        $count2star = count($star2);
+        $count3star = count($star3);
+        $count4star = count($star4);
+        $count5star = count($star5);
+        $countRating = count($rating);
+        $sum = $rating->sum('rating');
+        if ($countRating != 0) {
+            $avg = $sum / $countRating;
+        }else{
+            $avg=0;
+        }
+        return view('houses.detail', compact('house', 'comments', 'countRating', 'sum', 'avg', 'count1star', 'count2star', 'count3star', 'count4star', 'count5star'));
     }
 
     public function postForm()

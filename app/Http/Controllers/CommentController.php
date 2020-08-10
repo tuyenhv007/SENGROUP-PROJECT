@@ -23,6 +23,7 @@ class CommentController extends Controller
             $comment=new Comment();
             $comment->content=$request->comment;
             $comment->house_id=$id_house;
+            $comment->rating=$request->rating;
             $comment->user_id=Session::get('user')->id;
             $comment->save();
         }
