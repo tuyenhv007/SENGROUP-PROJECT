@@ -9,6 +9,7 @@ use App\Http\Requests\ValidateProfile;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -17,6 +18,7 @@ class UserController extends Controller
 
     public function showProfile()
     {
+//        $id_social = Auth::user()->id;
         $id = Session::get('user')->id;
         $user = User::find($id);
         return view('users.profile', compact('user'));
