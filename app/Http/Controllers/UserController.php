@@ -141,7 +141,7 @@ class UserController extends Controller
         $user = User::find($id);
         $income = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0, 10 => 0, 11 => 0, 12 => 0];
         for ($i = 1; $i < 13; $i++) {
-            foreach ($user->billss as $bill) {
+            foreach ($user->billsOfUser as $bill) {
 
                 if (substr($bill->checkOut, 0, 4) == 2020 && substr($bill->checkOut, 5, 2) == $i && $bill->status == BillStatus::COMPLETE)
                     $income[$i] += $bill->total;
