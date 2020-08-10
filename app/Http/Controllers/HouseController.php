@@ -123,40 +123,54 @@ class HouseController extends Controller
         return back();
     }
 
-    public function search(Request $request, $road)
+    public function search(Request $request)
     {
-//        if (!$request->city && !$request->search) {
-//            return redirect()->route('houses.list');
-//        } elseif ($request->city && !$request->search) {
-//            if (!$request->district && !$request->road) {
-//                $city = City::find($request->city);
-//                $nameCity = $city->name;
-//                $houses = House::where('city', $nameCity)->paginate(6);
-//            } elseif ($request->district && !$request->road) {
-//                $district = District::find($request->district);
-//                $nameDistrict = $district->name;
-//                $houses = House::where('district', $nameDistrict)->paginate(6);
-//            } else {
-//                $road = Road::find($request->road);
-//                $nameRoad = $road->name;
-                $houses = House::where('road',$road)->paginate(6);
-                $images=[];
-                foreach ($houses as $house){
-                    array_push($images,$house->images);
-                }
-                $result=[];
-                array_push($result,$houses);
-                array_push($result,$images);
-//            }
-//            $cities = City::all();
-//            return view('houses.list', compact('houses', 'cities'));
-            return response()->json($result);
-//        } else {
-//            $search = $request->search;
-//            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);
-//            $cities = City::all();
-//            return view('houses.list', compact('houses', 'cities'));
-//        }
+        if (!$request->citySearch && !$request->search) {
+            return redirect()->route('houses.list');
+        } elseif ($request->citySearch && !$request->search) {
+            if (!$request->districtSearch && !$request->roadSearch) {
+                $city = City::find($request->citySearch);
+                $nameCity = $city->name;
+                $houses = House::where('city', $nameCity)->paginate(6);
+            } elseif ($request->districtSearch && !$request->roadSearch) {
+                $district = District::find($request->districtSearch);
+                $nameDistrict = $district->name;
+                $houses = House::where('district', $nameDistrict)->paginate(6);
+            } else {
+                $road = Road::find($request->roadSearch);
+                $nameRoad = $road->name;
+                $houses = House::where('road', $nameRoad)->paginate(6);
+//                $images=[];
+//                foreach ($houses as $house){
+//                    array_push($images,$house->images);
+//                }
+//                $result=[];
+//                array_push($result,$houses);
+//                array_push($result,$images);
+            }
+            return view('houses.list', compact('houses'));
+//            return response()->json($result);
+        } elseif (!$request->citySearch && $request->search) {
+            $search = $request->search;
+            $houses = House::where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            return view('houses.list', compact('houses'));
+        } else {
+            $search = $request->search;
+            if (!$request->districtSearch && !$request->roadSearch) {
+                $city = City::find($request->citySearch);
+                $nameCity = $city->name;
+                $houses = House::where('city', $nameCity)->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            } elseif ($request->districtSearch && !$request->roadSearch) {
+                $district = District::find($request->districtSearch);
+                $nameDistrict = $district->name;
+                $houses = House::where('district', $nameDistrict)->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            } else {
+                $road = Road::find($request->roadSearch);
+                $nameRoad = $road->name;
+                $houses = House::where('road', $nameRoad)->where('name', 'LIKE', '%' . $search . '%')->paginate(6);
+            }
+            return view('houses.list', compact('houses'));
+        }
     }
 
 

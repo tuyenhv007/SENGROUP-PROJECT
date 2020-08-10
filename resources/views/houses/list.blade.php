@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col ml-3">
-                    <form action="" method="get" novalidate="novalidate">
+                    <form action="{{route('houses.search')}}" method="post" novalidate="novalidate">
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">
@@ -19,40 +19,39 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <div class="row pt-3">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
-                                    <select class="form-control search-slt" id="citySearch" name="citySearch">
-                                        <option value="">Tỉnh/Thành Phố:</option>
+                        <div class="row pt-3">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0 ml-4">
+                                        <select class="form-control search-slt" id="citySearch" name="citySearch">
+                                            <option value="">Tỉnh/Thành Phố:</option>
 
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                    <select class="form-control" name="districtSearch" id="districtSearch">
-                                        <option value="">Quận/Huyện:</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
+                                        <select class="form-control" name="districtSearch" id="districtSearch">
+                                            <option value="">Quận/Huyện:</option>
 
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
-                                    <select class="form-control" name="roadSearch" id="roadSearch">
-                                        <option value="">Xã/Phường:</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 p-0 ml-2">
+                                        <select class="form-control" name="roadSearch" id="roadSearch">
+                                            <option value="">Xã/Phường:</option>
 
-                                    </select>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                 </div>
-
             </div>
         </div>
     </div>
     <div class="container pt-2">
         <div class="site-section" id="properties-section">
-            <div class="container" >
+            <div class="container">
                 @empty($houses[0])
                     <div class="pb-5">
                         Không có dữ liệu
@@ -61,7 +60,7 @@
                         <a href="{{route('houses.list')}}" class="btn btn-secondary">Quay Lại </a>
                     </div>
                 @else
-                    <div class="row large-gutters" id="searchAjax" >
+                    <div class="row large-gutters" id="searchAjax">
                         @foreach($houses as $key => $house)
                             <div class="col-md-6 col-lg-4 mb-5 mb-lg-5" id="result">
                                 <div class="ftco-media-1">
@@ -111,8 +110,8 @@
                             </div>
                         </div>
                     </div>
-                    {{dd($houses)}}
-                    {{dd($houses->image)}}
+                    {{--                    {{dd($houses)}}--}}
+                    {{--                    {{dd($houses->image)}}--}}
                 @endempty
             </div>
         </div>
