@@ -216,6 +216,7 @@
                                                     {{$comment->user->name}}
                                                 </h6>
                                                 {{$comment->content}}<br>
+                                                Đánh giá: {{$comment->rating}} sao!<br>
                                                 {{$comment->created_at->diffForHumans()}}.
                                             </div>
                                         </div>
