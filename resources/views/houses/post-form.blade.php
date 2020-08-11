@@ -83,10 +83,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Số nhà/Tên đường,ngõ :</label>
+                                    <label class="{{ $errors->first('sn') ? 'text-danger' : '' }}">Số nhà/Tên đường,ngõ
+                                        :</label>
                                     <input name="sn" id="sn" type="text"
-                                              class="form-control  {{ $errors->first('sn') ? 'is-invalid' : '' }}"
-                                              autofocus rows="2" value="{{ old('sn') }}" placeholder="nhập số nhà/tên đường,ngõ ">
+                                           class="form-control  {{ $errors->first('sn') ? 'is-invalid' : '' }}"
+                                           autofocus rows="2" value="{{ old('sn') }}"
+                                           placeholder="nhập số nhà/tên đường,ngõ ">
                                     @if($errors->first('sn'))
                                         <p class="text-danger">{{ $errors->first('sn') }}</p>
                                     @endif
@@ -121,12 +123,16 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Truy cập '<a href="https://www.google.com/maps/"
-                                                                        target="_blank">Google map</a>' >> Nhập địa chỉ
-                                                            nhà cần hiển thị trên bản đò >> Chọn "Share" >> Chọn Embed a
-                                                            map >> Copy link: "http://..."
-                                                        </p>
-
+{{--Vui lòng không căn chỉnh đoạn pre này--}}
+<pre>
+B1: Truy cập '<a href="https://www.google.com/maps/" target="_blank">Google map</a>'
+B2: Tại trang google.com/map. Nhập địa chỉ nhà đăng vào ô Tìm kiếm >> Tìm kiếm
+B3: Chọn "Share(Chia sẻ)"
+B4: Chọn Embed a map(Nhúng bản đồ)
+B5: Copy link(Sao chép HTML)
+B6: Quay lại trang Đăng bài, dán Link HTML vừa copy vào ô "Link liên kết bản đồ" và tiếp tục thao tác Đăng bài
+</pre>
+{{--Vui lòng không căn chỉnh đoạn pre này--}}
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
