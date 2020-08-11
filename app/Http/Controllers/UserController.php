@@ -19,8 +19,13 @@ class UserController extends Controller
     public function showProfile()
     {
 //        $id_social = Auth::user()->id;
-        $id = Session::get('user')->id;
-        $user = User::find($id);
+
+        if (Session::get('user')) {
+            $id = Session::get('user')->id;
+            $user = User::find($id)->get();
+        }else{
+            $user=User::where('id',Auth::id())->get();
+        }
         return view('users.profile', compact('user'));
     }
 
