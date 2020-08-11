@@ -109,7 +109,7 @@ class HouseController extends Controller
                 alert('Đăng bài thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
             } else {
-                alert('Đăng bài thất bại', 'Successfully', 'success')->autoClose(1500);
+                alert()->error('Error', 'Không tồn tại ảnh hoặc ảnh không đúng định dạng (jpg,png,jpeg) ');
                 return redirect()->route('houses.list');
             }
 
