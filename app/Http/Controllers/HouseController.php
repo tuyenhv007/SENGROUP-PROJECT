@@ -98,13 +98,13 @@ class HouseController extends Controller
                 }
             }
             if ($exe_flg) {
+                $house->save();
                 foreach ($request->photos as $photo) {
                     $filename = $photo->store('images', 'public');
                     $image = new Image();
                     $image->image = $filename;
                     $image->house_id = $house->id;
                     $image->save();
-                    $house->save();
                 }
                 alert('Đăng bài thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
