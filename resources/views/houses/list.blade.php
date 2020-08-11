@@ -107,6 +107,8 @@
                                             <strong>
                                                 <br><i class="fa fa-money"></i> &nbsp;{{number_format($house->price)}}
                                                 VNĐ/Ngày</strong>
+                                            <strong>
+                                                <br><i class="fa fa-bed"></i> &nbsp;{{($house->rooms)}} Phòng</strong>
                                             <br>
                                             <strong
                                                 class="@if(($house->status)===\App\Http\Controllers\HouseStatus::EMPTY)
