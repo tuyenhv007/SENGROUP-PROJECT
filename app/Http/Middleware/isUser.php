@@ -18,9 +18,10 @@ class isUser
     public function handle($request, Closure $next)
     {
         $user_login=Session::get('user');
-        if (!$user_login){
-            return redirect()->route('login');
+        $user_google=Auth::user();
+        if ($user_login || $user_google ){
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->route('login');
     }
 }

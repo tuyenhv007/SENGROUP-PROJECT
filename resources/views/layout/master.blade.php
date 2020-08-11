@@ -127,7 +127,7 @@
                                     <div style="margin-left: 30px " class="dropdown-menu"
                                          aria-labelledby="navbarDropdown">
                                         <a style="text-align: center" class="dropdown-item"
-                                           href="{{route('user.houseUser',Auth::id())}}">Nhà
+                                           href="{{route('user.houseUser',Auth::user()->id)}}">Nhà
                                             đã đăng</a>
                                         <a style="text-align: center" class="dropdown-item"
                                            href="{{route('user.show',['id'=>Auth::user()->id])}}">Hồ sơ
