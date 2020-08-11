@@ -84,7 +84,7 @@ class HouseController extends Controller
         $house->road = $road->name;
         $house->address = $request->sn;
         $house->location = $request->location;
-        $house->save();
+
         if ($request->hasFile('photos')) {
             $allowedfileExtension = ['jpg', 'png', 'jpeg'];
             $files = $request->file('photos');
@@ -104,12 +104,13 @@ class HouseController extends Controller
                     $image->image = $filename;
                     $image->house_id = $house->id;
                     $image->save();
+                    $house->save();
                 }
                 alert('Đăng bài thành công', 'Successfully', 'success')->autoClose(1500);
                 return redirect()->route('houses.list');
             } else {
                 alert('Đăng bài thất bại', 'Successfully', 'success')->autoClose(1500);
-                return back();
+                return redirect()->route('houses.list');
             }
 
         }
