@@ -16,8 +16,13 @@
                                              style="width: 150px; height: 150px" class="img-thumbnail"/>
 
                                     @endif
+                                    @if(Session::get('user'))
                                     <form action="{{route('user.edit.avatar',Session::get('user')->id)}}" method="post"
                                           enctype="multipart/form-data">
+                                        @else
+                                            <form action="{{route('user.edit.avatar',\Illuminate\Support\Facades\Auth::id())}}" method="post"
+                                                  enctype="multipart/form-data">
+                                        @endif
                                         @csrf
                                         <div class="middle mt-3">
                                             <input class="form-control" type="file" onchange="this.form.submit()"
@@ -150,9 +155,15 @@
                                                             <p>Ghi chú: Mục tích dấu (*) là bắt buộc!!!</p>
                                                         </div>
                                                         <input class="btn btn-primary" type="submit" value="Cập nhập"/>
+                                                        @if(Session::get('user'))
                                                         <a class="btn btn-secondary"
                                                            href="{{route('user.show',['id'=>Session::get('user')->id])}}">Trở
                                                             lại</a>
+                                                        @else
+                                                            <a class="btn btn-secondary"
+                                                               href="{{route('user.show',['id'=>\Illuminate\Support\Facades\Auth::id()])}}">Trở
+                                                                lại</a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>

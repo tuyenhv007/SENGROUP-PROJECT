@@ -19,9 +19,15 @@ class UserController extends Controller
     public function showProfile()
     {
 //        $id_social = Auth::user()->id;
-        $id = Session::get('user')->id;
-        $user = User::find($id);
-        return view('users.profile', compact('user'));
+        if (Session::get('user')) {
+            $id = Session::get('user')->id;
+            $user = User::find($id);
+            return view('users.profile', compact('user'));
+        }else{
+            $id=Auth::id();
+            $user = User::find($id);
+            return view('users.profile', compact('user'));
+        }
     }
 
     public function editProfile(ValidateProfile $request, $id)
